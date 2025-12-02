@@ -20,7 +20,7 @@ void FinishBatch(TString sInput="", TString sOutput="ARHist"){
   
   // Save histograms to file and close it
   TFile f(sFile, "recreate");
-  if( !f ){
+  if( !f.IsOpen() ){
     printf("Open file %s for histogram save FAILED!!\n",sFile.Data());
     return;
   }

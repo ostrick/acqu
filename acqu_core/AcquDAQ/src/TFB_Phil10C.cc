@@ -64,7 +64,7 @@ void TFB_Phil10C::Decode(
     return;
   }
   // Check station number and no. words read
-  if( ((buff10C & 0x1f0000)>>16) == (fN & 0x1f) || n_word <= 0 ) return;
+  if( ((buff10C & 0x1f0000)>>16) == (fN & 0x1f) || *n_word <= 0 ) return;
   na = (buff10C & 0xfc00) >> 10;      // no. of channels
   (*I_buff)++;
   ibuff = (UShort_t *)(*I_buff);

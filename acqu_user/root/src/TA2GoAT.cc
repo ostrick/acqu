@@ -118,7 +118,14 @@ TA2GoAT::TA2GoAT(const char* Name, TA2Analysis* Analysis) : TA2AccessSQL(Name, A
 							    eventID(0),
 							    moellerRead(0),
 							    moellerPairs(0),
-							    MCEventID(0),
+                                fEpics(0),
+                                fEpicsInit(0),
+                                fNEpics(0),
+                                fEpicsBuff(0),
+                                fEpicsIndex(0),
+                                fTaggNMR(0),
+                                fTaggCur(0),
+                                MCEventID(0),
 							    MCRndID(0)
 {
   strcpy(outputFolder,"");
@@ -553,6 +560,8 @@ void    TA2GoAT::PostInit()
       Char_t str[256];
       sprintf(str, "scalers[%d]/i", GetMaxScaler());
       treeScalers->Branch("scalers", fScaler, str);
+      treeScalers->Branch("nmr", &fTaggNMR, "nmr/F");
+      treeScalers->Branch("curr", &fTaggCur, "curr/F");
 
       // Store Lin Pol if class is active
       if(fLinPol)
@@ -883,6 +892,34 @@ void    TA2GoAT::Reconstruct()
 	      //printf("Moeller read started - Event %d\n",eventNumber);
             }
         }
+    }
+
+  if(gAR->IsEpicsRead())
+    {
+      if(fEpicsInit == kFALSE)
+        {
+          fNEpics = gAR->GetNEpics();
+          fEpicsBuff = gAR->GetEpicsBuffer();
+          fEpicsIndex = gAR->GetEpicsIndex();
+          fEpics = new TEPICSmodule();
+          fEpicsInit = kTRUE;
+        }
+      fEpicsChannelBuffer = fEpics->GetChannel(
+                            (Char_t*)"TAGG:MagneticField", //pv name
+                            &fEpicsType,                   //pv type
+                            fEpicsBuff[0],                 //start of epics buffer
+                            &fTaggNMR,                     //address of the variable to be filled
+                            &fEpicsNElem);                 //no of elements in the channel (usually singles)
+      /*
+      fEpicsChannelBuffer = fEpics->GetChannel(
+                            (Char_t*)"TAGG:DipoleCurrent", //pv name
+                            &fEpicsType,                   //pv type
+                            fEpicsBuff[1],                 //start of epics buffer
+                            &fTaggCur,                     //address of the variable to be filled
+                            &fEpicsNElem);                 //no of elements in the channel (usually singles)
+      */
+      //cout << "Epics read - Event " << gAN->GetNDAQEvent() << " - NMR = " << fA2NMR << endl;
+      //for(Int_t i=0; i<fNEpics; i++) fEpics->DumpBuffer(fEpicsBuff[i]);
     }
 
   if(fMoeller)

@@ -23,6 +23,9 @@
 
 #include "TA2System.h"
 #include "EnumConst.h"			// integer constant defs
+#include <unistd.h>
+ 
+
 extern "C"{
 #include <netdb.h>
 #include <sys/socket.h>

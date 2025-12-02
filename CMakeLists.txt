@@ -19,13 +19,14 @@ if(ACQU_DAQ)
   message(STATUS "*** Building DAQ Part only (ACQU_DAQ=On)")
 endif()
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules/" ${CMAKE_MODULE_PATH})
 # require a fairly recent ROOT version
 find_package(ROOT "5.30" REQUIRED)
 
-if(NOT ${ROOT_VERSION_MAJOR} EQUAL 5) 
-  message(FATAL_ERROR "Only ROOT version 5.x.x supported")
-endif() 
+#if(NOT ${ROOT_VERSION_MAJOR} EQUAL 5) 
+#  message(FATAL_ERROR "Only ROOT version 5.x.x supported")
+#endif() 
 
 # since all subprojects need ROOT, set that up here
 include_directories(${ROOT_INCLUDES})
@@ -72,14 +73,6 @@ if(DEFINED ENV{CALIB})
   message("-- Found external CaLib in " $ENV{CALIB})
 else()
   add_subdirectory(CaLib)
-endif()
-
-# check for external OSCAR
-if(DEFINED ENV{OSCAR})
-  message("-- Found external OSCAR in " $ENV{OSCAR})
-  include_directories($ENV{OSCAR}/include)
-  link_directories($ENV{OSCAR}/lib)
-  set(ACQU_USER_LIBS ${ACQU_USER_LIBS} OSCAR)
 endif()
 
 # finally, the main user part

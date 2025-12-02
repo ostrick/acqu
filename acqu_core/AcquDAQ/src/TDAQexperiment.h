@@ -76,6 +76,8 @@
 #include "TA2Mk2Format.h"
 #include "TA2Mk1Format.h"
 
+#include <unistd.h>
+
 class TAcquRoot;
 
 void* RunIRQThread( void* );         // per-event triggered data readout

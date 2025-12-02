@@ -4,6 +4,7 @@
 
 #include "TFile.h"
 #include "TTree.h"
+#include "TEPICSmodule.h"
 #include "TA2AccessSQL.h"
 
 #define TA2GoAT_MAX_TAGGER	 4096
@@ -207,7 +208,19 @@ class	TA2GoAT	: public TA2AccessSQL
   //Moeller
   Bool_t      moellerRead;
   UInt_t**    moellerPairs;
-        
+
+  //Epics general: for any epics handling
+  TEPICSmodule *fEpics;                                   // Epics module
+  Int_t fEpicsInit;                                       // flag EPICsS initiaised
+  Int_t fNEpics;                                          // No of different epics event types
+  Char_t **fEpicsBuff;                                    // Buffers for the EPICS data
+  Bool_t *fEpicsIndex;                                    // Flag which EPICS indices were read in EPICS event.
+  Int_t fEpicsNElem;                                      // no of elements in last channel read
+  Int_t fEpicsType;                                       // data type of last channel read
+  void *fEpicsChannelBuffer;                              // buffer of last channel data
+  Float_t fTaggNMR;                                       // variables to be read from epics
+  Float_t fTaggCur;                                       // variables to be read from epics
+
   //MC
   Long64_t    MCEventID;
   Long64_t    MCRndID;

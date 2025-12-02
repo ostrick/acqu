@@ -31,6 +31,8 @@
 #define __TVME_VUPROM_h__
 
 #include "TVMEmodule.h"
+#include <unistd.h>
+
 //
 enum{ EVU_MaxCPU=14 };     // maximum number of CPUs VUPROM can handle
 // enumerator specifies internal register index

@@ -43,6 +43,9 @@ static const Map_t kCBKeys[] = {
   {NULL,            -1}
 };
 
+  const Int_t TA2CentralApparatus::kNullHit = static_cast<Int_t>(ENullHit);
+  const Double_t TA2CentralApparatus::kNullFloat = ENullFloat;
+
   // needed for the display
   const Double_t dphi = 15; // deg
   const Double_t innerPID = 58.;  // PID
@@ -1028,7 +1031,7 @@ void TA2CentralApparatus::CountNotUsedPid()
   for (Int_t i=0; i<fNhitsPid; ++i)
   {
     if (IsUsedHitPid(i)) continue;
-    fIhitsPidNotUsed[i]++;
+    fIhitsPidNotUsed[i] = fIhitsPidNotUsed[i]+1;
     ++fNhitsPidNotUsed;
   }
   

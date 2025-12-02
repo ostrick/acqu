@@ -13,6 +13,9 @@
 #define __TEPICSmodule_h__
 
 #include "TDAQmodule.h"
+#include <unistd.h>
+
+
 class TTimer;
 
 enum ETrigTypes{ EEPICS_TRIG_THRESH, EEPICS_TRIG_WINDOW, EEPICS_TRIG_AND, EEPICS_TRIG_OR};

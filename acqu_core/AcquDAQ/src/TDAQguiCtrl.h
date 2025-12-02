@@ -65,8 +65,9 @@
 #include "TGuiBldDragManager.h"
 #include "TTimer.h"
 #include "TH1F.h"
-
 #include "Riostream.h"
+
+#include <unistd.h>
 
 #include "TDAQsupervise.h"
 //class TDAQsupervise;
