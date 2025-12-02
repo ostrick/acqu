@@ -1,0 +1,246 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#File-Name:	/home/edo/analysis/data/2017-11_AlphaBetaTest/NewCBTaggTAPS_20296.dat		0       0
+###### Full Target PERP 3nA
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21270.dat		0       0
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21271.dat		0       0
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21274.dat		0       0
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21276.dat		0       0
+#################################################################################################
+## Full target PERP 3nA
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21871.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21872.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21873.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21880.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21881.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21882.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21884.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21889.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21890.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21891.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21895.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21896.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21898.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21916.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21917.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21918.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21923.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21924.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21925.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21929.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21930.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21931.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21936.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21939.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21940.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21944.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21945.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21946.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21960.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21962.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21963.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21968.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21970.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21971.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21976.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21977.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21978.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21983.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21984.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21985.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21989.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21991.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21995.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21996.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_21997.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22012.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22013.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22014.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22019.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22020.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22021.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22026.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22027.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22028.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22033.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22034.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22037.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22044.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22047.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22048.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22049.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22054.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22055.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22066.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22069.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22070.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22076.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22078.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22079.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22084.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22085.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22086.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22087.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22093.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22094.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22097.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22109.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22110.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22111.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22112.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22115.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22116.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22117.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22121.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22123.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22125.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22132.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22133.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22134.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22135.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22172.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22174.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22175.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22179.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22180.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22181.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22185.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22186.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22190.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22194.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22195.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22196.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22200.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22201.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22203.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22218.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22219.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22220.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22226.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22227.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22228.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22234.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22235.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22236.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22241.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22242.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22243.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22248.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22249.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22250.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22262.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22263.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22264.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22269.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22270.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22272.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22276.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22277.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22278.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22282.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22283.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22285.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22290.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22291.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22294.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22295.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22296.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22309.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22310.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22312.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22320.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22321.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22322.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22327.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22328.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22329.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22538.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22539.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22540.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22544.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22545.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22546.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22551.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22552.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22553.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22568.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22569.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22570.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22572.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22577.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22579.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22580.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22585.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22586.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22587.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22588.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22595.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22596.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22597.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22613.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22614.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22615.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22620.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22621.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22622.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22628.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22629.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22630.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22631.dat.xz	0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22636.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22637.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22638.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22639.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22644.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22645.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22646.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22659.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22660.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22661.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22666.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22667.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22668.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22669.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22673.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22674.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22675.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22680.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22681.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22682.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22686.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22687.dat.xz 0	0
+#File-Name:	/local/raid0/A2/rundata/2018-03_Compton/CBTaggTAPS_22688.dat.xz 0	0
+##											
+##											
+## END											
+											
+											
+											

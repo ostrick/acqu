@@ -1,0 +1,95 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   	29th Apr 2003
+##--Update	Ken Livingston	19th Mar 2014
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Parameter File: LinearPolapparatus.dat (specified in LinearPolanalysis.dat)
+## or equivalent
+##
+##-----------------------------------------------------------------------
+#
+# Data reconstruction method 
+Reconstruct:
+#x1
+### Basic setup - needs changed to suit run period
+## edge can be fit|epics
+## plane can be file|epics: if file - need "runs:" lines below here.
+## scaler_ref can be overridden by specific run settings in the "runs: lines"
+#		norm_energy	edgeMin	edgeMax		tagger	ladder	scaler_ref			buffers		edge	plane	deadband(MeV)
+#defaults to:  	700.00		full_tagger_range	TAGG    FPD  	data/scaler.dmp 5		fit	epics   0.5
+#
+Misc:	app     450.00          80.0    700.0           TAGG    FPD     scalerdump/scaler.dat   	20        fit     file    0.2
+#	
+#
+#
+#Specify run ranges for para perp amo, and corresponding scaler reference files.
+#Should list all the run ranges here
+#Will use plane info if "plane" is set to "epics" in "Misc: app" above
+#Misc: runs     runMin  runMax          scaler_ref                plane(para|perp|amo)  edge_setting edge_range(+-meV)
+#Misc:   runs    20700     21700           scalerdump/scaler21027.dat       perp                  150.0        10.0 ## COOOOOOOOOOOOOOOOOOOORRRRRRRRREEEEEEEEEEEEETTAAAAAAA!!!!!!!!!!!
+Misc:   runs    20700     21700           scalerdump/scaler21027.dat       para                  150.0        10.0 ##
+#
+#
+#
+# The "pvnames" and "rads" are required if "edge" or "plane" are set to epics in the  "Misc:	app"
+### Names of the epics channels for the variables required
+#               edge            radiator            plane            goni axes ......
+#defaults to:	A2LinPolCohEdge A2LinPolCohRadiator A2LinPolCohPlane A2GoniAxis1 A2GoniAxis2 A2GoniAxis3 A2GoniAxis4 A2GoniAxis5
+Misc:	pvnames A2LinPolCohEdge A2LinPolCohRadiator A2LinPolCohPlane A2GoniAxis1 A2GoniAxis2 A2GoniAxis3 A2GoniAxis4 A2GoniAxis5
+#
+### Value of epics radiator variable to specify radiator
+#               diamond		amo
+#defaults to:   4               2
+Misc:   rads    4               2
+#
+#
+#
+# These lines will specify the parameters for the ploarization tables for run ranges.
+# A different set of parameters should be defined for para and perp 
+### parameter sets for polarization of beam
+#                  run range     type   plane  params:
+#
+#paramters for 150 MeV edge - SET 12 PERP and SET 14 PARA Abby analysis
+#Misc:   	poltable  20700    21700 params para  0.000554 0.000070 3.379106 1.313250 883.000000 3.000000 9.147669 1.111274 0.623003 0.000000 3.863715
+#Misc:   	poltable  20700    21700 params perp  0.000535 0.000064 6.105117 1.403161 883.000000 3.000000 8.965299 1.144643 0.607047 0.000000 2.138632
+#paramters for 150 MeV edge - TEST using COPPER from TaggerTest
+Misc:   	poltable  20700    21700 params para  0.003020 0.000314 11.134882 0.001577 883.000000 3.000000 1.683515 0.254036 0.048500 0.000000 1.199740  
+Misc:   	poltable  20700    21700 params perp  0.003007 0.000352 24.190406 0.002979 883.000000 3.000000 1.777846 0.259228 0.052794 0.000000 1.311851
+#paramters for 150 MeV edge - TEST using MOELLER from TaggerTest
+#Misc:   	poltable  20700    21700 params para  0.003019 0.000332 24.661368 0.005795 883.000000 3.000000 1.800601 0.295928 0.060503 0.000000 1.286985 
+#Misc:   	poltable  20700    21700 params perp  0.003009 0.000243 16.000945 0.014141 883.000000 3.000000 1.746826 0.296928 0.069841 0.000000 1.662032 
+#
+#
+# Do some post-initialisation.
+# Should usually be done before display is setup
+Initialise:
+# Histograms of apparatus-level variables
+# histogram name should be preceeded by 1D or 2D (for dimension of spectrum)
+#
+#           Name        	chan/low/high   min/max condition(opt)
+Display: 1D Incoherent		328 0  328 -1
+Display: 1D Coherent		328 0  328 -1
+Display: 1D Enhancement		328 0  328 -1
+Display: 1D CoherentPara	328 0  328 -1
+Display: 1D EnhancementPara	328 0  328 -1
+Display: 1D CoherentPerp	328 0  328 -1
+Display: 1D EnhancementPerp	328 0  328 -1
+Display: 1D CohEnergy		4000 0 4000 -1
+Display: 1D CohEdgePara		4000 0 4000 -1
+Display: 1D CohEdgePerp		4000 0 4000 -1
+Display: 1D CohEdgeDistPara	200  0 200 -1
+Display: 1D CohEdgeDistPerp	200  0 200 -1
+Display: 1D CohEdgeEpics	4000 0 4000 -1
+Display: 1D CohEdgeParaEpics	4000 0 4000 -1
+Display: 1D CohEdgePerpEpics	4000 0 4000 -1
+Display: 1D CohEdgeDistParaEpics	200  0 200 -1
+Display: 1D PolTableEnh		328 0  328 -1
+Display: 1D PolTablePol		328 0  328 -1
+Display: 1D PolMean		328 0  328 -1
+Display: 1D PolCount		328 0  328 -1
+#
+# 2nd pass of Init to pick up ptrs to histograms
+Initialise:
+#

@@ -1,0 +1,241 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#################################################################################################
+## Full target PARA 3nA
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23864.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23865.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23866.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23870.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23871.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23872.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23873.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23879.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23880.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23881.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23887.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23888.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23889.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23894.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23895.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23909.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23910.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23911.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23912.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23921.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23922.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23923.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23930.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23931.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23932.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23937.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23938.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23939.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23945.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23946.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23947.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23949.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23955.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23956.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23958.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz 	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz 	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+#File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23.dat.xz	0	0
+##
+## END

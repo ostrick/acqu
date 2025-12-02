@@ -1,0 +1,95 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: /media/edo/runs/2017.05-test/
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+###########################################################################
+## 2018-02 Compton run
+#Set1
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21281.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21282.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21283.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21284.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21285.dat.xz	0 	0 #BKG
+##Set2
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21343.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21344.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21345.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21347.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21348.dat.xz	0 	0 #BKG
+##Set3
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21396.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21397.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21398.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21399.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21400.dat.xz	0 	0 #BKG
+##Set4 - very long first bkg
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21448.dat.xz     0       0 #BKG1 (2h)
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21449.dat.xz     0       0 #BKG1 (10min)
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21450.dat.xz     0       0 #PARA
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21451.dat.xz     0       0 #PERP
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21452.dat.xz     0       0 #Copp
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21453.dat.xz     0       0 #BKG (30min)
+##Set5 - bkg after every set
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21515.dat.xz     0       0 #BKG1
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21516.dat.xz     0       0 #Copp
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21517.dat.xz     0       0 #BKG2
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21518.dat.xz     0       0 #PERP
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21519.dat.xz     0       0 #BKG3
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21520.dat.xz     0       0 #PARA
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21521.dat.xz     0       0 #BKG4
+##Set6 - bkg after every set + moeller + 2*copper
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21549.dat.xz     0       0 #BKG1
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21550.dat.xz     0       0 #Copp
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21551.dat.xz     0       0 #BKG2
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21552.dat.xz     0       0 #PERP
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21553.dat.xz     0       0 #BKG3
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21554.dat.xz     0       0 #PARA
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21555.dat.xz     0       0 #BKG4
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21556.dat.xz     0       0 #Moel
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21557.dat.xz     0       0 #BKG5
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21558.dat.xz     0       0 #Copp
+#File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21559.dat.xz     0       0 #BKG6
+##Set7 - bkg after every set + different tests
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21590.dat.xz     0       0 #BKG1
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21591.dat.xz     0       0 #Copp - threshold @250mV
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21592.dat.xz     0       0 #BKG2
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21593.dat.xz     0       0 #Copp short - threshold @500mV
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21594.dat.xz     0       0 #BKG3
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21595.dat.xz     0       0 #Moel - threshold @1V
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21596.dat.xz     0       0 #Moel short - NO amplifier and threshold @100mV
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21597.dat.xz     0       0 #BKG4
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21598.dat.xz     0       0 #PARA
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21599.dat.xz     0       0 #BKG5
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21600.dat.xz     0       0 #PERP
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21601.dat.xz     0       0 #BKG6
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21602.dat.xz     0       0 #Copp
+File-Name: /media/edo/storage/2018-02_Compton/TaggEff_21603.dat.xz     0       0 #BKG7
+#
+#
+##
+## END

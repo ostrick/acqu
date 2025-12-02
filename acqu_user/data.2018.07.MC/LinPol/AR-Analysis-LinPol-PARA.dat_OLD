@@ -1,0 +1,138 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   	29th Apr 2003
+##--Update	Ken Livingston	19th Mar 2014
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Parameter File: LinearPolapparatus.dat (specified in LinearPolanalysis.dat)
+## or equivalent
+##
+##-----------------------------------------------------------------------
+#
+# Data reconstruction method 
+Reconstruct:
+#x1
+### Basic setup - needs changed to suit run period
+## edge can be fit|epics
+## plane can be file|epics: if file - need "runs:" lines below here.
+## scaler_ref can be overridden by specific run settings in the "runs: lines"
+#		norm_energy	edgeMin	edgeMax		tagger	ladder	scaler_ref			buffers		edge	plane	deadband(MeV)
+#defaults to:  	700.00		full_tagger_range	TAGG    FPD  	data/scaler.dmp 5		fit	epics   0.5
+#
+Misc:	app     450.00          80.0    700.0           TAGG    FPD     scalerdump/scaler.dat   	1        fit     file    0.2
+#	
+#
+#
+#Specify run ranges for para perp amo, and corresponding scaler reference files.
+#Should list all the run ranges here
+#Will use plane info if "plane" is set to "epics" in "Misc: app" above
+#Misc: runs     runMin  runMax          scaler_ref                plane(para|perp|amo)  edge_setting edge_range(+-meV)
+#Misc:   runs    20700     21700           scalerdump/scaler21027.dat       para                  150.0        10.0
+##########################################################################################################################################################
+Misc:   runs     23800    23931            scalerdump/scaler23901.dat       para                  145.0        5.0
+Misc:   runs     23932    23999            scalerdump/scaler23965.dat       para                  145.0        5.0
+Misc:   runs     24000    24059            scalerdump/scaler24033.dat       para                  145.0        5.0
+Misc:   runs     24060    24106            scalerdump/scaler24086.dat       para                  145.0        5.0
+Misc:   runs     24107    24158            scalerdump/scaler24131.dat       para                  145.0        5.0
+Misc:   runs     24159    24203            scalerdump/scaler24183.dat       para                  145.0        5.0
+Misc:   runs     24204    24242            scalerdump/scaler24220.dat       para                  145.0        5.0
+Misc:   runs     24243    24286            scalerdump/scaler24264.dat       para                  145.0        5.0
+Misc:   runs     24287    24356            scalerdump/scaler24336.dat       para                  145.0        5.0
+Misc:   runs     24357    24406            scalerdump/scaler24394.dat       para                  145.0        5.0
+Misc:   runs     24407    24458            scalerdump/scaler24439.dat       para                  145.0        5.0
+Misc:   runs     24459    24610            scalerdump/scaler24493.dat       para                  145.0        5.0
+#
+#
+#
+# The "pvnames" and "rads" are required if "edge" or "plane" are set to epics in the  "Misc:	app"
+### Names of the epics channels for the variables required
+#               edge            radiator            plane            goni axes ......
+#defaults to:	A2LinPolCohEdge A2LinPolCohRadiator A2LinPolCohPlane A2GoniAxis1 A2GoniAxis2 A2GoniAxis3 A2GoniAxis4 A2GoniAxis5
+Misc:	pvnames A2LinPolCohEdge A2LinPolCohRadiator A2LinPolCohPlane A2GoniAxis1 A2GoniAxis2 A2GoniAxis3 A2GoniAxis4 A2GoniAxis5
+#
+### Value of epics radiator variable to specify radiator
+#               diamond		amo
+#defaults to:   4               2
+Misc:   rads    4               2
+#
+#
+#
+# These lines will specify the parameters for the ploarization tables for run ranges.
+# A different set of parameters should be defined for para and perp 
+### parameter sets for polarization of beam
+#                  run range     type   plane  params:
+#
+#paramters for 150 MeV edge - SET 12 PERP and SET 14 PARA Abby analysis
+#Misc:   	poltable  20700    21600 params para  0.000554 0.000070 3.379106 1.313250 883.000000 3.000000 9.147669 1.111274 0.623003 0.000000 3.863715 
+#Misc:   	poltable  20700    21600 params perp  0.000535 0.000064 6.105117 1.403161 883.000000 3.000000 8.965299 1.144643 0.607047 0.000000 2.138632
+##########################################################################################################################################################
+#SET 0 -- 23896
+Misc:   	poltable 23800 23931     params para  0.002942 0.000261 2.824238 0.020972 883.000000 3.000000 4.861676 0.849121 0.265532 0.000000 1.268105   
+Misc:   	poltable 23800 23931     params perp  0.002851 0.000252 5.717067 0.021755 883.000000 3.000000 4.954646 0.859696 0.302778 0.000000 1.237535
+#SET 1 -- 23959
+Misc:   	poltable 23932 23999     params para  0.002998 0.000250 7.276214 0.040841 883.000000 3.000000 4.865653 0.860241 0.284890 0.000000 1.354773   
+Misc:   	poltable 23932 23999     params perp  0.002936 0.000253 6.468954 0.004116 883.000000 3.000000 4.834521 0.995273 0.205518 0.000000 1.309998
+#SET 2 -- 24028
+Misc:   	poltable 24000 24059     params para  0.002931 0.000249 4.511568 0.026304 883.000000 3.000000 4.797050 0.837414 0.263347 0.000000 1.287208   
+Misc:   	poltable 24000 24059     params perp  0.002897 0.000225 2.964164 0.020683 883.000000 3.000000 4.779772 0.853374 0.297858 0.000000 1.416957
+#SET 3 -- 24080
+Misc:   	poltable 24060 24106     params para  0.003000 0.000257 1.942534 0.065117 883.000000 3.000000 5.153129 0.860197 0.283454 0.000000 1.323882   
+Misc:   	poltable 24060 24106     params perp  0.002972 0.000240 2.864419 0.012289 883.000000 3.000000 4.822696 0.839797 0.285379 0.000000 1.717691
+#SET 4 -- 24125
+Misc:   	poltable 24107 24158     params para  0.002872 0.000206 3.749238 0.007148 883.000000 3.000000 4.689078 0.833097 0.298709 0.000000 2.106065   
+Misc:   	poltable 24107 24158     params perp  0.002923 0.000235 2.636114 0.040354 883.000000 3.000000 4.864959 0.838854 0.301411 0.000000 1.366437
+#SET 5 -- 24178
+Misc:   	poltable 24159 24203     params para  0.002997 0.000247 1.563159 0.005629 883.000000 3.000000 4.818518 0.832922 0.292817 0.000000 1.331794   
+Misc:   	poltable 24159 24203     params perp  0.002879 0.000265 4.199736 0.004350 883.000000 3.000000 4.939383 0.847697 0.262257 0.000000 1.289825
+#SET 6 -- 24215
+Misc:   	poltable 24204 24242     params para  0.002940 0.000240 3.051443 0.021917 883.000000 3.000000 4.802508 0.845140 0.274157 0.000000 1.431838   
+Misc:   	poltable 24204 24242     params perp  0.002943 0.000218 3.303579 0.015145 883.000000 3.000000 4.719829 0.836709 0.278253 0.000000 1.544664
+#SET 7 -- 24259
+Misc:   	poltable 24243 24286     params para  0.002965 0.000266 1.980826 0.019199 883.000000 3.000000 4.879259 0.836448 0.278799 0.000000 1.285273   
+Misc:   	poltable 24243 24286     params perp  0.002970 0.000271 5.955306 0.014722 883.000000 3.000000 4.893414 0.841800 0.255601 0.000000 1.283846
+#SET 8 -- 24331
+Misc:   	poltable 24287 24356     params para  0.003084 0.000292 3.699999 0.082184 883.000000 3.000000 5.164469 0.837505 0.289181 0.000000 1.344180   
+Misc:   	poltable 24287 24356     params perp  0.002929 0.000217 3.247264 0.019385 883.000000 3.000000 4.774976 0.852312 0.296341 0.000000 1.660957
+#SET 9 -- 24374
+Misc:   	poltable 24357 24406     params para  0.002912 0.000277 4.473931 0.052953 883.000000 3.000000 5.011252 0.850181 0.270240 0.000000 1.339508   
+Misc:   	poltable 24357 24406     params perp  0.003038 0.000228 2.416207 0.019455 883.000000 3.000000 4.706630 0.841505 0.291935 0.000000 1.400558
+#SET 10 -- 24433
+Misc:   	poltable 24407 24458     params para  0.002981 0.000212 3.003932 0.020161 883.000000 3.000000 4.771423 0.876286 0.351033 0.000000 1.746944   
+Misc:   	poltable 24407 24458     params perp  0.002936 0.000225 4.794547 0.014743 883.000000 3.000000 4.764133 0.870173 0.308156 0.000000 1.428005
+#SET 11 -- 24488
+Misc:   	poltable 24459 24610     params para  0.002989 0.000229 4.900166 0.004581 883.000000 3.000000 4.762486 0.825459 0.326072 0.000000 1.466248   
+Misc:   	poltable 24459 24610     params perp  0.002941 0.000261 4.472207 0.044149 883.000000 3.000000 4.900353 0.857205 0.255739 0.000000 1.195964
+#
+#
+# Do some post-initialisation.
+# Should usually be done before display is setup
+Initialise:
+# Histograms of apparatus-level variables
+# histogram name should be preceeded by 1D or 2D (for dimension of spectrum)
+#
+#           Name        	chan/low/high   min/max condition(opt)
+Display: 1D Incoherent		328 0  328 -1
+Display: 1D Coherent		328 0  328 -1
+Display: 1D Enhancement		328 0  328 -1
+Display: 1D CoherentPara	328 0  328 -1
+Display: 1D EnhancementPara	328 0  328 -1
+Display: 1D CoherentPerp	328 0  328 -1
+Display: 1D EnhancementPerp	328 0  328 -1
+Display: 1D CohEnergy		4000 0 4000 -1
+Display: 1D CohEdgePara		4000 0 4000 -1
+Display: 1D CohEdgePerp		4000 0 4000 -1
+Display: 1D CohEdgeDistPara	200  0 200 -1
+Display: 1D CohEdgeDistPerp	200  0 200 -1
+Display: 1D CohEdgeEpics	4000 0 4000 -1
+Display: 1D CohEdgeParaEpics	4000 0 4000 -1
+Display: 1D CohEdgePerpEpics	4000 0 4000 -1
+Display: 1D CohEdgeDistParaEpics	200  0 200 -1
+Display: 1D PolTableEnh		328 0  328 -1
+Display: 1D PolTablePol		328 0  328 -1
+Display: 1D PolMean		328 0  328 -1
+Display: 1D PolCount		328 0  328 -1
+#
+# 2nd pass of Init to pick up ptrs to histograms
+Initialise:
+#

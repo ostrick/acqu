@@ -1,0 +1,60 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		524288		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: /media/edo/runs/2017.05-test/
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	524288	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+###########################################################################
+## 2018-10 Neutron skin run
+#Set1
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25674.dat.xz	0	0 #BKG
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25675.dat.xz	0	0 #PERP
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25676.dat.xz	0	0 #BKG
+##Set2
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25692.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25693.dat.xz	0 	0 #Moll
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25694.dat.xz	0 	0 #BKG
+##Set3
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25721.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25722.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25723.dat.xz	0 	0 #BKG
+##Set4
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25770.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25771.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25772.dat.xz	0 	0 #BKG
+##Set5
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25812.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25813.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25814.dat.xz	0 	0 #BKG
+##Set6
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25845.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/storage/2018-10_Neutron_Skin/TaggEff_25846.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/runs/2018-10_Neutron_Skin/TaggEff_25847.dat.xz	0 	0 #BKG
+#
+#File-Name: /media/edo/storage/2018-11_Neutron_Skin/TaggEff_26340.dat.xz	0 	0 #Copp
+File-Name: /media/edo/storage/2018-11_Neutron_Skin/CBTaggTAPS_26448.dat.xz    0 	0 #Not even a taggeff file...
+##
+## END

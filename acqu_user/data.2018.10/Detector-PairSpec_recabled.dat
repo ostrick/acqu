@@ -1,0 +1,13 @@
+## Detector setup file for running TA2PairSpec with new FPD
+########################################################################
+
+## Do some post-initialisation.
+Initialise:
+
+# show the histograms defined by the detector
+Display: 1D Open     368 0 368
+Display: 1D Gated    368 0 368
+Display: 1D GatedDly 368 0 368
+Display: 1D SumOpen     368 0 368
+Display: 1D SumGated    368 0 368
+Display: 1D SumGatedDly 368 0 368

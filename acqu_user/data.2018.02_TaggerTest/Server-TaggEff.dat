@@ -1,0 +1,89 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: /media/edo/runs/2017.05-test/
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+###########################################################################
+## 2018-02 Tagger Test
+# 310 MeV - 3 mm collimator
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21659.dat.xz	0	0	#BKG
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21660.dat.xz	0	0 	#Copp 10kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21661.dat.xz	0	0 	#Moell 10kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21662.dat.xz	0	0 	#Moell 18kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21663.dat.xz	0	0 	#Copp 5.5kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21664.dat.xz	0	0 	#Copp 2kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21665.dat.xz	0	0 	#copp 18kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21666.dat.xz	0	0 	#Moell 3.6kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21667.dat.xz	0	0 	#Moell 2kHz
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21668.dat.xz	0	0 	#BKG
+#####
+# 883 MeV - 2 mm collimator
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21697.dat.xz	0	0	#bkg
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21700.dat.xz	0	0	#moeller 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21701.dat.xz	0	0	#moeller 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21702.dat.xz	0	0	#bkg
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21703.dat.xz	0	0	#copper 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21704.dat.xz	0	0	#copper 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21705.dat.xz	0	0	#bkg
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21706.dat.xz	0	0	#PARA 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21707.dat.xz	0	0	#PARA 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21709.dat.xz	0	0	#PERP 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21710.dat.xz	0	0	#PERP 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21711.dat.xz	0	0	#bkg
+####
+# 883 MeV - 3 mm collimator
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21712.dat.xz	0	0	#bkg
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21714.dat.xz	0	0	#moeller 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21715.dat.xz	0	0	#moeller 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21716.dat.xz	0	0	#bkg
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21717.dat.xz	0	0	#copper 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21718.dat.xz	0	0	#copper 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21719.dat.xz	0	0	#PARA 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21720.dat.xz	0	0	#PARA 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21721.dat.xz	0	0	#PERP 10k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21722.dat.xz	0	0	#PERP 4k
+#File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21723.dat.xz	0	0	#bkg
+####
+# 883 MeV - 3 mm collimator - 10k events per scaler reads
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21775.dat.xz	0	0	#bkg
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21776.dat.xz	0	0	#copper 5.5kHz
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21777.dat.xz	0	0	#bkg
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21778.dat.xz	0	0	#copper 10kHz
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21779.dat.xz	0	0	#bkg
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21780.dat.xz	0	0	#moeller 10kHz
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21781.dat.xz	0	0	#bkg
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21783.dat.xz	0	0	#moeller 18khz
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21784.dat.xz	0	0	#bkg
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21785.dat.xz	0	0	#PARA 10kHz
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21783.dat.xz	0	0	#bkg
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21787.dat.xz	0	0	#PERP 10kHz
+File-Name: /media/edo/storage/2018-02_Tagger-Tests/TaggEff_21788.dat.xz	0	0	#bkg
+
+#
+#
+##
+## END

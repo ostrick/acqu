@@ -1,0 +1,60 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#File-Name:	/home/edo/analysis/data/2017-11_AlphaBetaTest/NewCBTaggTAPS_20296.dat		0       0
+## FIRST FILES
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21828.dat		0       0 # 9 nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21830.dat		0       0 #12 nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21831.dat		0       0 #15 nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21833.dat		0       0 #18 nA
+# Swapped module
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21838.dat		0       0 # 9 nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21839.dat		0       0 # 12 nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21841.dat		0       0 # 18 nA
+## module back - no DMA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21842.dat		0       0 # 18 nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21843.dat		0       0 # 9 nA
+## new cabling - DMA on both tdcs
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21849.dat		0       0 # 9nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21853.dat		0       0 # 9nA
+# New cabling - DMA on both - everything READYTOGO!
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21861.dat		0       0 # 9nA
+##
+## DIAMOND
+# New cabling - DMA on both - everything READYTOGO!
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21862.dat		0       0 # 3nA
+#File-Name:	/home/edo/analysis/data/2018-03_compton/CBTaggTAPS_21864.dat		0       0 # 4.5nA
+########################################################################################################
+## Test Moeller Copper with paddle
+File-Name:	/media/edo/storage/2018-03_Compton/CBTaggTAPS_21957.dat.xz		0       0 ## 9nA copper
+File-Name:	/media/edo/storage/2018-03_Compton/CBTaggTAPS_21958.dat.xz		0       0 ## 4.5nA Moeller
+File-Name:	/media/edo/storage/2018-03_Compton/CBTaggTAPS_21959.dat.xz		0       0 ## 4nA Moeller
+##
+## END

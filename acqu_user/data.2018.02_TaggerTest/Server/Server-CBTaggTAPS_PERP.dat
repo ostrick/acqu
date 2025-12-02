@@ -1,0 +1,144 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#File-Name:	/home/edo/analysis/data/2017-11_AlphaBetaTest/NewCBTaggTAPS_20296.dat		0       0
+###### Full Target PERP 3nA
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21270.dat		0       0
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21271.dat		0       0
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21274.dat		0       0
+#File-Name:	/media/edo/DATEN/run/2018.02_Compton/CBTaggTAPS_21276.dat		0       0
+#################################################################################################
+## Full target PERP 3nA
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21302.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21303.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21304.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21310.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21311.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21312.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21313.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21318.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21319.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21320.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21321.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21328.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21329.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21330.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21334.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21335.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21336.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21337.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21352.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21353.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21354.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21360.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21361.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21362.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21367.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21371.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21373.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21374.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21378.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21379.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21381.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21388.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21389.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21390.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21404.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21405.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21406.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21410.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21411.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21412.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21418.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21419.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21420.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21421.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21422.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21427.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21428.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21429.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21437.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21438.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21439.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21444.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21446.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21447.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21461.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21462.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21465.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21467.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21468.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21473.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21474.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21475.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21476.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21480.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21481.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21483.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21487.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21488.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21489.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21493.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21494.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21495.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21501.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21502.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21503.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21508.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21509.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21510.dat.xz	0	0
+## Empty target PERP 3nA
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21529.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21530.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21531.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21537.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21538.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21540.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21545.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21546.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21548.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21568.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21569.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21570.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21576.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21577.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21579.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21585.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21586.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21587.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21609.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21610.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21611.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21616.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21617.dat.xz	0	0
+#File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21618.dat.xz	0	0
+##
+##
+## END

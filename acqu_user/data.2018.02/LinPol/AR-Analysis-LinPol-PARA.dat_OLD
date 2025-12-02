@@ -1,0 +1,114 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   	29th Apr 2003
+##--Update	Ken Livingston	19th Mar 2014
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Parameter File: LinearPolapparatus.dat (specified in LinearPolanalysis.dat)
+## or equivalent
+##
+##-----------------------------------------------------------------------
+#
+# Data reconstruction method 
+Reconstruct:
+#x1
+### Basic setup - needs changed to suit run period
+## edge can be fit|epics
+## plane can be file|epics: if file - need "runs:" lines below here.
+## scaler_ref can be overridden by specific run settings in the "runs: lines"
+#		norm_energy	edgeMin	edgeMax		tagger	ladder	scaler_ref			buffers		edge	plane	deadband(MeV)
+#defaults to:  	700.00		full_tagger_range	TAGG    FPD  	data/scaler.dmp 5		fit	epics   0.5
+#
+Misc:	app     450.00          80.0    700.0           TAGG    FPD     scalerdump/scaler.dat   	1        fit     file    0.2
+#	
+#
+#
+#Specify run ranges for para perp amo, and corresponding scaler reference files.
+#Should list all the run ranges here
+#Will use plane info if "plane" is set to "epics" in "Misc: app" above
+#Misc: runs     runMin  runMax          scaler_ref                plane(para|perp|amo)  edge_setting edge_range(+-meV)
+#Misc:   runs    20700     21800           scalerdump/scaler21027.dat       para                  150.0        10.0
+##########################################################################################################################################################
+Misc:   runs     21300    21316         scalerdump/scaler21291.dat       para                  145.0        5.0
+Misc:   runs     21317    21395         scalerdump/scaler21349.dat       para                  145.0        5.0
+Misc:   runs     21396    21480         scalerdump/scaler21456.dat       para                  145.0        5.0
+Misc:   runs     21481    21532         scalerdump/scaler21522.dat       para                  145.0        5.0
+Misc:   runs     21533    21573         scalerdump/scaler21560.dat       para                  145.0        5.0
+Misc:   runs     21574    21788         scalerdump/scaler21605.dat       para                  145.0        5.0
+#
+#
+#
+# The "pvnames" and "rads" are required if "edge" or "plane" are set to epics in the  "Misc:	app"
+### Names of the epics channels for the variables required
+#               edge            radiator            plane            goni axes ......
+#defaults to:	A2LinPolCohEdge A2LinPolCohRadiator A2LinPolCohPlane A2GoniAxis1 A2GoniAxis2 A2GoniAxis3 A2GoniAxis4 A2GoniAxis5
+Misc:	pvnames A2LinPolCohEdge A2LinPolCohRadiator A2LinPolCohPlane A2GoniAxis1 A2GoniAxis2 A2GoniAxis3 A2GoniAxis4 A2GoniAxis5
+#
+### Value of epics radiator variable to specify radiator
+#               diamond		amo
+#defaults to:   4               2
+Misc:   rads    4               2
+#
+#
+#
+# These lines will specify the parameters for the ploarization tables for run ranges.
+# A different set of parameters should be defined for para and perp 
+### parameter sets for polarization of beam
+#                  run range     type   plane  params:
+#
+#paramters for 150 MeV edge - SET 12 PERP and SET 14 PARA Abby analysis
+#Misc:   	poltable  20700    21800 params para  0.000554 0.000070 3.379106 1.313250 883.000000 3.000000 9.147669 1.111274 0.623003 0.000000 3.863715 
+#Misc:   	poltable  20700    21800 params perp  0.000535 0.000064 6.105117 1.403161 883.000000 3.000000 8.965299 1.144643 0.607047 0.000000 2.138632
+##########################################################################################################################################################
+##SET 0
+Misc:   	poltable  21300    21316 params para 0.002922 0.000225 7.357666 0.012652 883.000000 3.000000 4.623617 0.833504 0.315826 0.000000 1.218814  
+Misc:   	poltable  21300    21316 params perp 0.003022 0.000275 7.020641 0.006459 883.000000 3.000000 3.199235 0.619791 0.199352 0.000000 1.212265
+##SET 1 -- valid for one and half day because SET2 is junk!
+Misc:   	poltable  21317    21395 params para 0.003152 0.000198 4.138100 0.005244 883.000000 3.000000 3.128676 0.609004 0.238965 0.000000 1.210147
+Misc:   	poltable  21317    21395 params perp 0.003092 0.000236 2.327378 0.015899 883.000000 3.000000 4.655306 0.832600 0.372315 0.000000 1.366685
+##SET 3 -- valid for one and half day because SET2 is junk!
+Misc:   	poltable  21396    21480 params para 0.003001 0.000269 6.112914 0.013017 883.000000 3.000000 4.861604 0.844570 0.317850 0.000000 1.442117 
+Misc:   	poltable  21396    21480 params perp 0.002983 0.000216 5.885683 0.018724 883.000000 3.000000 4.612539 0.796766 0.297672 0.000000 1.348970
+##SET 4
+Misc:   	poltable  21481    21532 params para 0.002904 0.000220 3.760159 0.019277 883.000000 3.000000 4.770043 0.859003 0.314830 0.000000 1.550782 
+Misc:   	poltable  21481    21532 params perp 0.002970 0.000229 2.075261 0.005532 883.000000 3.000000 4.761863 0.845473 0.349038 0.000000 1.398417
+##SET 5
+Misc:   	poltable  21533    21573 params para 0.002993 0.000254 1.146086 0.004346 883.000000 3.000000 4.851031 0.843627 0.298315 0.000000 1.264743 
+Misc:   	poltable  21533    21573 params perp 0.002931 0.000250 3.198404 0.070277 883.000000 3.000000 4.082872 0.712863 0.288418 0.000000 1.211336
+##SET 6 -- valid also for the additional empty day in March
+Misc:   	poltable  21574    21788 params para 0.003071 0.000186 4.018034 0.004013 883.000000 3.000000 3.603827 0.629179 0.211555 0.000000 1.366076 
+Misc:   	poltable  21574    21788 params perp 0.002969 0.000244 7.326653 0.087347 883.000000 3.000000 5.053428 0.874559 0.334036 0.000000 1.261432
+#
+#
+# Do some post-initialisation.
+# Should usually be done before display is setup
+Initialise:
+# Histograms of apparatus-level variables
+# histogram name should be preceeded by 1D or 2D (for dimension of spectrum)
+#
+#           Name        	chan/low/high   min/max condition(opt)
+Display: 1D Incoherent		328 0  328 -1
+Display: 1D Coherent		328 0  328 -1
+Display: 1D Enhancement		328 0  328 -1
+Display: 1D CoherentPara	328 0  328 -1
+Display: 1D EnhancementPara	328 0  328 -1
+Display: 1D CoherentPerp	328 0  328 -1
+Display: 1D EnhancementPerp	328 0  328 -1
+Display: 1D CohEnergy		4000 0 4000 -1
+Display: 1D CohEdgePara		4000 0 4000 -1
+Display: 1D CohEdgePerp		4000 0 4000 -1
+Display: 1D CohEdgeDistPara	200  0 200 -1
+Display: 1D CohEdgeDistPerp	200  0 200 -1
+Display: 1D CohEdgeEpics	4000 0 4000 -1
+Display: 1D CohEdgeParaEpics	4000 0 4000 -1
+Display: 1D CohEdgePerpEpics	4000 0 4000 -1
+Display: 1D CohEdgeDistParaEpics	200  0 200 -1
+Display: 1D PolTableEnh		328 0  328 -1
+Display: 1D PolTablePol		328 0  328 -1
+Display: 1D PolMean		328 0  328 -1
+Display: 1D PolCount		328 0  328 -1
+#
+# 2nd pass of Init to pick up ptrs to histograms
+Initialise:
+#

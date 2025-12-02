@@ -1,0 +1,75 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   	29th Apr 2003
+##--Update	Ken Livingston	19th Mar 2014
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Parameter File: LinearPolapparatus.dat (specified in LinearPolanalysis.dat)
+## or equivalent
+##
+##-----------------------------------------------------------------------
+#
+# Data reconstruction method 
+Reconstruct:
+#x1
+### Basic setup - needs changed to suit run period
+## edge can be fit|epics
+## plane can be file|epics: if file - need "runs:" lines below here.
+## scaler_ref can be overridden by specific run settings in the "runs: lines"
+#	       runMin    runMax   norm_energy     edgeMin  edgeMax     tagger	ladder	scaler_ref			buffers   edge	plane  deadband(MeV)				
+Misc:	app    20700     21200    700.00          140.0    160.0       TAGG	FPD	scalerdump/scaler21027.dat	5         fit   file   0.2
+#	
+#
+#
+#Specify run ranges for para perp amo, and corresponding scaler reference files.
+#Should list all the run ranges here
+#
+#Will use plane info if "plane" is set to "file" in "Misc: app" above
+#Misc: runs     runMin  runMax          scaler_ref                              plane(para|perp|amo)  edge_setting  edge_range(+-meV)
+#for positive target polarization
+Misc:	runs	20700	21200		scalerdump/scaler21027.dat		perp		      150.0	   10.0
+#
+#
+# These lines will specify the parameters for the ploarization tables for run ranges.
+# A different set of parameters should be defined for para and perp 
+### parameter sets for polarization of beam
+
+#paramters for 150 MeV edge - SET 12 PERP and SET 14 PARA Abby analysis
+Misc:   	poltable  20700    21200 params para  0.000554 0.000070 3.379106 1.313250 883.000000 3.000000 9.147669 1.111274 0.623003 0.000000 3.863715 
+Misc:   	poltable  20700    21200 params perp  0.000535 0.000064 6.105117 1.403161 883.000000 3.000000 8.965299 1.144643 0.607047 0.000000 2.138632 
+#
+# Do some post-initialisation.
+# Should usually be done before display is setup
+Initialise:
+# Histograms of apparatus-level variables
+# histogram name should be preceeded by 1D or 2D (for dimension of spectrum)
+#
+#           Name        				chan/low/high   min/max condition(opt)
+Display: 1D Incoherent			352 0  352 -1
+Display: 1D Coherent			352 0  352 -1
+Display: 1D Enhancement			352 0  352 -1
+Display: 2D Enhancement			352 0  352 -1 Scaler 500 0 500 -1
+Display: 1D CoherentPara		352 0  352 -1
+Display: 1D EnhancementPara		352 0  352 -1
+Display: 1D CoherentPerp		352 0  352 -1
+Display: 1D EnhancementPerp		352 0  352 -1
+Display: 1D CohEnergy			4000 0 4000 -1
+Display: 1D CohEdgePara			4000 0 4000 -1
+Display: 1D CohEdgePerp			4000 0 4000 -1
+Display: 1D CohEdgeDistPara		200  0 200 -1
+Display: 1D CohEdgeDistPerp		200  0 200 -1
+Display: 1D CohEdgeEpics		4000 0 4000 -1
+Display: 1D CohEdgeParaEpics		4000 0 4000 -1
+Display: 1D CohEdgePerpEpics		4000 0 4000 -1
+Display: 1D CohEdgeDistParaEpics	200  0 200 -1
+Display: 1D PolTableEnh			352 0  352 -1
+Display: 2D PolTableEnh			352 0  352 -1 Scaler 500 0 500 -1
+Display: 1D PolTablePol			352 0  352 -1
+Display: 2D PolTablePol			352 0  352 -1 Scaler 500 0 500 -1
+Display: 1D PolMean			352 0  352 -1
+Display: 1D PolCount			352 0  352 -1
+#
+# 2nd pass of Init to pick up ptrs to histograms
+Initialise:
+#

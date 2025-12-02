@@ -1,0 +1,52 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#################################################################################################
+## Full target AMO 1nA
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21268.dat.xz	0	0
+## Full target AMO 0.5nA
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21290.dat.xz	0	0
+## Full target AMO 9nA
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21291.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21349.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21350.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21401.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21402.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21455.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21456.dat.xz	0	0
+## Empty target PERP 9nA
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21522.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21560.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21562.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21604.dat.xz	0	0
+File-Name:	/media/edo/storage/2018-02_Compton/CBTaggTAPS_21605.dat.xz	0	0
+##
+##
+## END

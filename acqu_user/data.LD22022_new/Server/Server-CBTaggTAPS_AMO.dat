@@ -1,0 +1,61 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#################################################################################################
+## Full target COPP 9nA
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23861.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23863.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23901.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23902.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23965.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23966.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23979.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_23980.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24033.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24086.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24087.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24131.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24183.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24184.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24220.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24221.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24264.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24265.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24297.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24298.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24336.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24337.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24394.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24439.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24440.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24493.dat.xz	0	0
+File-Name:	/media/storage1/2018-07_Compton/CBTaggTAPS_24494.dat.xz	0	0
+##
+## END

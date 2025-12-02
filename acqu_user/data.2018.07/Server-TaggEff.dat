@@ -1,0 +1,138 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: /media/edo/runs/2017.05-test/
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+###########################################################################
+## 2018-02 Compton run
+#Set1
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21901.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21902.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21903.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21904.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21905.dat.xz	0 	0 #Moll
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21906.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21907.dat.xz	0 	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21908.dat.xz	0 	0 #BKG
+####Set2
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21950.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21951.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21952.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21953.dat.xz	0 	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21954.dat.xz	0 	0 #Moell
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21955.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21956.dat.xz	0 	0 #BKG
+###Set3
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_21998.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22000.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22001.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22002.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22003.dat.xz	0 	0 #BKG
+###Set4
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22056.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22057.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22058.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22059.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22060.dat.xz	0 	0 #BKG
+###Set5
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22146.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22147.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22148.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22149.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22150.dat.xz	0 	0 #BKG
+###Set6
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22204.dat.xz	0	0 #BKG ## Not sure about scalers
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22205.dat.xz	0	0 #BKG ## Should be OK
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22206.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22207.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22209.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22210.dat.xz	0 	0 #BKG
+###Set7
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22255.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22256.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22257.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22258.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22259.dat.xz	0 	0 #BKG
+##Set7
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22300.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22301.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22302.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22303.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22304.dat.xz	0 	0 #BKG
+###Set8
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22353.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22354.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22355.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22356.dat.xz	0 	0 #COPP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22357.dat.xz	0 	0 #Moell
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22358.dat.xz	0 	0 #BKG
+##Set9
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22395.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22396.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22397.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22398.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22399.dat.xz	0 	0 #BKG
+##Set10
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22432.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22433.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22434.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22435.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22436.dat.xz	0 	0 #BKG
+##Set10
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22467.dat.xz	0	0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22468.dat.xz	0	0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22469.dat.xz	0	0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22471.dat.xz	0	0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22472.dat.xz	0 	0 #BKG
+#Set11
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22527.dat.xz      0       0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22528.dat.xz      0       0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22529.dat.xz      0       0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22530.dat.xz      0       0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22531.dat.xz      0       0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22532.dat.xz      0       0 #BKG
+#Set12
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22554.dat.xz      0       0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22555.dat.xz      0       0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22556.dat.xz      0       0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22558.dat.xz      0       0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22559.dat.xz      0       0 #BKG
+#Set13
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22598.dat.xz      0       0 #BKG
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22599.dat.xz      0       0 #PERP
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22600.dat.xz      0       0 #PARA
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22601.dat.xz      0       0 #Copp
+#File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22602.dat.xz      0       0 #BKG
+#Set14
+File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22651.dat.xz      0       0 #BKG
+File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22653.dat.xz      0       0 #PERP
+File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22652.dat.xz      0       0 #PARA
+File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22654.dat.xz      0       0 #Copp
+File-Name: /media/edo/storage/2018-03_Compton/TaggEff_22655.dat.xz      0       0 #BKG
+#
+##
+## END

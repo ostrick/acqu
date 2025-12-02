@@ -1,0 +1,128 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		327680		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: /media/edo/runs/2017.05-test/
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	327680	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+###########################################################################
+## 2017-12 Compton run
+#Set1 - 05 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23896.dat.xz	0	0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23897.dat.xz	0	0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23898.dat.xz	0	0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23899.dat.xz	0 	0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23900.dat.xz	0 	0 #BKG
+#Set2 - 06 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23959.dat.xz	0	0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23960.dat.xz	0	0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23961.dat.xz	0	0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23962.dat.xz	0 	0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_23963.dat.xz	0 	0 #BKG
+#Set3 - 10 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24028.dat.xz		0	0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24030.dat.xz		0	0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24029.dat.xz		0	0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24031.dat.xz		0 	0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24032.dat.xz		0 	0 #BKG
+#Set4 - 11 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24080.dat.xz		0	0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24081.dat.xz		0	0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24082.dat.xz		0	0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24083.dat.xz		0 	0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24084.dat.xz		0 	0 #BKG
+#Set5 - 12 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24125.dat.xz		0	0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24126.dat.xz		0	0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24127.dat.xz		0	0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24128.dat.xz		0 	0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24129.dat.xz		0 	0 #BKG
+#Set6 - 13 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24178.dat.xz		0	0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24180.dat.xz		0	0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24179.dat.xz		0	0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24181.dat.xz		0 	0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24182.dat.xz		0 	0 #BKG
+#Set7 - 14 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24215.dat.xz                0       0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24217.dat.xz                0       0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24216.dat.xz                0       0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24218.dat.xz                0       0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24219.dat.xz                0       0 #BKG
+#Set8 - 15 July
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24259.dat.xz                0       0 #BKG
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24261.dat.xz                0       0 #PARA
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24260.dat.xz                0       0 #PERP
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24262.dat.xz                0       0 #Copp
+#File-Name: /media/storage1/2018-07_Compton/TaggEff_24263.dat.xz                0       0 #BKG
+#Set9 - 18 July
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24331.dat.xz		0	0 #BKG
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24333.dat.xz		0	0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24332.dat.xz		0	0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24334.dat.xz		0 	0 #Copp
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24335.dat.xz		0 	0 #BKG
+#Set10 - 19 July
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24374.dat.xz         0       0 #BKG
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24375.dat.xz         0       0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24376.dat.xz         0       0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24377.dat.xz         0       0 #Copp
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24378.dat.xz         0       0 #Moell
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24379.dat.xz         0       0 #BKG
+#Set11 - 19 July
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24380.dat.xz         0       0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24381.dat.xz         0       0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24382.dat.xz         0       0 #BKG
+#Set12 - 19 July - Waiting for full target...
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24383.dat.xz         0       0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24384.dat.xz         0       0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24385.dat.xz         0       0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24386.dat.xz         0       0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24387.dat.xz         0       0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24388.dat.xz         0       0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24390.dat.xz         0       0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24391.dat.xz         0       0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24392.dat.xz         0       0 #BKG
+#Set13 - 20 July
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24433.dat.xz		0	0 #BKG
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24435.dat.xz		0	0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24434.dat.xz		0	0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24436.dat.xz		0 	0 #Copp
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24437.dat.xz		0 	0 #BKG
+#Set14 - 21 July
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24488.dat.xz		0	0 #BKG
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24489.dat.xz		0	0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24490.dat.xz		0	0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24491.dat.xz		0 	0 #Copp
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24492.dat.xz		0 	0 #BKG
+#Set15 - 22 July
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24577.dat.xz		0	0 #BKG
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24578.dat.xz		0	0 #PARA
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24579.dat.xz		0	0 #PERP
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24580.dat.xz		0 	0 #Copp
+File-Name: /media/storage1/2018-07_Compton/TaggEff_24581.dat.xz		0 	0 #BKG
+#
+#
+##
+## END
