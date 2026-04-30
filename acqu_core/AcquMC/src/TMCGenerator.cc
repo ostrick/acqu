@@ -129,44 +129,51 @@ TMCGenerator::~TMCGenerator()
 void TMCGenerator::Flush()
 {
   // Free up allocated memory
-  if( fRand ) delete fRand;
-  if( fPDG ) delete fPDG;
-  if( fTargetCentre ) delete fTargetCentre;
-  if( fVertex ) delete fVertex;
-  if( fBeamCentre ) delete fBeamCentre;
-  if( fP4Target ) delete fP4Target;
-  if( fP4Beam ) delete fP4Beam;
-  if( fBeam ) delete fBeam;
-  if( fReaction ) delete fReaction;
+  if( fRand ){ delete fRand; fRand = NULL; }
+  if( fPDG ){ delete fPDG; fPDG = NULL; }
+  if( fTargetCentre ){ delete fTargetCentre; fTargetCentre = NULL; }
+  if( fVertex ){ delete fVertex; fVertex = NULL; }
+  if( fBeamCentre ){ delete fBeamCentre; fBeamCentre = NULL; }
+  fP4Target = NULL;                  // owned by fTarget
+  fP4Beam = NULL;                    // owned by fBeam
+  if( fTarget ){ delete fTarget; fTarget = NULL; }
+  fBeam = NULL;                      // owned by fParticle
+  fReaction = NULL;                  // owned by fParticle
   if( fParticle ){
     TIter next(fParticle);
     TMCParticle* p;
     while( (p = (TMCParticle*)next()) ) delete p;
     delete fParticle;
+    fParticle = NULL;
   }
-  if( fReactionList ) delete fReactionList;
+  if( fReactionList ){ delete fReactionList; fReactionList = NULL; }
   if( fResonance ){
     TIter next(fResonance);
     TMCResonance* p;
     while( (p = (TMCResonance*)next()) ) delete p;
     delete fResonance;
+    fResonance = NULL;
   }
-  if( fIsTreeOut ){
-    delete fBranch[EBranchPID]; delete fBranch[EBranchP4];
-    delete (Int_t*)fEvent[EBranchPID]; delete (Double_t*)fEvent[EBranchP4];
+  if( fEvent && fIsTreeOut ){
+    delete[] (Int_t*)fEvent[EBranchPID];
+    delete[] (Double_t*)fEvent[EBranchP4];
   }
-  if( fIsNtupleOut ){
-    delete fBranch[EBranchPID]; delete (Float_t*)fEvent[EBranchPID];
+  else if( fEvent && fIsNtupleOut ){
+    delete[] (Float_t*)fEvent[EBranchPID];
   }    
-  if( fEvent ) delete fEvent;
-  if( fBranch ) delete fBranch;
-  if( fTreeFileName ) delete[] fTreeFileName;
-  if( fNtpFileName ) delete[] fNtpFileName;
-  if( fTree ) delete fTree;
-  if( fNtuple ) delete fNtuple;
-  if( fTreeFile ) delete fTreeFile;
-  if( fNtpFile ) delete fNtpFile;
-  if( fClonePtcl) fClonePtcl->Delete();
+  if( fEvent ){ delete[] fEvent; fEvent = NULL; }
+  if( fBranch ){ delete[] fBranch; fBranch = NULL; }
+  if( fTreeFileName ){ delete[] fTreeFileName; fTreeFileName = NULL; }
+  if( fNtpFileName ){ delete[] fNtpFileName; fNtpFileName = NULL; }
+  if( fTree ){ delete fTree; fTree = NULL; }
+  if( fNtuple ){ delete fNtuple; fNtuple = NULL; }
+  if( fTreeFile ){ delete fTreeFile; fTreeFile = NULL; }
+  if( fNtpFile ){ delete fNtpFile; fNtpFile = NULL; }
+  if( fClonePtcl ){
+    fClonePtcl->Delete();
+    delete fClonePtcl;
+    fClonePtcl = NULL;
+  }
 }
 
 //-----------------------------------------------------------------------------
@@ -769,6 +776,8 @@ void TMCGenerator::CloseNtuple(  )
   fNtpFile->Write();
   fNtuple->Print();
   fNtpFile->Close();
+  fNtuple = NULL;
+  fNtpFile = NULL;
 }
 
 //-----------------------------------------------------------------------------

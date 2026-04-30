@@ -38,8 +38,6 @@ TMCPhotoPSGenerator::TMCPhotoPSGenerator( const Char_t* name, Int_t seed )
 //---------------------------------------------------------------------------
 TMCPhotoPSGenerator::~TMCPhotoPSGenerator()
 {
-  // Free up allocated memory
-  TMCFoamGenerator::Flush();
 }
 
 void TMCPhotoPSGenerator::SaveEventAsParticles(  )

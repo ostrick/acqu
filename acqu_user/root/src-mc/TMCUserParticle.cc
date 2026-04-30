@@ -39,8 +39,6 @@ TMCUserParticle::TMCUserParticle(const Char_t* name, TMCUserParticle* p)
 //---------------------------------------------------------------------------
 TMCUserParticle::~TMCUserParticle()
 {
-  // Free up allocated memory
-  TMCParticle::Flush();
 }
 
 //-----------------------------------------------------------------------------

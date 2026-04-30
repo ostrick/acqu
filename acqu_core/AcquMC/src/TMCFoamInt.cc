@@ -42,6 +42,9 @@ TMCFoamInt::TMCFoamInt( Int_t n, Double_t* scale, TA2System* sys, Int_t idens ) 
   fXd = new Double_t[fNDim];          // x[j] - x[fM0[j]]
   fXscaled = new Double_t[fNDim];     // scaled variable vector
   fXarg = new Double_t[fNDim];        // vector of variables [0,1] interval
+  fYN = NULL;
+  fXN = NULL;
+  fSN = NULL;
   fDensOpt = idens;                   // evaluation option
   fPolB = fPolT = fPolR = NULL;
   flRecPol = NULL;
@@ -52,6 +55,28 @@ TMCFoamInt::TMCFoamInt( Int_t n, Double_t* scale, TA2System* sys, Int_t idens ) 
 //---------------------------------------------------------------------------
 TMCFoamInt::~TMCFoamInt()
 {
+  if( fXN ){
+    for( Int_t i=0; i<fNDim; i++ ){
+      if( fXN[i] ) delete[] fXN[i];
+    }
+    delete[] fXN;
+    fXN = NULL;
+  }
+  if( fYN ){ delete[] fYN; fYN = NULL; }
+  if( fSN ){ delete[] fSN; fSN = NULL; }
+  if( fM0 ){ delete[] fM0; fM0 = NULL; }
+  if( fM1 ){ delete[] fM1; fM1 = NULL; }
+  if( fM2 ){ delete[] fM2; fM2 = NULL; }
+  if( fIwgt ){ delete[] fIwgt; fIwgt = NULL; }
+  if( fUj ){ delete[] fUj; fUj = NULL; }
+  if( fXd ){ delete[] fXd; fXd = NULL; }
+  if( fXscaled ){ delete[] fXscaled; fXscaled = NULL; }
+  if( fXarg ){ delete[] fXarg; fXarg = NULL; }
+  if( fPolB ){ delete fPolB; fPolB = NULL; }
+  if( fPolT ){ delete fPolT; fPolT = NULL; }
+  if( fPolR ){ delete fPolR; fPolR = NULL; }
+  if( flRecPol ){ delete flRecPol; flRecPol = NULL; }
+  if( fCMtoLAB ){ delete fCMtoLAB; fCMtoLAB = NULL; }
 }
 
 //-----------------------------------------------------------------------------
@@ -98,6 +123,7 @@ void TMCFoamInt::Test()
   TRandom *rand = new TRandom3();        // random number generator
   fNDim = 5;
   fXN = new Double_t*[fNDim];
+  for( Int_t i=0; i<fNDim; i++ ) fXN[i] = NULL;
   fM0 = new Int_t[fNDim];
   fM1 = new Int_t[fNDim];
   fM2 = new Int_t[fNDim];
@@ -168,8 +194,10 @@ void TMCFoamInt::Test()
 	   x[0],x[1],x[2],x[3],x[4],
 	   fM0[0],fM0[1],fM0[2],fM0[3],fM0[4],jy,y1,y2,y3,y4);
   }
-  delete fYN;
-  delete fXN;
+  delete[] fYN;
+  delete[] fXN;
+  fYN = NULL;
+  fXN = NULL;
 }
 
 //-----------------------------------------------------------------------------
@@ -218,6 +246,7 @@ void TMCFoamInt::ReadData( Char_t* file )
 	fprintf(fSys->GetLogStream(),"TFoamInt: <Density file dimension>");
       n = 0;
       fXN = new Double_t*[fNDim];
+      for( Int_t i=0; i<fNDim; i++ ) fXN[i] = NULL;
       fSN = new Int_t[fNDim];
       iline++;
       break;

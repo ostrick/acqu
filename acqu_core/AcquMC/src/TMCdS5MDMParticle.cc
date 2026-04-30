@@ -42,7 +42,6 @@ TMCdS5MDMParticle::TMCdS5MDMParticle( const Char_t* name, TMCParticle* p,
 //---------------------------------------------------------------------------
 TMCdS5MDMParticle::~TMCdS5MDMParticle()
 {
-  Flush();
 }
 
 //-----------------------------------------------------------------------------

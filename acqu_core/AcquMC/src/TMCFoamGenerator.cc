@@ -92,13 +92,13 @@ void TMCFoamGenerator::Flush()
 {
   // Delete allocated persistant memory
   TMCGenerator::Flush();
-  if( fFoamList ) delete fFoamList;
-  if( fFoamX ) delete fFoamX;
-  if( fInt ) delete fInt;
-  if( fX ) delete fX;
-  if( fXscale ) delete fXscale;
-  if( fScale ) delete fScale;
-  if( fFoamInitOpt ) delete fFoamInitOpt;
+  if( fFoamList ){ delete fFoamList; fFoamList = NULL; }
+  if( fFoamX ){ delete fFoamX; fFoamX = NULL; }
+  if( fInt ){ delete fInt; fInt = NULL; }
+  if( fX ){ delete[] fX; fX = NULL; }
+  if( fXscale ){ delete[] fXscale; fXscale = NULL; }
+  if( fScale ){ delete[] fScale; fScale = NULL; }
+  if( fFoamInitOpt ){ delete[] fFoamInitOpt; fFoamInitOpt = NULL; }
 }
 
 //-----------------------------------------------------------------------------

@@ -24,7 +24,8 @@ int main(int argc, char **argv)
     if( strcmp("--", argv[i]) != 0 ) strcpy( setfile, argv[i] );
   }
   MC = new TMCFoamGenerator( (Char_t*)"MC" );
-  MC->FileConfig((Char_t*)"setfile");
+  MC->FileConfig(setfile);
+  MC->PostInit();
   MC->Generate();
+  delete MC;
 }
-

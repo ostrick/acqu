@@ -32,8 +32,6 @@ TMCUserGenerator::TMCUserGenerator( const Char_t* name, Int_t seed )
 //---------------------------------------------------------------------------
 TMCUserGenerator::~TMCUserGenerator()
 {
-  // Free up allocated memory
-  TMCFoamGenerator::Flush();
 }
 
 //-----------------------------------------------------------------------------

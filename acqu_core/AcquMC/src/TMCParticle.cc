@@ -86,17 +86,17 @@ void TMCParticle::Flush( )
 {
   // Free up allocated memory
 
-  if( fP4 ) delete fP4;
-  if( fP4d ) delete fP4d;
-  if( fDecayList ) delete fDecayList;
-  if( fThetaDist ) delete fThetaDist;
-  if( fCosThDist ) delete fCosThDist;
-  if( fPhiDist ) delete fPhiDist;
-  if( fTDist ) delete fTDist;
-  if( fPDist ) delete fPDist;
-  if( fOOPDist ) delete fOOPDist;
-  if( fMd ) delete fMd;
-  if( fMd2 ) delete fMd2;
+  if( fP4 ){ delete fP4; fP4 = NULL; }
+  if( fP4d ){ delete[] fP4d; fP4d = NULL; }
+  if( fDecayList ){ delete fDecayList; fDecayList = NULL; }
+  if( fThetaDist ){ delete fThetaDist; fThetaDist = NULL; }
+  if( fCosThDist ){ delete fCosThDist; fCosThDist = NULL; }
+  if( fPhiDist ){ delete fPhiDist; fPhiDist = NULL; }
+  if( fTDist ){ delete fTDist; fTDist = NULL; }
+  if( fPDist ){ delete fPDist; fPDist = NULL; }
+  if( fOOPDist ){ delete fOOPDist; fOOPDist = NULL; }
+  if( fMd ){ delete[] fMd; fMd = NULL; }
+  if( fMd2 ){ delete[] fMd2; fMd2 = NULL; }
 }
 
 //-----------------------------------------------------------------------------
@@ -275,8 +275,8 @@ void TMCParticle::SetDist( Int_t type, TF1* func,
     x += dx;
   }
   SetDist( type, npt, xpt, wpt, min,max );
-  delete xpt;
-  delete wpt;
+  delete[] xpt;
+  delete[] wpt;
 }
 
 //----------------------------------------------------------------------------

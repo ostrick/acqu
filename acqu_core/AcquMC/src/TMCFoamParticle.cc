@@ -58,7 +58,6 @@ TMCFoamParticle::TMCFoamParticle( const Char_t* name, TMCParticle* p,
 //---------------------------------------------------------------------------
 TMCFoamParticle::~TMCFoamParticle()
 {
-  Flush();
 }
 
 //-----------------------------------------------------------------------------

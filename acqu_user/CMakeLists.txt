@@ -17,6 +17,11 @@ ROOT_PREPARE_LIB("root/src-mc" "root/src-mc" "root/src-mc/MCUserLinkDef.h" "root
 add_library("lib${MOD}" SHARED ${SRCS})
 target_link_libraries("lib${MOD}" ${ROOT_LIBRARIES} libAcquMC libAcquRoot libAcquDAQ)
 set_target_properties("lib${MOD}" PROPERTIES OUTPUT_NAME ${MOD})
+if (ROOT_VERSION_MAJOR VERSION_EQUAL 6)
+  add_custom_command(TARGET lib${MOD} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/root/src-mc/MCDict_rdict.pcm" ${PROJECT_BINARY_DIR}/lib
+  )
+endif()
 
 # we add many additional files marked as "headers"
 # so they appear automatically in QtCreator

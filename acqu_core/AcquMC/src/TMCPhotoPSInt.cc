@@ -33,8 +33,8 @@ TMCPhotoPSInt::TMCPhotoPSInt( Int_t n, Double_t* scale, TA2System* sys,
 //-----------------------------------------------------------------------------
 TMCPhotoPSInt::~TMCPhotoPSInt()
 {
-  delete fPSO;
-  delete flRecPol;
+  if( fPSO ){ delete[] fPSO; fPSO = NULL; }
+  if( flRecPol ){ delete flRecPol; flRecPol = NULL; }
 }
 
 //-----------------------------------------------------------------------------
@@ -116,6 +116,7 @@ void TMCPhotoPSInt::ReadData(Char_t* dbname)
 
   fSN = new Int_t[fNDim];
   fXN = new Double_t*[fNDim];
+  for( Int_t i=0; i<fNDim; i++ ) fXN[i] = NULL;
   Double_t E,Th;
   Double_t val[ENPhotoPSObs];
   Int_t ie;

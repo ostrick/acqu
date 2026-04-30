@@ -40,6 +40,7 @@ TMCdS5MDMInt::TMCdS5MDMInt( Int_t n, Double_t* scale, TA2System* sys,
 //---------------------------------------------------------------------------
 TMCdS5MDMInt::~TMCdS5MDMInt()
 {
+  if( fPSO ){ delete[] fPSO; fPSO = NULL; }
 }
 
 //-----------------------------------------------------------------------------
@@ -70,6 +71,7 @@ void TMCdS5MDMInt::ReadData( Char_t* file )
       nInterp = fNDim - n + 1;
       n = 0;
       fXN = new Double_t*[fNDim];
+      for( Int_t i=0; i<fNDim; i++ ) fXN[i] = NULL;
       fSN = new Int_t[fNDim];
       iline++;
       break;

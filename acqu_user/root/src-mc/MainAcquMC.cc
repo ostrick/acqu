@@ -32,5 +32,5 @@ int main(int argc, char **argv)
   MC->FileConfig(setfile);
   MC->PostInit();
   MC->Generate();
+  delete MC;
 }
-
