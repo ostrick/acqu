@@ -1,0 +1,87 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		524288		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	524288	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#File-Name:	/home/edo/analysis/data/2017-11_AlphaBetaTest/NewCBTaggTAPS_20296.dat		0       0
+###### Empty Target 
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29615.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29616.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29617.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29618.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29619.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29620.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29621.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29623.dat.xz		0	0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29624.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29625.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29626.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29627.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29628.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29629.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29630.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29634.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29635.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29636.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29639.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29640.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29641.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29647.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29648.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29652.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29653.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29654.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29655.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29656.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29657.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29659.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29660.dat.xz	       0       0
+File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29664.dat.xz	       0       0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29667.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29668.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29670.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29673.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29674.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29676.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29677.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29678.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29679.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29680.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29681.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29682.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29683.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29687.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29689.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29690.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29691.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29692.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29693.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29694.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29695.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29696.dat.xz		0	0
+## END

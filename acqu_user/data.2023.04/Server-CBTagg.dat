@@ -1,0 +1,67 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		524288		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+File-Directory: /data/rundata/2023-04_Recoil_Pol/
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	524288	32	0	400
+##
+## Now the list of data files to analyse
+## Tagger test data files
+##		File Name	1st rec	Last rec
+#
+#File-Name:        CBTagg_30584.dat.xz         0       0
+File-Name:   CBTagg_30587.dat.xz              0       0
+File-Name:   CBTagg_30588.dat.xz              0       0
+File-Name:   CBTagg_30589.dat.xz              0       0
+File-Name:   CBTagg_30590.dat.xz              0       0
+File-Name:   CBTagg_30591.dat.xz              0       0
+File-Name:   CBTagg_30592.dat.xz              0       0
+File-Name:   CBTagg_30593.dat.xz              0       0
+File-Name:   CBTagg_30610.dat.xz              0       0
+File-Name:   CBTagg_30611.dat.xz              0       0
+File-Name:   CBTagg_30612.dat.xz              0       0
+File-Name:   CBTagg_30613.dat.xz              0       0
+File-Name:   CBTagg_30614.dat.xz              0       0
+File-Name:   CBTagg_30615.dat.xz              0       0
+File-Name:   CBTagg_30617.dat.xz              0       0
+File-Name:   CBTagg_30618.dat.xz              0       0
+File-Name:   CBTagg_30619.dat.xz              0       0
+File-Name:   CBTagg_30620.dat.xz              0       0
+File-Name:   CBTagg_30621.dat.xz              0       0
+## END					                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,14 +19,19 @@ Number-Throws: 	100000		888888	     	1
 ##
 ##	PDG/M		Source x,y,z (cm)
 Beam: 	22 		0.0 0.0 -500.
+#
+P-Distr: Beam T-Dist      Uniform  0.150000 0.150001  2
+P-Distr: Beam Cos(Theta)  Uniform  0.999999999 1.0    2
+P-Distr: Beam Phi-Dist    Uniform  0.0 0.000001       2
+#
 ##
 ## Beam Kinetic Energy	Form					min max  #pts
-##P-Distr: Beam T-Dist	Uniform					0.135 0.185 250
-P-Distr: Beam T-Dist	1/x					0.080 0.200 280
+##P-Distr: Beam T-Dist	Uniform					0.211 0.213 2
+##P-Distr: Beam T-Dist	1/x					0.080 0.200 280
 #P-Distr: Beam T-Dist	1/x*TMath::BreitWigner(x,0.294,0.12)	0.135 0.185 250
 ##
 ## Beam Angle              Form                                 min max   #pts
-P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)     0.9999975 1.0  2000
+##P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)     0.9999975 1.0  2000
 ##
 ##############################################################################
 ##
@@ -51,17 +56,16 @@ Particle: Reaction	0.0		1	0	NULL	 Phase-Space
 #P-Distr: 	QN P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
 #Particle: 	N	0.938		0	0	Reaction NULL
 #
-#Particle: Pi0		111		1	0	QN	NULL
-Particle: gamma	    22		0	1	Reaction  NULL
-Particle: alpha	1000020040	0	1	Reaction  NULL
+Particle: alpha	1000020040	0	0	Reaction  NULL
+Particle: Pi0		111		1	0	Reaction  Phase-Space
 #Particle: Pi0bis	111		1	0	QN	NULL
 ##
-#Particle: Gamma_1	  22	0	1	Pi0	NULL
-#Particle: Gamma_2	  22	0	1	Pi0	NULL
+Particle: Gamma_1	  22	0	1	Pi0	NULL
+Particle: Gamma_2	  22	0	1	Pi0	NULL
 ##
 #Particle: Gamma_1_b	  22	0	1	Pi0bis	NULL
 #Particle: Gamma_2_b	  22	0	1	Pi0bis	NULL
 ##############################################################################
 ##
-Tree-Output: ./MC-Tree
+##Tree-Output: ./MC-Tree
 Ntuple-Output: ./MC-Output

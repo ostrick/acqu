@@ -1,0 +1,274 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		524288		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+#File-Directory: 
+##
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	524288	32	0	400
+##
+## Now the list of data files to analyse
+##		File Name	1st rec	Last rec
+#
+#File-Name:	/home/edo/analysis/data/2017-11_AlphaBetaTest/NewCBTaggTAPS_20296.dat		0       0
+###### 
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29511.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29461.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29609.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29434.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29470.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29427.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29384.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29433.dat.xz		0	0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29371.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29373.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29374.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29380.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29377.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29361.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29473.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29368.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29350.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29359.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29466.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29413.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29471.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29582.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29464.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29357.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29327.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29537.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29462.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29351.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29416.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29474.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29489.dat.xz	       0       0
+#File-Name:     /media/rundata/2022-06_LD2/CBTaggTAPS_29315.dat.xz	       0       0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29320.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29331.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29404.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29542.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29356.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29435.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29594.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29365.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29610.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29349.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29325.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29432.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29587.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29418.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29540.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29490.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29417.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29330.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29469.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29299.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29316.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29348.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29343.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29307.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29410.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29362.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29424.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29585.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29300.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29452.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29313.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29344.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29431.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29311.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29608.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29574.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29457.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29318.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29385.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29497.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29341.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29399.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29530.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29408.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29412.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29493.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29581.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29548.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29545.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29402.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29514.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29366.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29498.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29507.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29607.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29414.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29526.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29517.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29276.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29425.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29441.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29270.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29360.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29552.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29588.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29228.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29422.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29421.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29274.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29476.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29239.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29555.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29342.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29551.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29527.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29271.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29554.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29280.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29546.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29328.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29583.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29191.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29538.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29326.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29409.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29272.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29364.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29415.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29500.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29190.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29561.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29567.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29319.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29468.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29453.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29249.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29268.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29562.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29306.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29598.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29288.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29310.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29290.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29606.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29229.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29460.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29224.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29303.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29447.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29504.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29247.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29278.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29397.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29188.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29533.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29301.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29240.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29591.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29600.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29187.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29317.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29603.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29186.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29265.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29559.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29185.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29217.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29578.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29579.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29502.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29501.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29508.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29454.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29277.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29512.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29570.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29515.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29388.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29576.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29213.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29269.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29287.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29291.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29214.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29386.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29575.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29519.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29390.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29513.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29332.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29503.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29292.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29230.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29250.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29253.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29602.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29293.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29597.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29577.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29528.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29333.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29246.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29193.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29237.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29510.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29556.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29248.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29558.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29566.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29210.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29202.dat.xz		0	0
+#File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_2919229.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29201.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29426.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29212.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29569.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29200.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29334.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29241.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29208.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29518.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29216.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29206.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29520.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29207.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29205.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29199.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29222.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29442.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29244.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29146.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29153.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29152.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29167.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29164.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29163.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29166.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29154.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29614.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29150.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29158.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29159.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29458.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29157.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29160.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29151.dat.xz		0	0
+File-Name:	/media/rundata/2022-06_LD2/CBTaggTAPS_29162.dat.xz		0	0
+
+##
+## END
