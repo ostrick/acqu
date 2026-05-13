@@ -1,0 +1,59 @@
+   ------------------------------------------------------------------
+  | Welcome to ROOT 6.28/06                        https://root.cern |
+  | (c) 1995-2023, The ROOT Team; conception: R. Brun, F. Rademakers |
+  | Built for linuxx8664gcc on Sep 18 2025, 11:15:00                 |
+  | From tags/v6-28-06@v6-28-06                                      |
+  | With c++ (Debian 14.2.0-19) 14.2.0                               |
+  | Try '.help'/'.?', '.demo', '.license', '.credits', '.quit'/'.q'  |
+   ------------------------------------------------------------------
+
+
+
+
+  ****** Acqu - Root Analyser ******
+
+          Version: 4v6
+            Dated: 09.07.13
+   Linked to Root: 6.28/06
+
+
+   See .log files for all AcquRoot progress/error messages
+
+
+Helicity - H 0 1 - I 1 153 - H 0 1 - L 0 0
+
+
+
+  ****** GENERAL INFORMATION ******
+
+   ROOT input file #1  : /home/ostrick/Geant_4He_pi0.root
+   Analysis type       : Offline
+   Analysis input      : MC data
+   Run number          : 0
+   Analysis class      : TA2UserAnalysis
+   Analysis setup      : Analysis-MC.dat
+   Physics class       : TA2GoAT
+   Physics name        : Phys
+   Max ADC             : 40000
+   Max Scaler          : 640
+
+
+
+
+  ****** DETECTOR LIST ******
+
+   Loaded Detectors:
+
+   TAGG (TA2Tagger)
+     FPD (TA2Ladder)
+   CB (TA2CentralApparatus)
+     NaI (TA2CalArray)
+     PID (TA2PlasticPID)
+
+---------
+Init Tree
+---------
+Root file saved to ./output/Acqu_Geant_4He_pi0.root
+---------
+Running
+---------
