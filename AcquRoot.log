@@ -1,0 +1,2 @@
+ Error in operation <ERROR ARFile_t: fopen failed, FileName: data.2025/MC-CBTaggTAPS.dat> of class TAcquRoot at command line:
+data.2025/MC-CBTaggTAPS.dat FATAL ERROR...exiting AcquRoot

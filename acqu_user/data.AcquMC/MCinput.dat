@@ -20,7 +20,7 @@ Number-Throws: 	100000		888888	     	1
 ##	PDG/M		Source x,y,z (cm)
 Beam: 	22 		0.0 0.0 -500.
 #
-P-Distr: Beam T-Dist      Uniform  0.150000 0.150001  2
+P-Distr: Beam T-Dist      Uniform  0.642000 0.644000  2
 P-Distr: Beam Cos(Theta)  Uniform  0.999999999 1.0    2
 P-Distr: Beam Phi-Dist    Uniform  0.0 0.000001       2
 #

@@ -10,7 +10,11 @@ ROOT_PREPARE_LIB("root/src" "root/src" "root/src/UserLinkDef.h" "root/src/UserDi
 add_library("lib${MOD}" SHARED ${SRCS})
 target_link_libraries("lib${MOD}" ${ROOT_LIBRARIES} ${ACQU_USER_LIBS} Minuit)
 set_target_properties("lib${MOD}" PROPERTIES OUTPUT_NAME ${MOD})
-
+if (ROOT_VERSION_MAJOR VERSION_EQUAL 6)
+  add_custom_command(TARGET lib${MOD} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/root/src/UserDict_rdict.pcm" ${PROJECT_BINARY_DIR}/lib
+  )
+endif()
 
 set(MOD "MCUserRoot")
 ROOT_PREPARE_LIB("root/src-mc" "root/src-mc" "root/src-mc/MCUserLinkDef.h" "root/src-mc/MCDict.cc" SRCS EXESRCS)

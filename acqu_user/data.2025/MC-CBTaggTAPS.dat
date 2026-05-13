@@ -49,7 +49,7 @@ Branch:   tveto         2048
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #ROOT file(s) (GEANT4 output) to be analysed. Add more lines for more files
 #
-TreeFile: /home/ostrick/Work/pi04He/output/Geant_4He_pi0_AcquROOT.root
+TreeFile: /home/ostrick/Geant_4He_pi0.root
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
