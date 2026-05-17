@@ -20,7 +20,7 @@ RawHits:
 ## Global energy scale parameter, uncomment if desired
 ########################################################################
 ##
-#Energy-Scale: 1.05
+Energy-Scale: 1.05
 ##
 ########################################################################
 ## Resolutions for MC smearing, not used in real data analysis

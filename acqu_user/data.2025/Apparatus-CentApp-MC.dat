@@ -15,9 +15,10 @@
 ##
 ## Specify list of detectors which constitute the Crystal Ball apparatus
 ##	  Name       Class Name		Setup file
-Detector: NaI        TA2CalArray	Detector-NaI.dat
-#Detector: PID        TA2PlasticPID	Detector-PID.dat
-#Detector: CylMWPC    TA2CylMwpc		AR-Analysis-CB-MWPC-2018.dat # for files taken after Jan 18
+#Detector: NaI        TA2CalArray	data.2018.03.MC/Detector-NaI_ALLCrystals.dat
+Detector: NaI        TA2CalArray	data.2018.03.MC/Detector-NaI.dat
+Detector: PID        TA2PlasticPID	data.2018.03.MC/Detector-PID-MC.dat
+Detector: CylMWPC    TA2CylMwpc		data.2018.03.MC/AR-Analysis-CB-MWPC-2018.dat # for files taken after Jan 18
 ##
 #Detector: CylMWPC    TA2CylMwpc		Detector-MWPC.dat # for files taken before Jan 17
 #Detector: CylMWPC    TA2CylMwpc		AR-Analysis-CentApp-MWPC.dat # for files taken after Jan 17

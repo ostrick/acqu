@@ -49,17 +49,21 @@ Branch:   tveto         2048
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #ROOT file(s) (GEANT4 output) to be analysed. Add more lines for more files
 #
-TreeFile: /home/ostrick/Geant_4He_pi0.root
+#TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant-Output-50.root
+TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant-140-700.root
+#TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant_4He_pi0-140-740MeV.root
+#TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant_4He_pi0-209MeV.root
+#
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## Batch mode operation...redirect output directory for log files etc.
-BatchDir: ./
+BatchDir: /home/ostrick/A2/Simulation/AcquROOT-Out/
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Directory to save any created ROOT files (include final '/')
-Directory: ./
+Directory: /home/ostrick/A2/Simulation/AcquROOT-Out/
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

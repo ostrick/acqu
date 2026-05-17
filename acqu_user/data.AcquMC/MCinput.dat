@@ -20,7 +20,9 @@ Number-Throws: 	100000		888888	     	1
 ##	PDG/M		Source x,y,z (cm)
 Beam: 	22 		0.0 0.0 -500.
 #
-P-Distr: Beam T-Dist      Uniform  0.642000 0.644000  2
+#P-Distr: Beam T-Dist      Uniform  0.642000 0.644000  2
+P-Distr: Beam T-Dist	1/x					0.140 0.700 280
+#P-Distr: Beam T-Dist      Uniform  0.207000 0.211000  2
 P-Distr: Beam Cos(Theta)  Uniform  0.999999999 1.0    2
 P-Distr: Beam Phi-Dist    Uniform  0.0 0.000001       2
 #
@@ -39,6 +41,7 @@ P-Distr: Beam Phi-Dist    Uniform  0.0 0.000001       2
 ##
 ##		PDG/M		Radius	Length	Center (x,y,z)
 Target:		1000020040		2.5	5.0	0.0 0.0 0.0
+#Target:		1000020040		0.01 0.01 0.0 0.0 0.0
 ##2212(proton)
 ##2112(neutron)
 ##1000020040 (4He)
@@ -68,4 +71,4 @@ Particle: Gamma_2	  22	0	1	Pi0	NULL
 ##############################################################################
 ##
 ##Tree-Output: ./MC-Tree
-Ntuple-Output: ./MC-Output
+Ntuple-Output: /home/ostrick/A2/Simulation/AcquMC-Output/AcquMC-140-700
