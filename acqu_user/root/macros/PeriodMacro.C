@@ -1,7 +1,20 @@
 void PeriodMacro()
 {
-
     static ULong64_t previousScalerCount = 0;
+    static ULong64_t periodNumber = 0;
+    static TH1D* taggEffVsPeriod = 0;
+
+    ++periodNumber;
+
+    if (!taggEffVsPeriod) {
+        taggEffVsPeriod = new TH1D(
+            "TaggEff_vs_Period",
+            "Tagging efficiency versus period;Period;Tagging efficiency",
+            100, 0.5, 100.5);
+        taggEffVsPeriod->SetCanExtend(TH1::kXaxis);
+        taggEffVsPeriod->SetStats(kFALSE);
+        taggEffVsPeriod->SetMarkerStyle(20);
+    }
 
     TA2PairSpec* pairSpec =
     (TA2PairSpec*)gAN->GetGrandChild("PairSpec", "TA2Detector");
@@ -24,22 +37,27 @@ void PeriodMacro()
            (unsigned long long)scalersInPeriod);
 
 
-        // Bisheriger PairSpec-Code
-        TH1* openHist = (TH1*)gROOT->FindObject("PairSpec_Open");
-        TH1* gatedHist = (TH1*)gROOT->FindObject("PairSpec_Gated");
-        TH1* delayedHist = (TH1*)gROOT->FindObject("PairSpec_GatedDly");
-        TH1* fpdHist = (TH1*)gROOT->FindObject("FPD_ScalerCurr");
+    TH1* openHist = (TH1*)gROOT->FindObject("PairSpec_Open");
+    TH1* gatedHist = (TH1*)gROOT->FindObject("PairSpec_Gated");
+    TH1* delayedHist = (TH1*)gROOT->FindObject("PairSpec_GatedDly");
+    TH1* fpdHist = (TH1*)gROOT->FindObject("FPD_ScalerCurr");
 
-        if (openHist && gatedHist && delayedHist && fpdHist &&
-            openHist->Integral() > 0) {
-            Double_t open = fpdHist->Integral(0, -1);
+    if (openHist && gatedHist && delayedHist && fpdHist &&
+        openHist->Integral() > 0) {
+        Double_t open = fpdHist->Integral(0, -1);
+        Double_t gated = gatedHist->Integral(0, -1);
         Double_t delayed = delayedHist->Integral(0, -1);
 
         if (open != 0) {
             Double_t taggEff = (gated - delayed) / open * 25.0;
 
+            // One weighted entry per invocation. Since every period is
+            // filled only once, the bin content is the tagging efficiency.
+            taggEffVsPeriod->Fill((Double_t)periodNumber, taggEff);
+
             printf("Sums: o %f  g_s %f  gd_s %f  taggeff_s %f\n",
                    open, gated, delayed, taggEff);
+
         }
-            }
+    }
 }
