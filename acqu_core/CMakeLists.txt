@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required(VERSION 3.10)
 include(${CMAKE_CURRENT_SOURCE_DIR}/../cmake/subdir-header.cmake)
 message(STATUS "Configuring acqu_core...")
 
@@ -135,6 +135,5 @@ else()
   # in non-DAQ mode, just track the incs/libs for acqu_user
   SET_ACQU_USER_VARS("${CORE_LIBS}")
 endif()
-
 
 

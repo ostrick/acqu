@@ -15,6 +15,8 @@
 #ifndef __TA2TAPS_BaF2_h__
 #define __TA2TAPS_BaF2_h__
 
+#include <algorithm>
+
 #include "TRandom3.h"
 
 #include "MCBranchID.h"
@@ -313,11 +315,14 @@ inline void TA2TAPS_BaF2::ReadDecoded()
       }
     }
 
-  // Clear arrays / set them to EBufferEnd
+  // Clear arrays / set them to EBufferEnd.  memset only sets bytes and is
+  // therefore not suitable for constructing a Double_t sentinel value.
   if (fMaxSGElements)
-    memset(fSGEnergyValue, EBufferEnd, fMaxSGElements*sizeof(Double_t));
+    std::fill_n(fSGEnergyValue, fMaxSGElements,
+                static_cast<Double_t>(EBufferEnd));
   if (fPatternHits)
-    memset(fPatternHits[0], EBufferEnd, fNelem*sizeof(Int_t));
+    std::fill_n(fPatternHits[0], fNelem,
+                static_cast<Int_t>(EBufferEnd));
   memset(EnergyAll, 0., fNelem*sizeof(Double_t));
 
   // Finally evaluate all simulated hits

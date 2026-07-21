@@ -30,24 +30,27 @@ enum { EMaxDataLength = 524288 };// max data buffer length
 enum { EMaxInputFiles = 1024 }; // size of input-file pointer buffer
 enum { EFalse, ETrue };         // Logic...should use kTRUE, kFALSE
 
-// ACQU Mk1 data buffer header types and data delimiters
-enum{ EHeadBuff = 0x10101010,      // header buffer (experimental parameters
-      EDataBuff = 0x20202020,      // standard data buffer
-      EEndBuff = 0x30303030,       // end-of-file buffer
-      EKillBuff = 0x40404040,      // shut-down buffer
-      EPhysBuff = 0x50505050,      // reserved
-      EHeadPhysBuff = 0x60606060,  // reserved
-      EMk2DataBuff = 0x70707070,   // Mk2 data buffer
-      EEndEvent = 0xFFFFFFFF,      // end of event marker
-      EBufferEnd = 0xFFFFFFFF,     // end of file marker
-      EScalerBuffer = 0xFEFEFEFE,  // start of scaler read out
-      EEPICSBuffer = 0xFDFDFDFD,   // start of EPICS read out
-      EReadError = 0xEFEFEFEF,     // start of error block (hardware error)
-      ENullADC = -1,               // undefined ADC value
-      ENullHit = 0xFFFFFFFF,       // undefined hit index (end of hit buffer)
-      ENullStore = 0x8000,         // for multi-hit ADC handling
-      ENullFloat = -999999999      // optional null indicator
-};
+// ACQU Mk1 data buffer headers are unsigned 32-bit words.  Keep them
+// separate from the signed analysis sentinels below; mixing both groups in
+// one enum makes the enum unsigned and silently converts -1 sentinels when
+// they are assigned to Int_t/Short_t buffers.
+constexpr unsigned int EHeadBuff      = 0x10101010u;
+constexpr unsigned int EDataBuff      = 0x20202020u;
+constexpr unsigned int EEndBuff       = 0x30303030u;
+constexpr unsigned int EKillBuff      = 0x40404040u;
+constexpr unsigned int EPhysBuff      = 0x50505050u;
+constexpr unsigned int EHeadPhysBuff  = 0x60606060u;
+constexpr unsigned int EMk2DataBuff   = 0x70707070u;
+constexpr unsigned int EEndEvent      = 0xFFFFFFFFu;
+constexpr unsigned int EScalerBuffer  = 0xFEFEFEFEu;
+constexpr unsigned int EEPICSBuffer   = 0xFDFDFDFDu;
+constexpr unsigned int EReadError     = 0xEFEFEFEFu;
+
+constexpr int EBufferEnd = -1;       // end marker in signed analysis buffers
+constexpr int ENullADC   = -1;       // undefined ADC value
+constexpr int ENullHit   = -1;       // undefined hit index
+constexpr short ENullStore = -32768; // 0x8000 in a signed 16-bit store
+constexpr int ENullFloat = -999999999;
 
 // Constants for ROOT storage and analysis
 enum{ EMaxEventSize = 524288, EMaxName = 256 };

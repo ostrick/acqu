@@ -791,7 +791,7 @@ Int_t TFB_1821SMI::SMI_code_gen(short istart_a, short istart_s, short panel)
 Int_t TFB_1821SMI::ch_format(
 			     UShort_t word[],		// Oussena formatted line	
 			     UShort_t code[],		// line for download to SMI	
-			     register UShort_t nl	                // 8 or 10 parameters 
+			     UShort_t nl	                        // 8 or 10 parameters
 			     )
 {
   //  SMI microcode line....format change from style of B.Oussena
@@ -984,7 +984,7 @@ Int_t TFB_1821SMI::R_ped( UShort_t n, UShort_t a, UShort_t *data )
 }
 
 //-----------------------------------------------------------------------------
-Int_t TFB_1821SMI::W_thr( register UShort_t data )
+Int_t TFB_1821SMI::W_thr( UShort_t data )
 {
   // Write value to SMI threshold (data compress) registers
   // NB data in range 0-255, bits 8-15 truncated

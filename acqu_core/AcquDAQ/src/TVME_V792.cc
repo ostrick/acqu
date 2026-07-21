@@ -18,6 +18,7 @@
 
 #include "TVME_V792.h"
 #include "TDAQexperiment.h"
+#include <cstdint>
 //#include "TDAQmemmap.h"
 
 
@@ -360,7 +361,9 @@ void TVME_V792::PostInit( )
   fData[EV7XX_BitSet2] = 0x4;
   // Multi-cast master: redefine some registers to the common base address
   if((fMCSTaddr > 0) && (fMCSTctrl == 2)){
-    void* base = (void*)((fMCSTaddr <<24)&0xffffffff);
+    const std::uintptr_t baseAddress =
+      static_cast<std::uintptr_t>(fMCSTaddr & 0xffu) << 24;
+    void* base = reinterpret_cast<void*>(baseAddress);
     // Get new mapping
     DAQMemMap_t* map = fPCtrlMod->MapSlave( base ,0x2000, fAM[0] );
     void* vaddr = map->GetVirtAddr();

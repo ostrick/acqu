@@ -131,7 +131,7 @@ inline Bool_t TEPICSmodule::IsTriggeredOut(Char_t* eventBuff, Int_t adcEnd)
   }
   if(adc[n]!= fTrigADC) return kFALSE;
   
-  if((adc[n+1]==16384)||(adc[n+1]==-1)) return kFALSE;           //null adc
+  if((adc[n+1] == 16384u) || (adc[n+1] == 0xffffu)) return kFALSE; // null ADC
 
 
   fVal=adc[n+1];

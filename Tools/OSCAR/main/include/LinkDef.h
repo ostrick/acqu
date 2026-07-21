@@ -26,15 +26,10 @@
 
 // Module A2
 #pragma link C++ enum EA2Detector; 
-#pragma link C++ typedef A2Detector_t; 
 #pragma link C++ enum EA2TAPSType; 
-#pragma link C++ typedef A2TAPSType_t; 
 #pragma link C++ enum EA2TrigBitL1; 
-#pragma link C++ typedef A2TrigBitL1_t; 
 #pragma link C++ enum EA2TrigBitL2; 
-#pragma link C++ typedef A2TrigBitL2_t; 
 #pragma link C++ enum EA2BeamHelBit; 
-#pragma link C++ typedef A2BeamHelBit_t; 
 #pragma link C++ class TOA2Detector+; 
 #pragma link C++ class TOA2Trigger+; 
 #pragma link C++ class TOA2BaseDetParticle+; 
@@ -51,7 +46,6 @@
 
 // Module Utils
 #pragma link C++ enum EOKinCut; 
-#pragma link C++ typedef OKinCut_t; 
 #pragma link C++ namespace TOSUtils; 
 #pragma link C++ namespace TOLoader; 
 #pragma link C++ class TOASCIIReader+; 
@@ -60,4 +54,3 @@
 #pragma link C++ class TOKinCut+;
 
 #endif
-

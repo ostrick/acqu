@@ -33,7 +33,6 @@ void PeriodMacro()
         if (openHist && gatedHist && delayedHist && fpdHist &&
             openHist->Integral() > 0) {
             Double_t open = fpdHist->Integral(0, -1);
-        Double_t gated = gatedHist->Integral(0, -1);
         Double_t delayed = delayedHist->Integral(0, -1);
 
         if (open != 0) {
