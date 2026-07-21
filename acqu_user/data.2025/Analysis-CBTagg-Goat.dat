@@ -60,7 +60,7 @@ BitPattern:  data/monitor/Trig-Pattern.dat
 Apparatus:	    TAGG      	 	 TA2Tagger		        Apparatus-Tagger855.dat
 Apparatus:	    CB	      	 	 TA2CentralApparatus    Apparatus-CentApp.dat
 #Apparatus:	    TAPS      	 	 TA2Taps		        Apparatus-Taps.dat
-#Apparatus:	    BeamPolMon		 TA2BeamPolMon			Apparatus-BeamPolMon.dat
+Apparatus:	    BeamPolMon		 TA2BeamPolMon			Apparatus-BeamPolMon.dat
 #Apparatus:	    LinPol		 TA2LinearPolEpics		AR-Analysis-LinPol.dat
 ##
 ## Turn on apparatus-level reconstruction

@@ -22,7 +22,8 @@ TA2PairSpec::TA2PairSpec( const char* name, TA2System* analysis  )
   fScalerSumGatedDly = NULL;
 
   fLadder	= NULL; // Tagger ladder
-  
+
+  fScalerEventCount = 0;
 }
 
 
@@ -99,6 +100,11 @@ void TA2PairSpec::LoadVariable( )
 
 void TA2PairSpec::Decode()
 {
+  if (!gAR->IsScalerRead())
+    return;
+  ++fScalerEventCount;
+
+
   for(UInt_t i=0;i<fNchannels;i++) {
     fScalerOpen[i] = fScaler[fLadder->GetScalerIndex()[i]];
   }

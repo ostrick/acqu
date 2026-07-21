@@ -24,6 +24,8 @@ private:
   Double_t* fScalerSumGated;    // Gated with PairSpec
   Double_t* fScalerSumGatedDly; // Gated, but out of coincidence with PairSpec
 
+  ULong64_t fScalerEventCount;
+
 public:
   TA2PairSpec( const char*, TA2System* );  // pass ptr to analyser
   virtual ~TA2PairSpec();                  // destructor
@@ -38,6 +40,9 @@ public:
   Double_t* GetScalerGated(){return fScalerGated;}; // get Scaler Gated for the current scaler read
   Double_t* GetScalerGatedDly(){return fScalerGatedDly;}; // get Scaler GatedDly for the current scaler read 
  
+  ULong64_t GetScalerEventCount() const {
+    return fScalerEventCount;
+  }
   // Root needs this line for incorporation in dictionary
   ClassDef(TA2PairSpec,1)
 };
