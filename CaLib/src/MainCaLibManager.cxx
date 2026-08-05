@@ -15,8 +15,17 @@
 
 #include <ncurses.h>
 #include <signal.h>
+#include <cstring>
 
 #include "TCMySQLManager.h"
+
+static inline size_t safe_strlen(const Char_t* s)
+{
+    if (!s) return 0;
+    size_t len = 0;
+    while (s[len] != '\0') ++len;
+    return len;
+}
 
 #define KEY_ENTER_MINE 13
 #define KEY_ESC 27
@@ -215,7 +224,14 @@ WINDOW* FormatRunTable(TCContainer& c, Int_t* outColLengthTot, WINDOW** outHeade
     UInt_t colLength[12];
 
     // loop over headers
-    for (Int_t i = 0; i < 12; i++) colLength[i] = strlen(colHead[i]);
+    auto safe_strlen = [](const Char_t* s) -> size_t {
+        if (!s) return 0;
+        size_t len = 0;
+        while (s[len] != '\0') ++len;
+        return len;
+    };
+
+    for (Int_t i = 0; i < 12; i++) colLength[i] = safe_strlen(colHead[i]);
 
     // loop over runs
     for (Int_t i = 0; i < nRuns; i++)
@@ -226,23 +242,23 @@ WINDOW* FormatRunTable(TCContainer& c, Int_t* outColLengthTot, WINDOW** outHeade
 
         // path
         tmp = c.GetRun(i)->GetPath();
-        if (strlen(tmp) > colLength[1]) colLength[1] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[1]) colLength[1] = safe_strlen(tmp);
     
         // file name
         tmp = c.GetRun(i)->GetFileName();
-        if (strlen(tmp) > colLength[2]) colLength[2] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[2]) colLength[2] = safe_strlen(tmp);
         
         // time
         tmp = c.GetRun(i)->GetTime();
-        if (strlen(tmp) > colLength[3]) colLength[3] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[3]) colLength[3] = safe_strlen(tmp);
         
         // description
         tmp = c.GetRun(i)->GetDescription();
-        if (strlen(tmp) > colLength[4]) colLength[4] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[4]) colLength[4] = safe_strlen(tmp);
         
         // run note
         tmp = c.GetRun(i)->GetRunNote();
-        if (strlen(tmp) > colLength[5]) colLength[5] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[5]) colLength[5] = safe_strlen(tmp);
  
         // size
         sprintf(tmp_str, "%lld", c.GetRun(i)->GetSize());
@@ -250,11 +266,11 @@ WINDOW* FormatRunTable(TCContainer& c, Int_t* outColLengthTot, WINDOW** outHeade
 
         // target
         tmp = c.GetRun(i)->GetTarget();
-        if (strlen(tmp) > colLength[7]) colLength[7] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[7]) colLength[7] = safe_strlen(tmp);
         
         // target polarization
         tmp = c.GetRun(i)->GetTargetPol();
-        if (strlen(tmp) > colLength[8]) colLength[8] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[8]) colLength[8] = safe_strlen(tmp);
         
         // target polarization degree
         sprintf(tmp_str, "%f", c.GetRun(i)->GetTargetPolDeg());
@@ -262,7 +278,7 @@ WINDOW* FormatRunTable(TCContainer& c, Int_t* outColLengthTot, WINDOW** outHeade
         
         // beam polarization
         tmp = c.GetRun(i)->GetBeamPol();
-        if (strlen(tmp) > colLength[10]) colLength[10] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[10]) colLength[10] = safe_strlen(tmp);
  
         // beam polarization degree
         sprintf(tmp_str, "%f", c.GetRun(i)->GetBeamPolDeg());
@@ -384,15 +400,15 @@ WINDOW* FormatCalibTable(TCContainer& c, Int_t* outColLengthTot, WINDOW** outHea
         
         // last run
         sprintf(tmp_str, "%d", c.GetCalibration(i)->GetLastRun());
-        if (strlen(tmp_str) > colLength[2]) colLength[2] = strlen(tmp_str);
+        if (safe_strlen(tmp_str) > colLength[2]) colLength[2] = safe_strlen(tmp_str);
 
         // change time
         tmp = c.GetCalibration(i)->GetChangeTime();
-        if (strlen(tmp) > colLength[3]) colLength[3] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[3]) colLength[3] = safe_strlen(tmp);
         
         // description
         tmp = c.GetCalibration(i)->GetDescription();
-        if (strlen(tmp) > colLength[4]) colLength[4] = strlen(tmp);
+        if (safe_strlen(tmp) > colLength[4]) colLength[4] = safe_strlen(tmp);
     
         // parameters
         Double_t* par = c.GetCalibration(i)->GetParameters();

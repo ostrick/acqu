@@ -53,9 +53,8 @@ Set(ROOT_DEFINITIONS "")
 Set(ROOT_INSTALLED_VERSION_TOO_OLD FALSE)
 Set(ROOT_CONFIG_EXECUTABLE ROOT_CONFIG_EXECUTABLE-NOTFOUND)
 
-Find_Program(ROOT_CONFIG_EXECUTABLE NAMES root-config 
+Find_Program(ROOT_CONFIG_EXECUTABLE NAMES root-config
              PATHS ${ROOT_CONFIG_SEARCHPATH}
-             NO_DEFAULT_PATH
             )
      
 If(NOT ROOT_CONFIG_EXECUTABLE)
@@ -85,11 +84,23 @@ String(STRIP ${ROOT_INSTALL_DIR} ROOT_INSTALL_DIR)
 MESSAGE(STATUS "Looking for ROOT... - Found ${ROOT_INSTALL_DIR}/bin/root")
 MESSAGE(STATUS "Looking for ROOT... - Found version is ${ROOT_VERSION_STRING} ")   
    
-# extract major, minor, and patch versions from
-# the version string given by root-config
-String(REGEX REPLACE "^([0-9]+)\\.[0-9][0-9]+\\/[0-9][0-9]+.*" "\\1" ROOT_VERSION_MAJOR "${ROOT_VERSION_STRING}")
-String(REGEX REPLACE "^[0-9]+\\.([0-9][0-9])+\\/[0-9][0-9]+.*" "\\1" ROOT_VERSION_MINOR "${ROOT_VERSION_STRING}")
-String(REGEX REPLACE "^[0-9]+\\.[0-9][0-9]+\\/([0-9][0-9]+).*" "\\1" ROOT_VERSION_PATCH "${ROOT_VERSION_STRING}")
+# extract major, minor, and patch versions from the version string
+# supports both old ROOT 5.x format like 5.30/08 and newer ROOT 6.x format like 6.40.02
+# also handles partial versions such as 6.40 or just 6
+# Reason: root-config --version can return versions with '.' or '/' separators
+# and the old parsing logic failed for ROOT 6+ versions.
+String(REGEX REPLACE "^([0-9]+).*" "\\1" ROOT_VERSION_MAJOR "${ROOT_VERSION_STRING}")
+String(REGEX REPLACE "^[0-9]+[\./]([0-9]+).*" "\\1" ROOT_VERSION_MINOR "${ROOT_VERSION_STRING}")
+String(REGEX REPLACE "^[0-9]+[\./][0-9]+[\./]([0-9]+).*" "\\1" ROOT_VERSION_PATCH "${ROOT_VERSION_STRING}")
+if(NOT ROOT_VERSION_MAJOR)
+  set(ROOT_VERSION_MAJOR 0)
+endif()
+if(NOT ROOT_VERSION_MINOR)
+  set(ROOT_VERSION_MINOR 0)
+endif()
+if(NOT ROOT_VERSION_PATCH)
+  set(ROOT_VERSION_PATCH 0)
+endif()
 
 # compute overall version numbers which can be compared at once
 Math(EXPR req_vers "${ROOT_FIND_VERSION_MAJOR}*10000 + ${ROOT_FIND_VERSION_MINOR}*100 + ${ROOT_FIND_VERSION_PATCH}")
