@@ -1,0 +1,144 @@
+#------------------------------------------------------------------------------
+#  Configuration file for TA2CrystalBall
+#------------------------------------------------------------------------------
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Detector systems in CB apparatus
+#         Name       Class Name      Setup file
+Detector: PID        TA2PlasticPID   Detector-PID-MC.dat
+Detector: NaI        TA2CalArray     Detector-NaI-MC.dat 
+Detector: MWPC       TA2CylMWPC      Detector-MWPC-MC.dat
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Standard AcquRoot options
+Reconstruct:
+ParticleID:   64
+Initialise:
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Droop correction for light attenuation inside PID strips
+#Enable line to turn on the droop correction, this must come first
+#Misc: Droop
+#Length of PID plastic strips (cm)
+#Misc: DroopLength 30.0
+#Number of points entered below for the droop correction
+#Misc: DroopPoints 7
+#Positions on the PID scintillators (cm)
+#Misc: DroopPosition 0.0  2.0  4.0  6.0  10.0  20.0  30.0
+#Droop correction factors at the PID positions
+#Misc: DroopFactor 1.00  1.07  1.14  1.22  1.39  1.92  2.66
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Allows an overall time adjustment of PID timing
+Misc: PIDTimeShift 0.0
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Allows an overall position shift for CB NaI crystals
+#May be useful for misaligned target positions
+Misc: PosShift +0.0 +0.0 +0.0
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#DeltaE-E cuts for PID/NaI
+Misc: PIDCuts 48
+#Options are:
+#1. PID element this cut is used for
+#2. PDG ID of particle, if DeltaE-E is inside the cut region
+#3. Name of cut, cuts can be reused for multiple PID elements
+#4. ROOT file containing the cut, files can be reused for multiple PID elements
+#            1. 2.   3.        4.
+Misc: PIDCut  0 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  1 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  2 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  3 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  4 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  5 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  6 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  7 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  8 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  9 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 10 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 11 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 12 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 13 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 14 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 15 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 16 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 17 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 18 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 19 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 20 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 21 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 22 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut 23 2212 ProtonCut data/cuts/CB_DeltaE-E_Proton.root
+Misc: PIDCut  0  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  1  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  2  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  3  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  4  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  5  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  6  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  7  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  8  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut  9  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 10  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 11  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 12  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 13  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 14  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 15  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 16  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 17  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 18  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 19  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 20  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 21  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 22  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+Misc: PIDCut 23  211   PionCut data/cuts/CB_DeltaE-E_Pion.root
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Angle limits for PID (DeltaPhi) and MWPC (DeltaPhi, DeltaTheta)
+#If CB NaI cluster agrees within these limits, PID element or MWPC track
+#are assigned to that cluster/particle
+Misc: AngleLimits 15.0 15.0 10.0
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Display DeltaE-E banana plots
+#Display: 2D E 400 0 400  0 DeltaE 100 0 6  0
+#Display: 2D E 400 0 400  1 DeltaE 100 0 6  1
+#Display: 2D E 400 0 400  2 DeltaE 100 0 6  2
+#Display: 2D E 400 0 400  3 DeltaE 100 0 6  3
+#Display: 2D E 400 0 400  4 DeltaE 100 0 6  4
+#Display: 2D E 400 0 400  5 DeltaE 100 0 6  5
+#Display: 2D E 400 0 400  6 DeltaE 100 0 6  6
+#Display: 2D E 400 0 400  7 DeltaE 100 0 6  7
+#Display: 2D E 400 0 400  8 DeltaE 100 0 6  8
+#Display: 2D E 400 0 400  9 DeltaE 100 0 6  9
+#Display: 2D E 400 0 400 10 DeltaE 100 0 6 10
+#Display: 2D E 400 0 400 11 DeltaE 100 0 6 11
+#Display: 2D E 400 0 400 12 DeltaE 100 0 6 12
+#Display: 2D E 400 0 400 13 DeltaE 100 0 6 13
+#Display: 2D E 400 0 400 14 DeltaE 100 0 6 14
+#Display: 2D E 400 0 400 15 DeltaE 100 0 6 15
+#Display: 2D E 400 0 400 16 DeltaE 100 0 6 16
+#Display: 2D E 400 0 400 17 DeltaE 100 0 6 17
+#Display: 2D E 400 0 400 18 DeltaE 100 0 6 18
+#Display: 2D E 400 0 400 19 DeltaE 100 0 6 19
+#Display: 2D E 400 0 400 20 DeltaE 100 0 6 20
+#Display: 2D E 400 0 400 21 DeltaE 100 0 6 21
+#Display: 2D E 400 0 400 22 DeltaE 100 0 6 22
+#Display: 2D E 400 0 400 23 DeltaE 100 0 6 23
+#
+#Display: 2D EOR 400 0 400 -1 DeltaEOR 100 0 10 -1
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#Display phi correlation between PID and NaI for charged particles
+Display: 1D DeltaPhi 360 -180 180
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#

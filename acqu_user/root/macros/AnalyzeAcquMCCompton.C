@@ -7,8 +7,8 @@
 #include <iostream>
 
 void AnalyzeAcquMCCompton(
-    const char* inputName = "../../AcquMC-Output/AcquMC-Compton.root",
-    const char* outputName = "../../AcquMC-Output/AcquMC-Compton-kinematics.root")
+    const char* inputName = "/home/ostrick/Work/AcquMC/AcquMC-Output/AcquMC-3He-Compton.root",
+    const char* outputName = "/home/ostrick/Work/AcquMC/AcquMC-Output/AcquMC-Compton-kinematics.root")
 {
     TFile input(inputName, "READ");
     if (input.IsZombie()) {
@@ -38,10 +38,10 @@ void AnalyzeAcquMCCompton(
     Float_t gammaEnergy = 0.0F;
 
     inputTree->SetBranchAddress("En_bm", &beamEnergyIn);
-    inputTree->SetBranchAddress("Px_l0147", &alphaPx);
-    inputTree->SetBranchAddress("Py_l0147", &alphaPy);
-    inputTree->SetBranchAddress("Pz_l0147", &alphaPz);
-    inputTree->SetBranchAddress("En_l0147", &alphaEnergy);
+    inputTree->SetBranchAddress("Px_l0149", &alphaPx);
+    inputTree->SetBranchAddress("Py_l0149", &alphaPy);
+    inputTree->SetBranchAddress("Pz_l0149", &alphaPz);
+    inputTree->SetBranchAddress("En_l0149", &alphaEnergy);
     inputTree->SetBranchAddress("Px_l0201", &gammaPx);
     inputTree->SetBranchAddress("Py_l0201", &gammaPy);
     inputTree->SetBranchAddress("Pz_l0201", &gammaPz);

@@ -44,6 +44,7 @@ class	TA2GoAT	: public TA2AccessSQL
   TTree*            treePairSpec;       // Pair spectrometer (filled each scaler read)
   TTree* 	    treeTrigger;        // Trigger information (filled each event)
   TTree* 	    treeDetectorHits;	// Detector system hit patterns (filled each event)
+  TTree*            treeMCTruth;        // Generated MC kinematics (filled each MC event)
   TTree*            treeVertex;         // Two track vertex information
   TTree*	    treeScalers;        // Scaler read information (filled each scaler read)
   TTree*            treeMoeller;        // Moeller information (filled each moeller read)
@@ -224,6 +225,16 @@ class	TA2GoAT	: public TA2AccessSQL
   //MC
   Long64_t    MCEventID;
   Long64_t    MCRndID;
+  Int_t*      MCNTPC;
+  Int_t*      MCITPC;
+  Float_t*    MCQTPC;
+  Float_t*    MCTTPC;
+  Int_t*      MCNPart;
+  Float_t*    MCPLab;
+  Float_t*    MCBeam;
+  Float_t*    MCKLab;
+  Float_t*    MCDirCos;
+  Float_t*    MCVertex;
 
   // Display histograms
   TH2*		Check_CBdE_E;

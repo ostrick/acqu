@@ -1,0 +1,74 @@
+##############################################################################
+##
+##  	#events/run	Random seed	#runs
+Number-Throws: 	10000		888888	     	1
+##
+##############################################################################
+##
+## Baryon resonances
+##
+##		Name	PDG code
+#Resonance:	P33	2214
+#Resonance:	Del0	2114
+##		Name	Peak Mass(GeV)	Width(GeV)
+## Resonance:	Dstar	2.380		2.2
+##
+##############################################################################
+##
+## Beam parameters
+##
+##	PDG/M		Source x,y,z (cm)
+Beam: 	22 		0.0 0.0 -500.
+#
+#P-Distr: Beam T-Dist      Uniform  0.642000 0.644000  2
+P-Distr: Beam T-Dist	1/x					0.08 0.140 240
+P-Distr: Beam Cos(Theta)  Uniform  0.999999999 1.0    2
+P-Distr: Beam Phi-Dist Uniform 0.0 6.283185307 100
+#
+##
+## Beam Kinetic Energy	Form					min max  #pts
+##P-Distr: Beam T-Dist	Uniform					0.211 0.213 2
+##P-Distr: Beam T-Dist	1/x					0.080 0.200 280
+#P-Distr: Beam T-Dist	1/x*TMath::BreitWigner(x,0.294,0.12)	0.135 0.185 250
+##
+## Beam Angle              Form                                 min max   #pts
+##P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)     0.9999975 1.0  2000
+##
+##############################################################################
+##
+## Target parameters
+##
+##		PDG/M		Radius	Length	Center (x,y,z)
+Target:		1000020030		2.5	5.0	0.0 0.0 0.0
+#Target:		1000020040		0.01 0.01 0.0 0.0 0.0
+##2212(proton)
+##2112(neutron)
+##1000020040 (4He)
+##############################################################################
+##
+## Reaction parameters
+##
+## Intermediate state
+##     		Name	PDG/M		Decay	Track	Parent	Opt
+Particle: Reaction	0.0		1	0	NULL	 Phase-Space
+##
+## Reaction particles
+##
+#Particle: 	QN	2112   		1	0	Reaction NULL
+#P-Distr: 	QN P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
+#Particle: 	N	0.938		0	0	Reaction NULL
+#
+Particle: Gamma		22		    0	1	Reaction  NULL
+Particle: deuteron	1000010020	0	1	Reaction  NULL
+Particle: neutron   2112		0	1	Reaction  NULL
+#Particle: Pi0bis	111		1	0	QN	NULL
+##
+#Particle: Gamma_1	  22	0	1	Pi0	NULL
+#Particle: Gamma_2	  22	0	1	Pi0	NULL
+##
+#Particle: Gamma_1_b	  22	0	1	Pi0bis	NULL
+#Particle: Gamma_2_b	  22	0	1	Pi0bis	NULL
+##############################################################################
+##
+##Tree-Output: ./MC-Tree
+Ntuple-Output: ./AcquMC-Output/AcquMC-3He-breakup

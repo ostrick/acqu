@@ -126,7 +126,17 @@ TA2GoAT::TA2GoAT(const char* Name, TA2Analysis* Analysis) : TA2AccessSQL(Name, A
                                 fTaggNMR(0),
                                 fTaggCur(0),
                                 MCEventID(0),
-							    MCRndID(0)
+							    MCRndID(0),
+                                MCNTPC(0),
+                                MCITPC(0),
+                                MCQTPC(0),
+                                MCTTPC(0),
+                                MCNPart(0),
+                                MCPLab(0),
+                                MCBeam(0),
+                                MCKLab(0),
+                                MCDirCos(0),
+                                MCVertex(0)
 {
   strcpy(outputFolder,"");
   strcpy(inputName,"");
@@ -150,6 +160,8 @@ TA2GoAT::~TA2GoAT()
     delete treeTrigger;
   if(treeDetectorHits)
     delete treeDetectorHits;
+  if(treeMCTruth)
+    delete treeMCTruth;
   if(treeVertex)
     delete treeVertex;
   if(treeScalers)
@@ -361,6 +373,7 @@ void    TA2GoAT::PostInit()
   treeTagger          = new TTree("tagger",            "tagger");
   treeTrigger	        = new TTree("trigger",           "trigger");
   treeDetectorHits    = new TTree("detectorHits",      "detectorHits");
+  treeMCTruth         = 0;
   treeSetupParameters = new TTree("setupParameters",   "setupParameters");
 
   treeTracks->Branch("nTracks", &nParticles, "nTracks/I");
@@ -621,6 +634,66 @@ void    TA2GoAT::PostInit()
       // Store MC event id for MC process
       if(EI_mc_evt_id < gAR->GetNbranch()) treeTrigger->Branch("mc_evt_id", &MCEventID, "mc_event_id/L");
       if(EI_mc_rnd_id < gAR->GetNbranch()) treeTrigger->Branch("mc_rnd_id", &MCRndID, "mc_rnd_id/L");
+
+      // Pass optional A2Geant4 TPC hit information through unchanged.  Look
+      // branches up by name: their position is not part of the historical
+      // MCBranchID layout and may differ between Geant versions.
+      Int_t ntpcBranch = -1;
+      Int_t itpcBranch = -1;
+      Int_t qtpcBranch = -1;
+      Int_t ttpcBranch = -1;
+      Int_t npartBranch = -1;
+      Int_t plabBranch = -1;
+      Int_t beamBranch = -1;
+      Int_t klabBranch = -1;
+      Int_t dircosBranch = -1;
+      Int_t vertexBranch = -1;
+      for(Int_t i = 0; i < gAR->GetNbranch(); i++)
+        {
+          const Char_t* branchName = gAR->GetBranchName(i);
+          if(!strcmp(branchName, "ntpc")) ntpcBranch = i;
+          else if(!strcmp(branchName, "itpc")) itpcBranch = i;
+          else if(!strcmp(branchName, "qtpc")) qtpcBranch = i;
+          else if(!strcmp(branchName, "ttpc")) ttpcBranch = i;
+          else if(!strcmp(branchName, "npart")) npartBranch = i;
+          else if(!strcmp(branchName, "plab")) plabBranch = i;
+          else if(!strcmp(branchName, "beam")) beamBranch = i;
+          else if(!strcmp(branchName, "klab")) klabBranch = i;
+          else if(!strcmp(branchName, "dircos")) dircosBranch = i;
+          else if(!strcmp(branchName, "vertex")) vertexBranch = i;
+        }
+      if(ntpcBranch >= 0 && itpcBranch >= 0 && qtpcBranch >= 0 && ttpcBranch >= 0)
+        {
+          MCNTPC = static_cast<Int_t*>(gAR->GetEvent()[ntpcBranch]);
+          MCITPC = static_cast<Int_t*>(gAR->GetEvent()[itpcBranch]);
+          MCQTPC = static_cast<Float_t*>(gAR->GetEvent()[qtpcBranch]);
+          MCTTPC = static_cast<Float_t*>(gAR->GetEvent()[ttpcBranch]);
+          treeDetectorHits->Branch("ntpc", MCNTPC, "ntpc/I");
+          treeDetectorHits->Branch("itpc", MCITPC, "itpc[ntpc]/I");
+          treeDetectorHits->Branch("qtpc", MCQTPC, "qtpc[ntpc]/F");
+          treeDetectorHits->Branch("ttpc", MCTTPC, "ttpc[ntpc]/F");
+          printf("Exporting Geant TPC branches ntpc, itpc, qtpc and ttpc\n");
+        }
+
+      if(npartBranch >= 0 && plabBranch >= 0 && beamBranch >= 0 &&
+         klabBranch >= 0 && dircosBranch >= 0 && vertexBranch >= 0)
+        {
+          MCNPart = static_cast<Int_t*>(gAR->GetEvent()[npartBranch]);
+          MCPLab = static_cast<Float_t*>(gAR->GetEvent()[plabBranch]);
+          MCBeam = static_cast<Float_t*>(gAR->GetEvent()[beamBranch]);
+          MCKLab = static_cast<Float_t*>(gAR->GetEvent()[klabBranch]);
+          MCDirCos = static_cast<Float_t*>(gAR->GetEvent()[dircosBranch]);
+          MCVertex = static_cast<Float_t*>(gAR->GetEvent()[vertexBranch]);
+
+          treeMCTruth = new TTree("mcTruth", "generated MC kinematics");
+          treeMCTruth->Branch("npart", MCNPart, "npart/I");
+          treeMCTruth->Branch("plab", MCPLab, "plab[npart]/F");
+          treeMCTruth->Branch("beam", MCBeam, "beam[5]/F");
+          treeMCTruth->Branch("klab", MCKLab, "klab[npart]/F");
+          treeMCTruth->Branch("dircos", MCDirCos, "dircos[npart][3]/F");
+          treeMCTruth->Branch("vertex", MCVertex, "vertex[3]/F");
+          printf("Exporting Geant truth branches npart, plab, beam, klab, dircos and vertex\n");
+        }
     }
 
   // Adding NaI information to parameters tree
@@ -1380,6 +1453,7 @@ void    TA2GoAT::Reconstruct()
   if(treeTagger)			treeTagger->Fill();
   if(treeTrigger)  		treeTrigger->Fill();
   if(treeDetectorHits)	treeDetectorHits->Fill();
+  if(treeMCTruth)         treeMCTruth->Fill();
   if(treeVertex)          treeVertex->Fill();
 
   //increment event number
@@ -1689,6 +1763,12 @@ void    TA2GoAT::Finish()
     {
       treeDetectorHits->Write();// Write	
       delete treeDetectorHits;  // Close and delete in memory
+    }
+  if(treeMCTruth)
+    {
+      treeMCTruth->Write();     // Write generated MC kinematics
+      delete treeMCTruth;
+      treeMCTruth = 0;
     }
   if(treeVertex)
     {

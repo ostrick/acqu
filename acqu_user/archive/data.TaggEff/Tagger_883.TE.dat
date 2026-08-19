@@ -1,0 +1,34 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   29th Apr 2003
+##--Update	JRM Annand...17th May 2005
+##--Update	D.G. Middleton 25th June 2010 changed for 450 MeV running
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Parameter File: Tagger883.dat (specified in CBanalysis.dat)
+## Setup analysis of the TA2KensTagger apparatus
+## This one sets up an analysis of the main focal-plane detector
+##----------------------------------------------------------------------------
+#	NMR field       Beam Energy
+Magnet:	1.05715		883.15
+#
+#	  Name          Class Name    	Setup file
+#
+#Detector: FPD        	TA2Ladder	1212_Compton.Tagger.ua.dat
+Detector: FPD        	TA2Ladder	1212_Compton.Tagger.dat
+#
+#
+Reconstruct:
+Initialise:
+#
+#Data-Cut: 1D Ladder_Time AND histogram 66 78
+#
+#
+#Display: 1D Nhit  	   20 0  20  -1
+#Display: 1D PhotonEnergy  352 31 437  -1
+#Display: 2D Ladder_Hits   352 0 352  -1 Ladder_Time 100 0 200 -1
+#Display 2D Ladder_Doubles 352 0 352 -1 Micro_Doubles 96 0 96 -1
+#Display: 2D FPD_Hits	352 0 352 -1 Micro_Hits 96 0 96 -1
+#Display: 2D PhotonEnergy 352 v2c_1557b.plot.ghist  -1 Micro_MuHits 192 0 192 -1
+

@@ -1,0 +1,97 @@
+# Setup file for Tagging Efficiency analysis
+##-----------------------------------------------------------------------
+##
+## The following give sample specifications for
+## handlers for flash or multihit ADCs or TDCs
+##
+## Catch-TDC, where a reference TDC channel has to be specified
+## The reference TDC channel contains the trigger time which is subtracted
+## from the other specified channels
+## CB TDC's
+##              #hits   start   stop    reference
+MultiADC:       3       1401    1911    1400
+##
+## SG ADC read out in 3-sum mode (#hits is always 3)
+## DC # channels summed for the pedestal (before signal leading edge)
+## signal # channels summed for the signal region of the pulse
+## tail # channels summed for the tail region (after signal trailing edge)
+## CB S-ADC's
+#               #hits   start   stop    DC      signal  tail
+#MultiADC:       3       3000    3735    30      30      30
+## MWPC strip S-ADC's (switched to single-value read)
+#MultiADC:       3       5000    5319    30      30      30
+#
+## Stuff to monitor time dependence of counting rates and the hit pattern
+## coming from the trigger box....the parameter is the setup file name
+#RateMonitor: Trigger.Rate
+#BitPattern:  Trigger.Pat
+##
+## Apparatus setup....
+## Raw analysis may be performed without Apparati
+##              Name            Class           	Setup file
+Apparatus:      TAGG            TA2Tagger   		Tagger_883.TE.dat
+##
+## Turn on apparatus-level reconstruction
+##Reconstruct-Analysis:
+##
+## Specify physics analysis
+##			Name	Class		Config File
+##Physics-Analysis:	MDM	TA2PhotoPhysics	CBphysics.dat
+##
+## Do some post initialisation...usually necessary
+Initialise:
+##
+## Setup of extra procedures to run at periodic intervals
+## The procedures are usually held in macro script files
+## Period...every N events
+##		N	Macro File	Macro Procedure
+Period:	100000	PeriodMacro.C	PeriodMacro()
+##
+## EndFile...each time an input data file is closed
+#EndFile:		EndFileMacro.C  EndFileMacro()
+##
+## Finish...when all input data files processed
+Finish:		FinishMacro.C	FinishMacro("TaggEff.root")
+##
+## Save all accepted events (ie those which pass all data cuts) to a
+## ROOT file. Data saved in RAW format (ie ADC indices and values)
+#Save-Event:
+##
+## Histogram ALL defined single value ADC's
+#Display: All
+##
+## Tagger 
+## 
+## TDCs
+##Display: MultiHit 1432 1783 2000 -1000 1000 0
+##
+## QDCs
+##Display: ADC 800  1183
+##
+## Microscope 
+##
+## TDCs
+##Display: MultiHit 1784 1900 200000 -100000 100000 0
+##
+## QDCs
+##Display: ADC 1184 1279
+##
+##
+## Pb-Glass, paddle QDCs
+##Display: ADC 1280 1375
+##
+##
+## Display blocks of scalers
+## Clocks etc.
+Display: Scaler 0 11
+Display: SumScaler 0 11
+##
+##Main Tagger Scalers
+Display: Scaler 12 363
+Display: SumScaler 12 363
+##
+##
+##Display: Scaler 364 405
+##Display: SumScaler 364 405
+##
+## END OF FILE
