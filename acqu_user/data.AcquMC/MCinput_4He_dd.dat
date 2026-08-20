@@ -44,6 +44,8 @@ Target:		1000020040		2.5	5.0	0.0 0.0 0.0
 ##2212(proton)
 ##2112(neutron)
 ##1000020040 (4He)
+## 1000010020 (d)
+## 1000010030 (t)
 ##############################################################################
 ##
 ## Reaction parameters
@@ -59,8 +61,9 @@ Particle: Reaction	0.0		1	0	NULL	 Phase-Space
 #Particle: 	N	0.938		0	0	Reaction NULL
 #
 Particle: Gamma		22		0	1	Reaction  NULL
-Particle: alpha	1000020040	0	1	Reaction  NULL
+Particle: deuteron	1000010020	0	1	Reaction  NULL
+Particle: deuteron	1000010020	0	1	Reaction  NULL
 ##############################################################################
 ##
 ##Tree-Output: ./MC-Tree
-Ntuple-Output: ./AcquMC-Output/AcquMC-4He-Compton
+Ntuple-Output: ./AcquMC-Output/AcquMC-4H4-dd

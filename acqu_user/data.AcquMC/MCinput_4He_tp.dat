@@ -59,8 +59,9 @@ Particle: Reaction	0.0		1	0	NULL	 Phase-Space
 #Particle: 	N	0.938		0	0	Reaction NULL
 #
 Particle: Gamma		22		0	1	Reaction  NULL
-Particle: alpha	1000020040	0	1	Reaction  NULL
+Particle: triton	1000010030	0	1	Reaction  NULL
+Particle: proton	2212	0	1	Reaction  NULL
 ##############################################################################
 ##
 ##Tree-Output: ./MC-Tree
-Ntuple-Output: ./AcquMC-Output/AcquMC-4He-Compton
+Ntuple-Output: ./AcquMC-Output/AcquMC-4He-tp
