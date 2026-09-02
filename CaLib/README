@@ -13,9 +13,36 @@ Software requirements
 =====================
 
 * gcc 4.2 or higher
-* ROOT 5.26 or higher (with MySQL support)
+* ROOT 5.26 or higher (with MySQL/MariaDB support)
 * ncurses
-* MySQL database server
+* MySQL or MariaDB database server
+
+
+MariaDB
+-------
+
+MariaDB can be used as a drop-in replacement for MySQL.  ROOT deliberately
+continues to use the ``mysql://`` URL scheme for both servers; do not change it
+to ``mariadb://``.  ROOT's ``mysql`` feature and the RMySQL plugin must be
+available (check with ``root-config --features``).
+
+CaLib expects the database itself to exist before ``macros/Install.C`` creates
+its tables.  A local installation can, for example, be prepared as follows
+(choose a private password):
+
+    CREATE DATABASE `CaLib_2013_10-Present`;
+    CREATE USER 'calib'@'localhost' IDENTIFIED BY 'replace-with-private-password';
+    GRANT ALL PRIVILEGES ON `CaLib_2013_10-Present`.* TO 'calib'@'localhost';
+
+Then use these settings in ``config/config.cfg``:
+
+    DB.Host:        localhost
+    DB.Name:        CaLib_2013_10-Present
+    DB.User:        calib
+    DB.Pass:        replace-with-private-password
+
+The hyphens in the database name are valid.  They only require quoting when
+the name occurs in an SQL statement, as in the setup commands above.
 
 
 Installation
@@ -49,4 +76,3 @@ Documentation
 The ROOT html documentation in $CALIB/htmldoc gives an overview of the 
 CaLib library and its classes.
 Further information and examples can be found in $CALIB/macros.
-

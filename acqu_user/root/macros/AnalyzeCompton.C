@@ -4,8 +4,9 @@
 // Usage from ROOT:
 //   root -l -q 'root/macros/AnalyzeCompton.C("output/Acqu_input.root")'
 //
-// The input file must contain the event-synchronous trees "tracks" and
-// "mcTruth". Angles in the input and output are expressed in degrees.
+// The input file must contain the event-synchronous trees "tracks", "tagger"
+// and "mcTruth", as well as "setupParameters". Angles in the input and output
+// are expressed in degrees.
 
 #include "TFile.h"
 #include "TH1D.h"
@@ -23,7 +24,18 @@ void AnalyzeCompton(const char* inputFileName,
 {
   const Int_t kMaxTracks = 128;
   const Int_t kMaxMCParticles = 512;
+  const Int_t kMaxTaggerHits = 1024;
+  const Int_t kMaxTaggerChannels = 1024;
   const Double_t M3He = 2808.3916; // He-3 nuclear mass in MeV
+  const Double_t acceleratorBeamEnergy = 855.0; // MeV
+
+//  const Double_t M3He = 3727.4; // He-3 nuclear mass in MeV
+
+
+  std::cout << "Target Mass: " << M3He << std::endl;
+
+
+
 
   TFile* inputFile = TFile::Open(inputFileName, "READ");
   if(!inputFile || inputFile->IsZombie())
@@ -34,10 +46,14 @@ void AnalyzeCompton(const char* inputFileName,
     }
 
   TTree* tracks = dynamic_cast<TTree*>(inputFile->Get("tracks"));
+  TTree* tagger = dynamic_cast<TTree*>(inputFile->Get("tagger"));
   TTree* mcTruth = dynamic_cast<TTree*>(inputFile->Get("mcTruth"));
-  if(!tracks || !mcTruth)
+  TTree* setupParameters =
+    dynamic_cast<TTree*>(inputFile->Get("setupParameters"));
+  if(!tracks || !tagger || !mcTruth || !setupParameters)
     {
-      std::cerr << "Trees 'tracks' and/or 'mcTruth' not found in "
+      std::cerr << "Trees 'tracks', 'tagger', 'mcTruth' and/or "
+                   "'setupParameters' not found in "
                 << inputFileName << std::endl;
       inputFile->Close();
       delete inputFile;
@@ -48,7 +64,10 @@ void AnalyzeCompton(const char* inputFileName,
   Double_t clusterEnergy[kMaxTracks] = {0.0};
   Double_t theta[kMaxTracks] = {0.0};
   Double_t phi[kMaxTracks] = {0.0};
-  Float_t beam[5] = {0.0};
+  Int_t nTagged = 0;
+  Int_t taggedChannel[kMaxTaggerHits] = {0};
+  Int_t nTagger = 0;
+  Double_t taggerElectronEnergy[kMaxTaggerChannels] = {0.0};
   Int_t npart = 0;
   Float_t plab[kMaxMCParticles] = {0.0};
   Float_t klab[kMaxMCParticles] = {0.0};
@@ -58,16 +77,38 @@ void AnalyzeCompton(const char* inputFileName,
   tracks->SetBranchAddress("clusterEnergy", clusterEnergy);
   tracks->SetBranchAddress("theta", theta);
   tracks->SetBranchAddress("phi", phi);
-  mcTruth->SetBranchAddress("beam", beam);
+  tagger->SetBranchAddress("nTagged", &nTagged);
+  tagger->SetBranchAddress("taggedChannel", taggedChannel);
+  setupParameters->SetBranchAddress("nTagger", &nTagger);
+  setupParameters->SetBranchAddress("TaggerElectronEnergy",
+                                    taggerElectronEnergy);
   mcTruth->SetBranchAddress("npart", &npart);
   mcTruth->SetBranchAddress("plab", plab);
   mcTruth->SetBranchAddress("klab", klab);
   mcTruth->SetBranchAddress("dircos", dircos);
 
-  if(tracks->GetEntries() != mcTruth->GetEntries())
+  if(setupParameters->GetEntries() < 1)
     {
-      std::cerr << "Trees 'tracks' and 'mcTruth' have different numbers of entries"
+      std::cerr << "Tree 'setupParameters' is empty" << std::endl;
+      inputFile->Close();
+      delete inputFile;
+      return;
+    }
+  setupParameters->GetEntry(0);
+  if(nTagger <= 0 || nTagger > kMaxTaggerChannels)
+    {
+      std::cerr << "Invalid number of tagger channels: " << nTagger
                 << std::endl;
+      inputFile->Close();
+      delete inputFile;
+      return;
+    }
+
+  if(tracks->GetEntries() != tagger->GetEntries() ||
+     tracks->GetEntries() != mcTruth->GetEntries())
+    {
+      std::cerr << "Trees 'tracks', 'tagger' and 'mcTruth' have different "
+                   "numbers of entries" << std::endl;
       inputFile->Close();
       delete inputFile;
       return;
@@ -152,18 +193,22 @@ void AnalyzeCompton(const char* inputFileName,
   for(Long64_t entry = 0; entry < nEntries; ++entry)
     {
       tracks->GetEntry(entry);
+      tagger->GetEntry(entry);
       mcTruth->GetEntry(entry);
       if(nTracks != 1)
         continue;
+      if(nTagged < 0 || nTagged > kMaxTaggerHits)
+        {
+          std::cerr << "Invalid tagger multiplicity " << nTagged
+                    << " in entry " << entry << std::endl;
+          continue;
+        }
 
       // GoAT stores angles in degrees. For a photon |p| = E.
       const Double_t thetaRad = theta[0] * TMath::DegToRad();
       const Double_t phiRad = phi[0] * TMath::DegToRad();
       energyMeasured = clusterEnergy[0];
       thetaMeasured = theta[0];
-      // Geant stores beam[3] in GeV, whereas GoAT cluster energies and M3He
-      // are expressed in MeV.
-      beamEnergy = 1000.0 * beam[3];
       const Double_t pSinTheta = energyMeasured * TMath::Sin(thetaRad);
 
       gamma.SetPxPyPzE(pSinTheta * TMath::Cos(phiRad),
@@ -173,7 +218,7 @@ void AnalyzeCompton(const char* inputFileName,
 
       // thetaKin uses the measured photon energy; energyKin uses its measured
       // angle. Both expressions require energies in the same units as M3He.
-      if(energyMeasured <= 0.0 || beamEnergy <= 0.0)
+      if(energyMeasured <= 0.0)
         continue;
 
       // Locate the generated photon using E = |p|. Geant stores plab in
@@ -205,25 +250,44 @@ void AnalyzeCompton(const char* inputFileName,
 //        continue;
 
 //      thetaKin = TMath::ACos(acosArgument) * TMath::RadToDeg();
-      energyKin = M3He * beamEnergy /
-        (M3He + beamEnergy * (1.0 - TMath::Cos(thetaRad)));
-      deltaEnergy = energyMeasured - energyKin;
       deltaEnergyMCTrue = energyMeasured - energyMCTrue;
-      deltaTheta = thetaMeasured - thetaKin;
       deltaThetaMCTrue = thetaMeasured - thetaMCTrue;
 
-      sourceEntry = entry;
-      gammaTree.Fill();
-      hEnergyComparison.Fill(energyKin, energyMeasured);
-      hThetaComparison.Fill(thetaKin, thetaMeasured);
-      hDeltaEnergy.Fill(deltaEnergy);
-      hEnergyMeasuredVsMCTrue.Fill(energyMCTrue, energyMeasured);
-      hDeltaEnergyMCTrue.Fill(deltaEnergyMCTrue);
-      hDeltaTheta.Fill(deltaTheta);
-      hThetaMeasuredVsMCTrue.Fill(thetaMCTrue, thetaMeasured);
-      hThetaKinVsMCTrue.Fill(thetaMCTrue, thetaKin);
-      hDeltaThetaMCTrue.Fill(deltaThetaMCTrue);
-      ++nSelected;
+      for(Int_t i = 0; i < nTagged; ++i)
+        {
+          const Int_t channel = taggedChannel[i];
+          if(channel < 0 || channel >= nTagger)
+            continue;
+
+          beamEnergy = acceleratorBeamEnergy - taggerElectronEnergy[channel];
+          if(beamEnergy <= 0.0)
+            continue;
+
+          energyKin = M3He * beamEnergy /
+            (M3He + beamEnergy * (1.0 - TMath::Cos(thetaRad)));
+          deltaEnergy = energyMeasured - energyKin;
+
+          const Double_t acosArgument =
+            1.0 - M3He * (1.0 / energyMeasured - 1.0 / beamEnergy);
+          if(acosArgument >= -1.0 && acosArgument <= 1.0)
+            thetaKin = TMath::ACos(acosArgument) * TMath::RadToDeg();
+          else
+            thetaKin = std::numeric_limits<Double_t>::quiet_NaN();
+          deltaTheta = thetaMeasured - thetaKin;
+
+          sourceEntry = entry;
+          gammaTree.Fill();
+          hEnergyComparison.Fill(energyKin, energyMeasured);
+          hThetaComparison.Fill(thetaKin, thetaMeasured);
+          hDeltaEnergy.Fill(deltaEnergy);
+          hEnergyMeasuredVsMCTrue.Fill(energyMCTrue, energyMeasured);
+          hDeltaEnergyMCTrue.Fill(deltaEnergyMCTrue);
+          hDeltaTheta.Fill(deltaTheta);
+          hThetaMeasuredVsMCTrue.Fill(thetaMCTrue, thetaMeasured);
+          hThetaKinVsMCTrue.Fill(thetaMCTrue, thetaKin);
+          hDeltaThetaMCTrue.Fill(deltaThetaMCTrue);
+          ++nSelected;
+        }
     }
 
   outputFile.cd();

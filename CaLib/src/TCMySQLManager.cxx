@@ -83,19 +83,20 @@ TCMySQLManager::TCMySQLManager()
         return;
     }
 
-    // open connection to MySQL server on localhost
+    // ROOT uses the mysql:// protocol and RMySQL plugin for both MySQL and
+    // protocol-compatible MariaDB servers.
     Char_t szMySQL[200];
     sprintf(szMySQL, "mysql://%s/%s", strDBHost->Data(), strDBName->Data());
     fDB = TSQLServer::Connect(szMySQL, strDBUser->Data(), strDBPass->Data());
     if (!fDB)
     {
-        if (!fSilence) Error("TCMySQLManager", "Cannot connect to the database '%s' on '%s@%s'!",
+        if (!fSilence) Error("TCMySQLManager", "Cannot connect to the MySQL/MariaDB database '%s' on '%s@%s'!",
                strDBName->Data(), strDBUser->Data(), strDBHost->Data());
         return;
     }
     else if (fDB->IsZombie())
     {
-        if (!fSilence) Error("TCMySQLManager", "Cannot connect to the database '%s' on '%s@%s'!",
+        if (!fSilence) Error("TCMySQLManager", "Cannot connect to the MySQL/MariaDB database '%s' on '%s@%s'!",
                strDBName->Data(), strDBUser->Data(), strDBHost->Data());
         return;
     }

@@ -53,7 +53,11 @@ Branch:   klab          2048
 #ROOT file(s) (GEANT4 output) to be analysed. Add more lines for more files
 #
 # TreeFile:  /home/ostrick/Work/TPC/Geantout/Geant-Output-3He-breakup.root
- TreeFile:  /home/ostrick/Work/TPC/Geantout/Geant-Output-3He.root
+# TreeFile:  /home/ostrick/Work/TPC/Geantout/Geant-Output-3He.root
+#TreeFile:  /home/ostrick/Work/TPC/Geantout/Geant-Output-4He.root
+#TreeFile:  /home/ostrick/Work/TPC/Geantout/Geant-Output-4He-dd.root
+# TreeFile:  /home/ostrick/Work/TPC/Geantout/alphapi0.root
+TreeFile:  /home/ostrick/Work/Geant/out/Geant-Output-3He-Compton-qf.root
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #

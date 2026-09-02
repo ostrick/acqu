@@ -63,7 +63,8 @@ Directory:   ./output
 Analysis: TA2UserAnalysis
 ##
 ## Analysis setup file
-AnalysisSetup: Analysis-CBTagg-Goat.dat
+##AnalysisSetup: Analysis-CBTagg-Goat.dat
+AnalysisSetup: Analysis-CBTagg-Calib.dat
 ##
 ## Specify non-clearing scalers
 #ScalerNoClear: 12 139

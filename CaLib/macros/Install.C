@@ -12,6 +12,8 @@
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
+#include "../include/TCMySQLManager.h"
+
 
 //______________________________________________________________________________
 void Install()
@@ -20,8 +22,13 @@ void Install()
     gSystem->Load("libCaLib.so");
  
     // install CaLib
-    TCMySQLManager::GetManager()->InitDatabase();
+    TCMySQLManager* manager = TCMySQLManager::GetManager();
+    if (!manager)
+    {
+        Error("Install", "Could not connect to the configured database; database was not modified");
+        return;
+    }
+    manager->InitDatabase();
     
     gSystem->Exit(0);
 }
-

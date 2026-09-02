@@ -8,7 +8,7 @@ Reconstruct:
 # CaLib configuration
 #
 # General:      dbhost			 dbname		    dbuser      dbpass        calibration
-Use-CaLib:      localhost  CaLib_2013_10_Present     calib       basel10    	      2022-11_Recoil_Pol
+# Use-CaLib:      localhost  CaLib_2013_10_Present     calib       basel10    	      2022-11_Recoil_Pol
 #
 # miscellaneous calibrations    # target position  (0=off/1=on)
 # tagger calib:     time    efficiency (0=off/1=on)
@@ -60,13 +60,13 @@ CaLib-CB-Time: 1
 #CaLib-TAPS-LED: 1
 
 # PID Phi calibration
-CaLib-PID-Phi: 1
+# CaLib-PID-Phi: 1
 
 # PID energy calibration
-CaLib-PID-Energy: 1
+# CaLib-PID-Energy: 1
 
 # PID time calibration
-CaLib-PID-Time: 1
+# CaLib-PID-Time: 1
 
 # veto-crystal correlation
 #CaLib-Veto-Corr: 1

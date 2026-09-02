@@ -1,7 +1,7 @@
 ##############################################################################
 ##
 ##  	#events/run	Random seed	#runs
-Number-Throws: 	1000000		888888	     	1
+Number-Throws: 	50000		888888	     	1
 ##
 ##############################################################################
 ##
@@ -21,10 +21,9 @@ Number-Throws: 	1000000		888888	     	1
 Beam: 	22 		0.0 0.0 -500.
 #
 #P-Distr: Beam T-Dist      Uniform  0.642000 0.644000  2
-P-Distr: Beam T-Dist	1/x					0.140 0.700 280
-#P-Distr: Beam T-Dist      Uniform  0.207000 0.211000  2
+P-Distr: Beam T-Dist	1/x					0.08 0.140 240
 P-Distr: Beam Cos(Theta)  Uniform  0.999999999 1.0    2
-P-Distr: Beam Phi-Dist    Uniform  0.0 0.000001       2
+P-Distr: Beam Phi-Dist Uniform 0.0 6.283185307 100
 #
 ##
 ## Beam Kinetic Energy	Form					min max  #pts
@@ -40,7 +39,7 @@ P-Distr: Beam Phi-Dist    Uniform  0.0 0.000001       2
 ## Target parameters
 ##
 ##		PDG/M		Radius	Length	Center (x,y,z)
-Target:		1000020040		2.5	5.0	0.0 0.0 0.0
+Target:		1000020030		2.5	5.0	0.0 0.0 0.0
 #Target:		1000020040		0.01 0.01 0.0 0.0 0.0
 ##2212(proton)
 ##2112(neutron)
@@ -51,24 +50,22 @@ Target:		1000020040		2.5	5.0	0.0 0.0 0.0
 ##
 ## Intermediate state
 ##     		Name	PDG/M		Decay	Track	Parent	Opt
-Particle: Reaction	0.0		1	0	NULL	 Phase-Space
+Particle: Reaction	0.0		1	0	NULL	 Quasi-Free
 ##
 ## Reaction particles
 ##
-#Particle: 	QN	2112   		1	0	Reaction NULL
-#P-Distr: 	QN P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
-#Particle: 	N	0.938		0	0	Reaction NULL
-#
-Particle: Pi0		111		1	0	Reaction  Phase-Space
-Particle: alpha	1000020040	0	0	Reaction  NULL
-#Particle: Pi0bis	111		1	0	QN	NULL
+## QP is the intermediate gamma-proton system. It must be the first
+## daughter of Reaction; the deuteron spectator must be the second one.
+Particle: 	QP	2212   		1	0	Reaction Phase-Space
+P-Distr: 	QP P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
+## Elementary quasi-free reaction gamma p -> gamma p
+Particle: 	Gamma	22		0	1	QP NULL
+Particle: 	Proton	2212		0	1	QP NULL
 ##
-Particle: Gamma_1	  22	0	1	Pi0	NULL
-Particle: Gamma_2	  22	0	1	Pi0	NULL
+Particle: 	Spectator	1000010020	0	1	Reaction NULL
 ##
-#Particle: Gamma_1_b	  22	0	1	Pi0bis	NULL
-#Particle: Gamma_2_b	  22	0	1	Pi0bis	NULL
+
 ##############################################################################
 ##
 ##Tree-Output: ./MC-Tree
-Ntuple-Output: /home/ostrick/Work/AcquMC/AcquMC-Output/4He-pi0.root
+Ntuple-Output: ./AcquMC-Output/AcquMC-3He-Compton-qf

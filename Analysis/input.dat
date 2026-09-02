@@ -1,0 +1,9 @@
+# Time windows in ns; boundaries are excluded.
+prompt_min = 720
+prompt_max = 820
+random_min = 450
+random_max = 650
+random2_min = 850
+random2_max = 950
+# data files
+/home/ostrick/Work/2026/output_d/Acqu_CBTagg_31840.root
