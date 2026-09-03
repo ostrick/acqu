@@ -12,6 +12,8 @@
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
+R__LOAD_LIBRARY(libCaLib.so)
+
 
 class ButtonWindow;
 
@@ -28,6 +30,7 @@ class ButtonWindow : public TGMainFrame
 
 private:
     TGTextButton* fTB_Init;
+    TGTextButton* fTB_Write;
     TGTextButton* fTB_Prev;
     TGTextButton* fTB_Next;
     TGTextButton* fTB_Ignore;
@@ -35,6 +38,7 @@ private:
     TGTextButton* fTB_PrintChanges;
     TGTextButton* fTB_Goto;
     TGTextButton* fTB_DoAll;
+    TGTextButton* fTB_Stop;
     TGTextButton* fTB_Quit;
     TGComboBox* fCBox_Calibration;
     TGComboBox* fCBox_Module;
@@ -55,6 +59,14 @@ public:
     void DoPrev();
     void DoAll();
     void DoModulSelection(Int_t);
+    void EnableModuleSelection(Int_t);
+    void ReadRunsets(Int_t);
+    void StartModule();
+    void DoWrite();
+    void Print();
+    void PrintChanges();
+    void Quit();
+    void Stop();
 };
 
 
@@ -468,9 +480,6 @@ void CalibrateGUI()
 {
     // Main method.
 
-    // load CaLib
-    gSystem->Load("libCaLib.so");
-    
     // find CaLib modules
     CreateModuleList();
     
@@ -483,4 +492,3 @@ void CalibrateGUI()
     // Main method.
     gMainWindow = new ButtonWindow();
 }
-

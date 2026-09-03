@@ -29,16 +29,7 @@ Stream-Spec:	File	Mk2	0	524288	32	0	400
 ##		File Name	1st rec	Last rec
 #
 #File-Name:        CBTagg_30584.dat.xz         0       0
-File-Name:      CBTagg_31840.dat.xz           0       0
-#File-Name:      CBTagg_31841.dat.xz           0       0
-#File-Name:      CBTagg_31842.dat.xz           0       0
-#File-Name:      CBTagg_31843.dat.xz           0       0
-#File-Name:      CBTagg_31844.dat.xz           0       0
-#File-Name:      CBTagg_31845.dat.xz           0       0
-#File-Name:      CBTagg_31846.dat.xz           0       0
-#File-Name:      CBTagg_31847.dat.xz           0       0
-#File-Name:      CBTagg_31848.dat.xz           0       0
-#File-Name:      CBTagg_31849.dat.xz           0       0
+#File-Name:      CBTagg_31840.dat.xz           0       0
 ## END
 
 
@@ -57,3 +48,5 @@ File-Name:      CBTagg_31840.dat.xz           0       0
 
 
 
+
+File-Name: CBTagg_31842.dat.xz 0 0
