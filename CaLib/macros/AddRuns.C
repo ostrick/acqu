@@ -7,10 +7,12 @@ void AddRuns()
  
     // Adding the runfiles should be done by maintainers only!
     // add raw files to the database
-    const Char_t rawfilePath[]      = "/local/raid0/A2/rundata/2014-10_EPT_Prod";
-    const Char_t target[]           = "LH2";    
+
+    const Char_t rawfilePath[]      = "/rundata/2025-07_He";
+    const Char_t target[]           = "LHe4";
     TCMySQLManager::GetManager()->AddRunFiles(rawfilePath, target);
-    
+
+
     gSystem->Exit(0);
 }
 
