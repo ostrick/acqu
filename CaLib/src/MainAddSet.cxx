@@ -20,10 +20,11 @@ bool ParseInteger(const char* text, Int_t& value)
 
 int main(int argc, char** argv)
 {
-    if (argc != 5)
+    if (argc < 9)
     {
         std::cerr << "Usage: " << argv[0]
-                  << " SOURCE_SET FIRST_RUN LAST_RUN RAWFILE_PATH\n";
+                  << " SOURCE_SET FIRST_RUN LAST_RUN RAWFILE_PATH CALIBRATION"
+                     " DESCRIPTION TARGET TYPE [TYPE ...]\n";
         return 2;
     }
 
@@ -35,18 +36,10 @@ int main(int argc, char** argv)
         return 2;
     }
 
-    const Char_t calibration[] = "2025-Compton-4He";
-    const Char_t description[] = "Calibration of 2025 4He Beamtime";
-    const Char_t target[] = "LHe4";
-    const Char_t* types[] = {
-        "Type.Tagger.Time", "Type.CB.Time",
-        "Type.CB.Energy", "Type.PID.Time"
-    };
-
     TCMySQLManager* manager = TCMySQLManager::GetManager();
     if (!manager) return 1;
 
-    manager->AddRunFiles(argv[4], target, firstRun, lastRun);
+    manager->AddRunFiles(argv[4], argv[7], firstRun, lastRun);
     if (!manager->ContainsRun(firstRun) || !manager->ContainsRun(lastRun))
     {
         std::cerr << "Boundary runs " << firstRun << " and " << lastRun
@@ -55,8 +48,8 @@ int main(int argc, char** argv)
     }
 
     bool ok = true;
-    for (UInt_t i = 0; i < sizeof(types) / sizeof(types[0]); ++i)
-        if (!manager->CloneSet(types[i], calibration, description,
+    for (Int_t i = 8; i < argc; ++i)
+        if (!manager->CloneSet(argv[i], argv[5], argv[6],
                                sourceSet, firstRun, lastRun))
             ok = false;
 
