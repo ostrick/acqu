@@ -16,6 +16,8 @@
 #include "TCMySQLManager.h"
 #include "TMath.h"
 
+#include <vector>
+
 
 
 // init static class members
@@ -426,6 +428,13 @@ Bool_t TCMySQLManager::SearchRunEntry(Int_t run, const Char_t* name, Char_t* out
     delete res;
     
     return kTRUE;
+}
+
+//______________________________________________________________________________
+Bool_t TCMySQLManager::ContainsRun(Int_t run)
+{
+    Char_t value[256];
+    return SearchRunEntry(run, "run", value);
 }
 
 //______________________________________________________________________________
@@ -958,20 +967,35 @@ void TCMySQLManager::InitDatabase()
 }
 
 //______________________________________________________________________________
-void TCMySQLManager::AddRunFiles(const Char_t* path, const Char_t* target)
+void TCMySQLManager::AddRunFiles(const Char_t* path, const Char_t* target,
+                                 Int_t first_run, Int_t last_run)
 {
     // Look for raw ACQU files in 'path' and add all runs to the database
-    // using the target specifier 'target'.
+    // using the target specifier 'target'. If first_run and last_run are
+    // non-negative, only files inside that inclusive run range are added.
 
     // read the raw files
     TCReadACQU r(path);
     Int_t nRun = r.GetNFiles();
+    Int_t nSelected = 0;
+    for (Int_t i = 0; i < nRun; i++)
+    {
+        const Int_t run = r.GetFile(i)->GetRun();
+        if ((first_run >= 0 && run < first_run) ||
+            (last_run >= 0 && run > last_run)) continue;
+        nSelected++;
+    }
     
     // ask for user confirmation
     Char_t answer[256];
-    printf("\n%d runs were found in '%s'\n"
+    printf("\n%d of %d runs found in '%s' were selected\n"
            "They will be added to the database '%s' on '%s'\n", 
-           nRun, path, fDB->GetDB(), fDB->GetHost());
+           nSelected, nRun, path, fDB->GetDB(), fDB->GetHost());
+    if (!nSelected)
+    {
+        Warning("AddRunFiles", "No files in the requested run range were found");
+        return;
+    }
     printf("Are you sure to continue? (yes/no) : ");
     if(scanf("%s", answer));
     if (strcmp(answer, "yes")) 
@@ -985,6 +1009,8 @@ void TCMySQLManager::AddRunFiles(const Char_t* path, const Char_t* target)
     for (Int_t i = 0; i < nRun; i++)
     {
         TCACQUFile* f = r.GetFile(i);
+        if ((first_run >= 0 && f->GetRun() < first_run) ||
+            (last_run >= 0 && f->GetRun() > last_run)) continue;
         
         // prepare the insert query
         TString ins_query = TString::Format("INSERT INTO %s SET "
@@ -1702,6 +1728,11 @@ Bool_t TCMySQLManager::AddSet(const Char_t* type, const Char_t* calibration, con
 
     // get calibration type and data list
     TCCalibType* t = (TCCalibType*) fTypes->FindObject(type);
+    if (!t)
+    {
+        if (!fSilence) Error("AddSet", "Unknown calibration type '%s'", type);
+        return kFALSE;
+    }
     TList* data = t->GetData();
     
     // loop over calibration data of this calibration type
@@ -1710,10 +1741,62 @@ Bool_t TCMySQLManager::AddSet(const Char_t* type, const Char_t* calibration, con
     while ((d = (TCCalibData*)next()))
     {
         // add set
-        if (AddDataSet(d->GetName(), calibration, desc, first_run, last_run, par_array, 
-                       d->GetSize())) ret = kFALSE;
+        if (!AddDataSet(d->GetName(), calibration, desc, first_run, last_run, par_array,
+                        d->GetSize())) ret = kFALSE;
     }
 
+    return ret;
+}
+
+//______________________________________________________________________________
+Bool_t TCMySQLManager::CloneSet(const Char_t* type, const Char_t* calibration,
+                                const Char_t* desc, Int_t source_set,
+                                Int_t first_run, Int_t last_run)
+{
+    // Create a new runset for every data item belonging to 'type', using the
+    // parameters of 'source_set' as its initial values.
+
+    TCCalibType* t = (TCCalibType*) fTypes->FindObject(type);
+    if (!t)
+    {
+        if (!fSilence) Error("CloneSet", "Unknown calibration type '%s'", type);
+        return kFALSE;
+    }
+
+    // Validate and read every source first.  Thus a missing source set cannot
+    // leave a multi-table calibration type only partially cloned.
+    std::vector<std::vector<Double_t> > parameters;
+    TIter validate(t->GetData());
+    TCCalibData* d;
+    while ((d = (TCCalibData*) validate()))
+    {
+        if (source_set < 0 || source_set >= GetNsets(d->GetName(), calibration))
+        {
+            if (!fSilence)
+                Error("CloneSet", "Source set %d does not exist for '%s'",
+                      source_set, d->GetTitle());
+            return kFALSE;
+        }
+
+        parameters.push_back(std::vector<Double_t>(d->GetSize()));
+        std::vector<Double_t>& par = parameters.back();
+        if (!ReadParameters(d->GetName(), calibration, source_set,
+                            par.data(), d->GetSize()))
+        {
+            return kFALSE;
+        }
+    }
+
+    Bool_t ret = kTRUE;
+    TIter nextData(t->GetData());
+    UInt_t parameterIndex = 0;
+    while ((d = (TCCalibData*) nextData()))
+    {
+        std::vector<Double_t>& par = parameters[parameterIndex++];
+        if (!AddDataSet(d->GetName(), calibration, desc, first_run, last_run,
+                        par.data(), d->GetSize()))
+            ret = kFALSE;
+    }
     return ret;
 }
 

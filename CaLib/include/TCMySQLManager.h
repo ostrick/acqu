@@ -90,6 +90,7 @@ public:
     TList* GetAllTargets();
     
     Bool_t ContainsCalibration(const Char_t* calibration);
+    Bool_t ContainsRun(Int_t run);
 
     Int_t GetNsets(const Char_t* data, const Char_t* calibration);
     Int_t GetFirstRunOfSet(const Char_t* data, const Char_t* calibration, Int_t set);
@@ -122,13 +123,16 @@ public:
 
     Bool_t AddSet(const Char_t* type, const Char_t* calibration, const Char_t* desc,
                   Int_t first_run, Int_t last_run, Double_t par);
+    Bool_t CloneSet(const Char_t* type, const Char_t* calibration, const Char_t* desc,
+                    Int_t source_set, Int_t first_run, Int_t last_run);
     Bool_t RemoveSet(const Char_t* type, const Char_t* calibration, Int_t set);
     Bool_t SplitSet(const Char_t* type, const Char_t* calibration, Int_t set,
                     Int_t lastRunFirstSet);
     Bool_t MergeSets(const Char_t* type, const Char_t* calibration, 
                      Int_t set1, Int_t set2);
 
-    void AddRunFiles(const Char_t* path, const Char_t* target);
+    void AddRunFiles(const Char_t* path, const Char_t* target,
+                     Int_t first_run = -1, Int_t last_run = -1);
     void AddRun(Int_t run, const Char_t* target, const Char_t* desc);
     void AddCalibAR(CalibDetector_t det, const Char_t* calibFileAR,
                     const Char_t* calib, const Char_t* desc,
@@ -176,4 +180,3 @@ public:
 };
 
 #endif
-
