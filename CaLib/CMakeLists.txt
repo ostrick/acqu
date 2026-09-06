@@ -29,3 +29,6 @@ target_link_libraries("calib_manager" "lib${MOD}")
 
 add_executable("write_ar_calibration" "src/MainWriteARCalibration.cxx")
 target_link_libraries("write_ar_calibration" "lib${MOD}")
+
+add_executable("add_calib_sets" "src/MainAddSet.cxx")
+target_link_libraries("add_calib_sets" "lib${MOD}")
