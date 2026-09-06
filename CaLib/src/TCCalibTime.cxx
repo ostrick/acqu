@@ -156,7 +156,7 @@ void TCCalibTime::Fit(Int_t elem)
 	fFitFunc->SetLineColor(2);
 	
 	// get important parameter positions
-	Double_t fMean = fFitHisto->GetXaxis()->GetBinCenter(fFitHisto->GetMaximumBin());
+		Double_t fMean = fFitHisto->GetXaxis()->GetBinCenter(fFitHisto->GetMaximumBin());
 	Double_t max = fFitHisto->GetBinContent(fFitHisto->GetMaximumBin());
 
 	// configure fitting function
@@ -191,9 +191,9 @@ void TCCalibTime::Fit(Int_t elem)
         }
         if (this->InheritsFrom("TCCalibTaggerTime"))
         {
-            range = 5;
+            range = 20;
             factor = 10;
-	    fFitFunc->SetParLimits(4, 0.01, 2);                  
+		    fFitFunc->SetParLimits(4, 0.1, 10);
         }
 
         // first iteration

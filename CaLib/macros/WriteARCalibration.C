@@ -1,44 +1,36 @@
-// SVN Info: $Id$
-
-/*************************************************************************
- * Author: Dominik Werthmueller
- *************************************************************************/
-
-//////////////////////////////////////////////////////////////////////////
-//                                                                      //
-// WriteARCalibration.C                                                 //
-//                                                                      //
-// Write AcquRoot calibration files using CaLib.                        //
-//                                                                      //
-//////////////////////////////////////////////////////////////////////////
+// Export CaLib parameters without parsing the legacy CaLib dictionary in Cling.
+#include "TError.h"
+#include "TString.h"
+#include "TSystem.h"
 
 
 //______________________________________________________________________________
-void WriteARCalibration()
+void WriteARCalibration(const Char_t* calibration = "2025-Compton-4He",
+                        Int_t run = 31840,
+                        const Char_t* dataDir = "$CALIB/../acqu_user/data.2025",
+                        const Char_t* outputDir = "$CALIB/export/2025-Compton-4He")
 {
-    // load CaLib
-    gSystem->Load("libCaLib.so");
-    
-    // write tagger calibration file
-    TCWriteARCalib w(kDETECTOR_TAGG, "FP.dat");
-    w.Write("new_FP.dat", "LD2_Dec_07", 13840);
+    TString program = "$CALIB/../build/bin/write_ar_calibration";
+    gSystem->ExpandPathName(program);
+    if (gSystem->AccessPathName(program.Data(), kExecutePermission))
+    {
+        Error("WriteARCalibration",
+              "Exporter '%s' does not exist or is not executable. Rebuild AcquRoot first.",
+              program.Data());
+        return;
+    }
 
-    // write CB calibration file
-    TCWriteARCalib w1(kDETECTOR_CB, "NaI.dat");
-    w1.Write("new_NaI.dat", "LD2_Dec_07", 13840);
+    TString cal(calibration);
+    TString input(dataDir);
+    TString output(outputDir);
+    cal.ReplaceAll("'", "'\\''");
+    input.ReplaceAll("'", "'\\''");
+    output.ReplaceAll("'", "'\\''");
 
-    // write TAPS calibration file
-    TCWriteARCalib w2(kDETECTOR_TAPS, "BaF2.dat");
-    w2.Write("new_BaF2.dat", "LD2_Dec_07", 13090);
-
-    // write PID calibration file
-    TCWriteARCalib w3(kDETECTOR_PID, "PID.dat");
-    w3.Write("new_PID.dat", "LD2_Dec_07", 13840);
-
-    // write Veto calibration file
-    TCWriteARCalib w4(kDETECTOR_VETO, "Veto.dat");
-    w4.Write("new_Veto.dat", "LD2_Dec_07", 13840);
-
-    gSystem->Exit(0);
+    TString command = TString::Format("'%s' '%s' %d '%s' '%s'",
+                                      program.Data(), cal.Data(), run,
+                                      input.Data(), output.Data());
+    const Int_t status = gSystem->Exec(command.Data());
+    if (status != 0)
+        Error("WriteARCalibration", "Export failed (exit status %d)", status);
 }
-

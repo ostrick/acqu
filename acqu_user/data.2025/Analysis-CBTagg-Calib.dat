@@ -45,7 +45,7 @@ MultiADC:       3       5000    5351    30      30      30
 #
 # Moeller ADC channels, not really an ADC value!
 MultiADC:       3       8000    8800
-# speed TAPS readout bitpatterns
+# speed TAPS readout bitpatternsAc
 #MultiADC:       1       410    493
 #MultiADC:       1       10000    10100
 #

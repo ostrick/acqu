@@ -26,3 +26,6 @@ add_custom_command(TARGET "lib${MOD}" POST_BUILD
 # and we create the calib_manager
 add_executable("calib_manager" "src/Main${MOD}Manager.cxx" ${ADDITIONAL_FILES})
 target_link_libraries("calib_manager" "lib${MOD}")
+
+add_executable("write_ar_calibration" "src/MainWriteARCalibration.cxx")
+target_link_libraries("write_ar_calibration" "lib${MOD}")

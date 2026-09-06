@@ -346,6 +346,7 @@ private:
     TH2* fHCalib_Tagger_Time_Neut;                          // tagger + TAPS time vs tagger element for all TAPS element (neutral hits)
     TH2* fHCalib_Tagger_Time_Pi0;                           // tagger + TAPS time vs tagger element for all TAPS element (phi0 gammas)
     TH2* fHCalib_Tagger_Time_Ind;                           // tagger time, independent
+    TH2* fHCalib_Tagger_Time_Ind_First;                     // first tagger multihit time vs tagger element
     
     // ------------------------ Proton light attenuation correction ------------------------ 
     Int_t fCalib_Proton_Lt_Att;                             // Proton light attenuation correction
@@ -450,4 +451,3 @@ public:
 };
 
 #endif
-

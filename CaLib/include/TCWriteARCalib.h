@@ -38,11 +38,10 @@ public:
     TCWriteARCalib(CalibDetector_t det, const Char_t* templateFile);
     virtual ~TCWriteARCalib() { }
     
-    void Write(const Char_t* calibFile, 
-               const Char_t* calibration, Int_t run);
+    Bool_t Write(const Char_t* calibFile,
+                 const Char_t* calibration, Int_t run);
     
     ClassDef(TCWriteARCalib, 0) // AcquRoot calibration file writer
 };
 
 #endif
-

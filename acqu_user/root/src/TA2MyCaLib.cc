@@ -994,7 +994,10 @@ void TA2MyCaLib::PostInit()
 //        fHCalib_Tagger_Time_Ind  = new TH2F("CaLib_Tagger_Time_Ind", "CaLib_Tagger_Time_Ind;Tagger time [ns];Tagger element",
 //                                            2200, -500, 500, fNelemTAGG, 0, fNelemTAGG);
         fHCalib_Tagger_Time_Ind  = new TH2F("CaLib_Tagger_Time_Ind", "CaLib_Tagger_Time_Ind;Tagger time [ns];Tagger element",
-                                            20000, -500, 500, fNelemTAGG, 0, fNelemTAGG);
+                                            300, -400, 800, fNelemTAGG, 0, fNelemTAGG);
+        fHCalib_Tagger_Time_Ind_First = new TH2F("CaLib_Tagger_Time_Ind_First",
+                                                 "CaLib_Tagger_Time_Ind_First;First tagger time [ns];Tagger element",
+                                                 300, -400, 800, fNelemTAGG, 0, fNelemTAGG);
     }
 
     // prepare for proton light attenuation correction
@@ -2560,6 +2563,22 @@ void TA2MyCaLib::ReconstructPhysics()
     
     if (fCalib_Tagger_Time)
     {
+        // Fill only the first valid multihit time of every FPD element.  This
+        // uses the same hit and time arrays as the detector-level FPD_TimeOR
+        // histogram, unlike fTaggerPhotonTime which contains all multihits.
+        if (fLadder)
+        {
+            UInt_t nFirstHits = fLadder->GetNhits();
+            Int_t* firstHits = fLadder->GetHits();
+            Double_t* firstTimes = fLadder->GetTimeOR();
+
+            for (UInt_t i = 0; i < nFirstHits; i++)
+            {
+                if (IsBadTaggerChannel(firstHits[i])) continue;
+                fHCalib_Tagger_Time_Ind_First->Fill(firstTimes[i], firstHits[i]);
+            }
+        }
+
         // look for pi0 in combination with a proton
         // at least one photon has to be in TAPS
         Bool_t isPi0 = kFALSE;
