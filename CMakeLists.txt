@@ -69,11 +69,13 @@ if(ACQU_DAQ)
 endif()
 
 # check for external CaLib
-if(DEFINED ENV{CALIB})
-  message("-- Found external CaLib in " $ENV{CALIB})
-else()
-  add_subdirectory(CaLib)
-endif()
+#if(DEFINED ENV{CALIB})
+#  message("-- Found external CaLib in " $ENV{CALIB})
+#else()
+#  add_subdirectory(CaLib)
+#endif()
+
+add_subdirectory(CaLib)
 
 # finally, the main user part
 add_subdirectory(acqu_user)
