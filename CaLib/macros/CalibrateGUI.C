@@ -480,6 +480,26 @@ void CalibrateGUI()
 {
     // Main method.
 
+    // ROOT's classic GUI needs an X11 display. In particular, gClient may be
+    // null in SSH/remote sessions without X forwarding; constructing the
+    // TGMainFrame would then dereference a null pointer in the initializer.
+    const Char_t* display = gSystem->Getenv("DISPLAY");
+    if (gROOT->IsBatch() || !display || !display[0])
+    {
+        Error("CalibrateGUI",
+              "No graphical X11 display is available. Start ROOT without -b "
+              "in a session with X11 forwarding (for example ssh -Y host)." );
+        return;
+    }
+
+    if (!TGClient::Instance())
+    {
+        Error("CalibrateGUI",
+              "ROOT could not connect to X11 display '%s'. Check DISPLAY, "
+              "XAUTHORITY and the SSH X11 forwarding configuration.", display);
+        return;
+    }
+
     // find CaLib modules
     CreateModuleList();
     
