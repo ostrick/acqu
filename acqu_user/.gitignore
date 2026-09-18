@@ -7,11 +7,12 @@
 /output
 /batch
 /Thread*.txt
+/data/Thread*.txt
 *.log
 /result
 /evgen/
 /simfiles/
-
+/log
 # AcquRoot histogram files
 /histograms
 

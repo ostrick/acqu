@@ -16,7 +16,7 @@ Input-Streams:	1		524288		0
 ##
 ## Optional directory spec. If not specified File-Names must contain the full
 ## directory path
-File-Directory: /media/ostrick/INTENSO/rundata/
+File-Directory: /rundata/2025-07_He/
 ## Specify each input stream
 ## From disk file, ACQU (Mk1) format, save any output to file (save=1)
 ## Input data record length, Output data record length
@@ -28,17 +28,53 @@ Stream-Spec:	File	Mk2	0	524288	32	0	400
 ## Tagger test data files
 ##		File Name	1st rec	Last rec
 #
-#File-Name:        CBTagg_30584.dat.xz         0       0
-File-Name:      CBTagg_31840.dat.xz           0       0
-File-Name:      CBTagg_31841.dat.xz           0       0
-File-Name:      CBTagg_31842.dat.xz           0       0
-File-Name:      CBTagg_31843.dat.xz           0       0
-File-Name:      CBTagg_31844.dat.xz           0       0
-File-Name:      CBTagg_31845.dat.xz           0       0
-File-Name:      CBTagg_31846.dat.xz           0       0
-File-Name:      CBTagg_31847.dat.xz           0       0
-File-Name:      CBTagg_31848.dat.xz           0       0
-File-Name:      CBTagg_31849.dat.xz           0       0
+
+#File-Name:      CBTagg_31840.dat.xz           0       0
+#File-Name:      CBTagg_31841.dat.xz           0       0
+#File-Name:      CBTagg_31842.dat.xz           0       0
+#File-Name:      CBTagg_31843.dat.xz           0       0
+#File-Name:      CBTagg_31844.dat.xz           0       0
+#File-Name:      CBTagg_31845.dat.xz           0       0
+#File-Name:      CBTagg_31846.dat.xz           0       0
+#File-Name:      CBTagg_31847.dat.xz           0       0
+#File-Name:      CBTagg_31848.dat.xz           0       0
+#File-Name:      CBTagg_31849.dat.xz           0       0
+
+#File-Name:      CBTagg_31870.dat.xz           0       0
+#File-Name:      CBTagg_31871.dat.xz           0       0
+#File-Name:      CBTagg_31872.dat.xz           0       0
+#File-Name:      CBTagg_31873.dat.xz           0       0
+#File-Name:      CBTagg_31874.dat.xz           0       0
+#File-Name:      CBTagg_31875.dat.xz           0       0
+#File-Name:      CBTagg_31876.dat.xz           0       0
+#File-Name:      CBTagg_31877.dat.xz           0       0
+#File-Name:      CBTagg_31878.dat.xz           0       0
+#File-Name:      CBTagg_31879.dat.xz           0       0
+
+File-Name:      CBTagg_32330.dat.xz           0       0
+File-Name:      CBTagg_32331.dat.xz           0       0
+File-Name:      CBTagg_32332.dat.xz           0       0
+File-Name:      CBTagg_32333.dat.xz           0       0
+File-Name:      CBTagg_32334.dat.xz           0       0
+File-Name:      CBTagg_32335.dat.xz           0       0
+File-Name:      CBTagg_32336.dat.xz           0       0
+File-Name:      CBTagg_32337.dat.xz           0       0
+File-Name:      CBTagg_32338.dat.xz           0       0
+File-Name:      CBTagg_32339.dat.xz           0       0
+
+
+#File-Name:      CBTagg_32380.dat.xz           0       0
+#File-Name:      CBTagg_32381.dat.xz           0       0
+#File-Name:      CBTagg_32382.dat.xz           0       0
+#File-Name:      CBTagg_32383.dat.xz           0       0
+#File-Name:      CBTagg_32384.dat.xz           0       0
+#File-Name:      CBTagg_32385.dat.xz           0       0
+#File-Name:      CBTagg_32386.dat.xz           0       0
+#File-Name:      CBTagg_32387.dat.xz           0       0
+#File-Name:      CBTagg_32388.dat.xz           0       0
+#File-Name:      CBTagg_32389.dat.xz           0       0
+
+
 ## END
 
 
