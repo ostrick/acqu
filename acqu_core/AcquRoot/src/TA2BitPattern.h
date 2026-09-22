@@ -95,7 +95,7 @@ inline void TA2BitPattern::Decode( )
       for( j=0; j<EPatternADCsize; j++ ){
 	chan = pattlist[k++];
 	if( chan != ENullADC ){    // channel turned on
-	  if( (datum & 1) ){
+	  if( (datum & 1) && (nhits < fNelement[n]) ){
 	    hits[nhits++] = chan;
 	  }
 	}

@@ -38,6 +38,13 @@
 //
 
 #include "TA2Detector.h"
+
+#include <set>
+
+namespace
+{
+std::set<const TA2Detector*> gDetectorHitsEnabled;
+}
 #include "TA2Analysis.h"
 
 ClassImp(TA2Detector)
@@ -94,8 +101,15 @@ TA2Detector::TA2Detector(const char* name, TA2System* apparatus,
 //-----------------------------------------------------------------------------
 TA2Detector::~TA2Detector()
 {
+  gDetectorHitsEnabled.erase(this);
   // Free up allocated memory
   DeleteArrays();
+}
+
+//-----------------------------------------------------------------------------
+Bool_t TA2Detector::IsDetectorHits() const
+{
+  return gDetectorHitsEnabled.count(this) != 0;
 }
 
 //-----------------------------------------------------------------------------
@@ -277,6 +291,9 @@ void TA2Detector::SetConfig( char* line, int key )
     if( fIsTime ) fRawTimeHits = new Int_t[fNelement];
     if( fIsEnergy ) fRawEnergyHits = new Int_t[fNelement];
     fIsRawHits = ETrue;
+    break;
+  case EDetectorDetectorHits:
+    gDetectorHitsEnabled.insert(this);
     break;
   case EDetectorBitPattern:
     // Bit-pattern decode setup

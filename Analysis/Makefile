@@ -4,15 +4,17 @@ CXXFLAGS ?= -O2 -Wall -Wextra
 CXXFLAGS += -std=c++11 $(shell $(ROOT_CONFIG) --cflags)
 LDLIBS += $(shell $(ROOT_CONFIG) --libs)
 
-TARGET := analyze_miss_e
-SOURCES := main.cpp AnalyzeMissE.C
+TARGETS := analyze_miss_e analyze_pi0_goat
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: $(TARGETS)
 
-$(TARGET): $(SOURCES)
-	$(CXX) $(CXXFLAGS) $(SOURCES) -o $@ $(LDLIBS)
+analyze_miss_e: main.cpp AnalyzeMissE.C
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDLIBS)
+
+analyze_pi0_goat: Pi0FromGoAT.cpp
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDLIBS)
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(TARGETS)

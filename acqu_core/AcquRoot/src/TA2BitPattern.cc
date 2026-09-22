@@ -34,10 +34,19 @@ TA2BitPattern::TA2BitPattern( char* fname, UShort_t* adc ) :
 TA2BitPattern::~TA2BitPattern( )
 {
   // Free memory allocated for pattern arrays
-
-  if( fADCList ) delete fADCList;
-  if( fPatternList ) delete fPatternList;
-  if( fHits ) delete fHits;
+  for( Int_t i = 0; i < fNpat; i++ ){
+    delete[] fPatternName[i];
+    delete[] fADCList[i];
+    delete[] fPatternList[i];
+    delete[] fHits[i];
+  }
+  delete[] fPatternName;
+  delete[] fNADC;
+  delete[] fNelement;
+  delete[] fNHits;
+  delete[] fADCList;
+  delete[] fPatternList;
+  delete[] fHits;
 }
 
 //---------------------------------------------------------------------------
@@ -77,9 +86,15 @@ void TA2BitPattern::SetConfig( char* line, int key )
     }
     fPatternName[fNpat] = new Char_t[strlen(name) + 1];
     strcpy(fPatternName[fNpat],name);
+    if( (nadc <= 0) || (iadc <= 0) ){
+      PrintError(line,"<Invalid bit-pattern size>");
+      return;
+    }
     fADCList[fNpat] = new Int_t[nadc];
-    fPatternList[fNpat] = new Int_t[iadc];
-    fHits[fNpat] = new Int_t[iadc];
+    // Each ADC contributes 16 entries, including disabled (-1) bits.
+    fPatternList[fNpat] = new Int_t[nadc * EPatternADCsize];
+    // Reserve one additional entry for the EBufferEnd marker.
+    fHits[fNpat] = new Int_t[iadc + 1];
     fNADC[fNpat] = nadc;
     fNelement[fNpat] = iadc;
     fNpat++;
@@ -88,7 +103,7 @@ void TA2BitPattern::SetConfig( char* line, int key )
   case EPatternDatum:
     // parameters for each pattern ADC
     // input ADC index and 16 hit channel values..one for each bit of the ADC
-    if( fNpat > fNPattern ) return;
+    if( (fNpat <= 0) || (fNpat > fNPattern) ) return;
     if( sscanf( line,"%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d",&iadc,
 		ebit,   ebit+1, ebit+2, ebit+3,
 		ebit+4, ebit+5, ebit+6, ebit+7,
@@ -99,6 +114,12 @@ void TA2BitPattern::SetConfig( char* line, int key )
     }
     adclist = fADCList[fNpat-1];
     pattlist = fPatternList[fNpat-1];
+    if( (fNadc >= fNADC[fNpat-1]) ||
+        ((fNelem + EPatternADCsize) >
+         (fNADC[fNpat-1] * EPatternADCsize)) ){
+      PrintError(line,"<Too many bit-pattern ADC entries>");
+      return;
+    }
     adclist[fNadc++] = iadc;
     for( i=0; i<EPatternADCsize; i++ ){
       //      if( ebit[i] == ENullADC ) continue;
@@ -109,13 +130,19 @@ void TA2BitPattern::SetConfig( char* line, int key )
     // parameters for pattern ADCs...assume regular progression
     // input start ADC index, number of ADCs in +1 progression and
     // start hit channel...again regular +1 progression
-    if( fNpat > fNPattern ) return;
+    if( (fNpat <= 0) || (fNpat > fNPattern) ) return;
     if( (i = sscanf( line,"%d%d%d",&iadc,&nadc,ebit )) < 3 ){
       PrintError(line,"<Auto Bit-pattern ADC setup>");
       return;
     }
     adclist = fADCList[fNpat-1];
     pattlist = fPatternList[fNpat-1];
+    if( (nadc > (fNADC[fNpat-1] - fNadc)) ||
+        ((nadc * EPatternADCsize) >
+         (fNADC[fNpat-1] * EPatternADCsize - fNelem)) ){
+      PrintError(line,"<Too many automatic bit-pattern ADC entries>");
+      return;
+    }
     for( i=0; i<nadc; i++ ){
       adclist[fNadc] = iadc + i;
       for( j=0; j<EPatternADCsize; j++ ) pattlist[fNelem++] = ebit[0] + j;

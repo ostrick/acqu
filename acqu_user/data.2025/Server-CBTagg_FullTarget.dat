@@ -1,0 +1,332 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   13th Jan 2004
+##--Update	JRM Annand... 1st Dec 2004
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Parameter File: FPcommServer.Offline
+## Configuration file for DataServer (data input for analysis)
+##
+##-----------------------------------------------------------------------
+## Number of Input streams (sources of data), Record length to write data
+## and switch 0/1 = no/yes to control data write
+##              Number streams	Record Len	Save Data
+Input-Streams:	1		524288		0
+##
+## Optional directory spec. If not specified File-Names must contain the full
+## directory path
+File-Directory: /rundata/2025-07_He/
+## Specify each input stream
+## From disk file, ACQU (Mk1) format, save any output to file (save=1)
+## Input data record length, Output data record length
+##
+##            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	524288	32	0	400
+##
+## Now the list of data files to analyse
+## Tagger test data files
+##		File Name	1st rec	Last rec
+#
+
+
+File-Name:      CBTagg_31832.dat.xz        0       0
+File-Name:      CBTagg_31836.dat.xz        0       0
+File-Name:      CBTagg_31837.dat.xz        0       0
+File-Name:      CBTagg_31838.dat.xz        0       0
+File-Name:      CBTagg_31839.dat.xz        0       0
+File-Name:      CBTagg_31840.dat.xz           0       0
+File-Name:      CBTagg_31841.dat.xz        0       0
+File-Name:      CBTagg_31842.dat.xz        0       0
+File-Name:      CBTagg_31843.dat.xz        0       0
+File-Name:      CBTagg_31844.dat.xz        0       0
+File-Name:      CBTagg_31845.dat.xz        0       0
+File-Name:      CBTagg_31846.dat.xz        0       0
+File-Name:      CBTagg_31847.dat.xz        0       0
+File-Name:      CBTagg_31848.dat.xz        0       0
+File-Name:      CBTagg_31849.dat.xz        0       0
+File-Name:      CBTagg_31850.dat.xz        0       0
+File-Name:      CBTagg_31852.dat.xz        0       0
+File-Name:      CBTagg_31853.dat.xz        0       0
+File-Name:      CBTagg_31859.dat.xz        0       0
+File-Name:      CBTagg_31860.dat.xz        0       0
+File-Name:      CBTagg_31862.dat.xz        0       0
+File-Name:      CBTagg_31863.dat.xz        0       0
+File-Name:      CBTagg_31864.dat.xz        0       0
+File-Name:      CBTagg_31865.dat.xz        0       0
+File-Name:      CBTagg_31867.dat.xz        0       0
+File-Name:      CBTagg_31870.dat.xz        0       0
+File-Name:      CBTagg_31871.dat.xz        0       0
+File-Name:      CBTagg_31872.dat.xz        0       0
+File-Name:      CBTagg_31873.dat.xz        0       0
+File-Name:      CBTagg_31874.dat.xz        0       0
+File-Name:      CBTagg_31875.dat.xz        0       0
+File-Name:      CBTagg_31876.dat.xz        0       0
+File-Name:      CBTagg_31877.dat.xz        0       0
+File-Name:      CBTagg_31878.dat.xz        0       0
+File-Name:      CBTagg_31879.dat.xz        0       0
+File-Name:      CBTagg_31880.dat.xz        0       0
+File-Name:      CBTagg_31881.dat.xz        0       0
+File-Name:      CBTagg_31882.dat.xz        0       0
+File-Name:      CBTagg_31883.dat.xz        0       0
+File-Name:      CBTagg_31887.dat.xz        0       0
+File-Name:      CBTagg_31889.dat.xz        0       0
+File-Name:      CBTagg_31890.dat.xz        0       0
+File-Name:      CBTagg_31893.dat.xz        0       0
+File-Name:      CBTagg_31894.dat.xz        0       0
+File-Name:      CBTagg_31895.dat.xz        0       0
+File-Name:      CBTagg_31896.dat.xz        0       0
+File-Name:      CBTagg_31897.dat.xz        0       0
+File-Name:      CBTagg_31898.dat.xz        0       0
+File-Name:      CBTagg_31899.dat.xz        0       0
+File-Name:      CBTagg_31900.dat.xz        0       0
+File-Name:      CBTagg_31901.dat.xz        0       0
+File-Name:      CBTagg_31902.dat.xz        0       0
+File-Name:      CBTagg_31903.dat.xz        0       0
+File-Name:      CBTagg_31904.dat.xz        0       0
+File-Name:      CBTagg_31905.dat.xz        0       0
+File-Name:      CBTagg_31907.dat.xz        0       0
+File-Name:      CBTagg_31908.dat.xz        0       0
+File-Name:      CBTagg_31909.dat.xz        0       0
+File-Name:      CBTagg_31910.dat.xz        0       0
+File-Name:      CBTagg_31911.dat.xz        0       0
+File-Name:      CBTagg_31912.dat.xz        0       0
+File-Name:      CBTagg_31913.dat.xz        0       0
+File-Name:      CBTagg_31914.dat.xz        0       0
+File-Name:      CBTagg_31915.dat.xz        0       0
+File-Name:      CBTagg_31916.dat.xz        0       0
+File-Name:      CBTagg_31917.dat.xz        0       0
+File-Name:      CBTagg_32025.dat.xz        0       0
+File-Name:      CBTagg_32026.dat.xz        0       0
+File-Name:      CBTagg_32027.dat.xz        0       0
+File-Name:      CBTagg_32028.dat.xz        0       0
+File-Name:      CBTagg_32029.dat.xz        0       0
+File-Name:      CBTagg_32030.dat.xz        0       0
+File-Name:      CBTagg_32031.dat.xz        0       0
+File-Name:      CBTagg_32032.dat.xz        0       0
+File-Name:      CBTagg_32034.dat.xz        0       0
+File-Name:      CBTagg_32035.dat.xz        0       0
+File-Name:      CBTagg_32036.dat.xz        0       0
+File-Name:      CBTagg_32037.dat.xz        0       0
+File-Name:      CBTagg_32038.dat.xz        0       0
+File-Name:      CBTagg_32039.dat.xz        0       0
+File-Name:      CBTagg_32040.dat.xz        0       0
+File-Name:      CBTagg_32041.dat.xz        0       0
+File-Name:      CBTagg_32042.dat.xz        0       0
+File-Name:      CBTagg_32043.dat.xz        0       0
+File-Name:      CBTagg_32045.dat.xz        0       0
+File-Name:      CBTagg_32049.dat.xz        0       0
+File-Name:      CBTagg_32050.dat.xz        0       0
+File-Name:      CBTagg_32052.dat.xz        0       0
+File-Name:      CBTagg_32056.dat.xz        0       0
+File-Name:      CBTagg_32057.dat.xz        0       0
+File-Name:      CBTagg_32058.dat.xz        0       0
+File-Name:      CBTagg_32059.dat.xz        0       0
+File-Name:      CBTagg_32060.dat.xz        0       0
+File-Name:      CBTagg_32061.dat.xz        0       0
+File-Name:      CBTagg_32062.dat.xz        0       0
+File-Name:      CBTagg_32064.dat.xz        0       0
+File-Name:      CBTagg_32065.dat.xz        0       0
+File-Name:      CBTagg_32066.dat.xz        0       0
+File-Name:      CBTagg_32067.dat.xz        0       0
+File-Name:      CBTagg_32068.dat.xz        0       0
+File-Name:      CBTagg_32069.dat.xz        0       0
+File-Name:      CBTagg_32070.dat.xz        0       0
+File-Name:      CBTagg_32071.dat.xz        0       0
+File-Name:      CBTagg_32072.dat.xz        0       0
+File-Name:      CBTagg_32074.dat.xz        0       0
+File-Name:      CBTagg_32076.dat.xz        0       0
+File-Name:      CBTagg_32081.dat.xz        0       0
+File-Name:      CBTagg_32083.dat.xz        0       0
+File-Name:      CBTagg_32084.dat.xz        0       0
+File-Name:      CBTagg_32085.dat.xz        0       0
+File-Name:      CBTagg_32086.dat.xz        0       0
+File-Name:      CBTagg_32087.dat.xz        0       0
+File-Name:      CBTagg_32088.dat.xz        0       0
+File-Name:      CBTagg_32091.dat.xz        0       0
+File-Name:      CBTagg_32093.dat.xz        0       0
+File-Name:      CBTagg_32094.dat.xz        0       0
+File-Name:      CBTagg_32096.dat.xz        0       0
+File-Name:      CBTagg_32098.dat.xz        0       0
+File-Name:      CBTagg_32099.dat.xz        0       0
+File-Name:      CBTagg_32100.dat.xz        0       0
+File-Name:      CBTagg_32103.dat.xz        0       0
+File-Name:      CBTagg_32104.dat.xz        0       0
+File-Name:      CBTagg_32105.dat.xz        0       0
+File-Name:      CBTagg_32106.dat.xz        0       0
+File-Name:      CBTagg_32107.dat.xz        0       0
+File-Name:      CBTagg_32111.dat.xz        0       0
+File-Name:      CBTagg_32112.dat.xz        0       0
+File-Name:      CBTagg_32116.dat.xz        0       0
+File-Name:      CBTagg_32117.dat.xz        0       0
+File-Name:      CBTagg_32118.dat.xz        0       0
+File-Name:      CBTagg_32120.dat.xz        0       0
+File-Name:      CBTagg_32122.dat.xz        0       0
+File-Name:      CBTagg_32123.dat.xz        0       0
+File-Name:      CBTagg_32124.dat.xz        0       0
+File-Name:      CBTagg_32125.dat.xz        0       0
+File-Name:      CBTagg_32126.dat.xz        0       0
+File-Name:      CBTagg_32128.dat.xz        0       0
+File-Name:      CBTagg_32129.dat.xz        0       0
+File-Name:      CBTagg_32133.dat.xz        0       0
+File-Name:      CBTagg_32134.dat.xz        0       0
+File-Name:      CBTagg_32135.dat.xz        0       0
+File-Name:      CBTagg_32138.dat.xz        0       0
+File-Name:      CBTagg_32142.dat.xz        0       0
+File-Name:      CBTagg_32144.dat.xz        0       0
+File-Name:      CBTagg_32145.dat.xz        0       0
+File-Name:      CBTagg_32146.dat.xz        0       0
+File-Name:      CBTagg_32150.dat.xz        0       0
+File-Name:      CBTagg_32151.dat.xz        0       0
+File-Name:      CBTagg_32152.dat.xz        0       0
+File-Name:      CBTagg_32153.dat.xz        0       0
+File-Name:      CBTagg_32154.dat.xz        0       0
+File-Name:      CBTagg_32155.dat.xz        0       0
+File-Name:      CBTagg_32158.dat.xz        0       0
+File-Name:      CBTagg_32160.dat.xz        0       0
+File-Name:      CBTagg_32162.dat.xz        0       0
+File-Name:      CBTagg_32163.dat.xz        0       0
+File-Name:      CBTagg_32164.dat.xz        0       0
+File-Name:      CBTagg_32166.dat.xz        0       0
+File-Name:      CBTagg_32170.dat.xz        0       0
+File-Name:      CBTagg_32171.dat.xz        0       0
+File-Name:      CBTagg_32173.dat.xz        0       0
+File-Name:      CBTagg_32174.dat.xz        0       0
+File-Name:      CBTagg_32175.dat.xz        0       0
+File-Name:      CBTagg_32176.dat.xz        0       0
+File-Name:      CBTagg_32177.dat.xz        0       0
+File-Name:      CBTagg_32181.dat.xz        0       0
+File-Name:      CBTagg_32182.dat.xz        0       0
+File-Name:      CBTagg_32183.dat.xz        0       0
+File-Name:      CBTagg_32184.dat.xz        0       0
+File-Name:      CBTagg_32185.dat.xz        0       0
+File-Name:      CBTagg_32186.dat.xz        0       0
+File-Name:      CBTagg_32187.dat.xz        0       0
+File-Name:      CBTagg_32188.dat.xz        0       0
+File-Name:      CBTagg_32189.dat.xz        0       0
+File-Name:      CBTagg_32190.dat.xz        0       0
+File-Name:      CBTagg_32191.dat.xz        0       0
+File-Name:      CBTagg_32192.dat.xz        0       0
+File-Name:      CBTagg_32193.dat.xz        0       0
+File-Name:      CBTagg_32194.dat.xz        0       0
+File-Name:      CBTagg_32195.dat.xz        0       0
+File-Name:      CBTagg_32196.dat.xz        0       0
+File-Name:      CBTagg_32197.dat.xz        0       0
+File-Name:      CBTagg_32198.dat.xz        0       0
+File-Name:      CBTagg_32199.dat.xz        0       0
+File-Name:      CBTagg_32200.dat.xz        0       0
+File-Name:      CBTagg_32203.dat.xz        0       0
+File-Name:      CBTagg_32204.dat.xz        0       0
+File-Name:      CBTagg_32208.dat.xz        0       0
+File-Name:      CBTagg_32209.dat.xz        0       0
+File-Name:      CBTagg_32211.dat.xz        0       0
+File-Name:      CBTagg_32215.dat.xz        0       0
+File-Name:      CBTagg_32216.dat.xz        0       0
+File-Name:      CBTagg_32219.dat.xz        0       0
+File-Name:      CBTagg_32220.dat.xz        0       0
+File-Name:      CBTagg_32222.dat.xz        0       0
+File-Name:      CBTagg_32224.dat.xz        0       0
+File-Name:      CBTagg_32225.dat.xz        0       0
+File-Name:      CBTagg_32226.dat.xz        0       0
+File-Name:      CBTagg_32229.dat.xz        0       0
+File-Name:      CBTagg_32230.dat.xz        0       0
+File-Name:      CBTagg_32231.dat.xz        0       0
+File-Name:      CBTagg_32233.dat.xz        0       0
+File-Name:      CBTagg_32234.dat.xz        0       0
+File-Name:      CBTagg_32235.dat.xz        0       0
+File-Name:      CBTagg_32236.dat.xz        0       0
+File-Name:      CBTagg_32237.dat.xz        0       0
+File-Name:      CBTagg_32238.dat.xz        0       0
+File-Name:      CBTagg_32240.dat.xz        0       0
+File-Name:      CBTagg_32242.dat.xz        0       0
+File-Name:      CBTagg_32245.dat.xz        0       0
+File-Name:      CBTagg_32249.dat.xz        0       0
+File-Name:      CBTagg_32250.dat.xz        0       0
+File-Name:      CBTagg_32251.dat.xz        0       0
+File-Name:      CBTagg_32252.dat.xz        0       0
+File-Name:      CBTagg_32254.dat.xz        0       0
+File-Name:      CBTagg_32255.dat.xz        0       0
+File-Name:      CBTagg_32256.dat.xz        0       0
+File-Name:      CBTagg_32259.dat.xz        0       0
+File-Name:      CBTagg_32260.dat.xz        0       0
+File-Name:      CBTagg_32262.dat.xz        0       0
+File-Name:      CBTagg_32264.dat.xz        0       0
+File-Name:      CBTagg_32265.dat.xz        0       0
+File-Name:      CBTagg_32266.dat.xz        0       0
+File-Name:      CBTagg_32267.dat.xz        0       0
+File-Name:      CBTagg_32268.dat.xz        0       0
+File-Name:      CBTagg_32269.dat.xz        0       0
+File-Name:      CBTagg_32270.dat.xz        0       0
+File-Name:      CBTagg_32271.dat.xz        0       0
+File-Name:      CBTagg_32272.dat.xz        0       0
+File-Name:      CBTagg_32273.dat.xz        0       0
+File-Name:      CBTagg_32274.dat.xz        0       0
+File-Name:      CBTagg_32275.dat.xz        0       0
+File-Name:      CBTagg_32276.dat.xz        0       0
+File-Name:      CBTagg_32277.dat.xz        0       0
+File-Name:      CBTagg_32280.dat.xz        0       0
+File-Name:      CBTagg_32286.dat.xz        0       0
+File-Name:      CBTagg_32287.dat.xz        0       0
+File-Name:      CBTagg_32288.dat.xz        0       0
+File-Name:      CBTagg_32289.dat.xz        0       0
+File-Name:      CBTagg_32290.dat.xz        0       0
+File-Name:      CBTagg_32291.dat.xz        0       0
+File-Name:      CBTagg_32294.dat.xz        0       0
+File-Name:      CBTagg_32295.dat.xz        0       0
+File-Name:      CBTagg_32296.dat.xz        0       0
+File-Name:      CBTagg_32297.dat.xz        0       0
+File-Name:      CBTagg_32298.dat.xz        0       0
+File-Name:      CBTagg_32301.dat.xz        0       0
+File-Name:      CBTagg_32302.dat.xz        0       0
+File-Name:      CBTagg_32303.dat.xz        0       0
+File-Name:      CBTagg_32304.dat.xz        0       0
+File-Name:      CBTagg_32305.dat.xz        0       0
+File-Name:      CBTagg_32306.dat.xz        0       0
+File-Name:      CBTagg_32307.dat.xz        0       0
+File-Name:      CBTagg_32308.dat.xz        0       0
+File-Name:      CBTagg_32309.dat.xz        0       0
+File-Name:      CBTagg_32310.dat.xz        0       0
+File-Name:      CBTagg_32311.dat.xz        0       0
+File-Name:      CBTagg_32315.dat.xz        0       0
+File-Name:      CBTagg_32316.dat.xz        0       0
+File-Name:      CBTagg_32317.dat.xz        0       0
+File-Name:      CBTagg_32320.dat.xz        0       0
+File-Name:      CBTagg_32321.dat.xz        0       0
+File-Name:      CBTagg_32322.dat.xz        0       0
+File-Name:      CBTagg_32323.dat.xz        0       0
+File-Name:      CBTagg_32327.dat.xz        0       0
+File-Name:      CBTagg_32328.dat.xz        0       0
+File-Name:      CBTagg_32330.dat.xz        0       0
+File-Name:      CBTagg_32331.dat.xz        0       0
+File-Name:      CBTagg_32332.dat.xz        0       0
+File-Name:      CBTagg_32333.dat.xz        0       0
+File-Name:      CBTagg_32334.dat.xz        0       0
+File-Name:      CBTagg_32335.dat.xz        0       0
+File-Name:      CBTagg_32336.dat.xz        0       0
+File-Name:      CBTagg_32337.dat.xz        0       0
+File-Name:      CBTagg_32338.dat.xz        0       0
+File-Name:      CBTagg_32339.dat.xz        0       0
+File-Name:      CBTagg_32340.dat.xz        0       0
+File-Name:      CBTagg_32341.dat.xz        0       0
+File-Name:      CBTagg_32342.dat.xz        0       0
+File-Name:      CBTagg_32344.dat.xz        0       0
+File-Name:      CBTagg_32345.dat.xz        0       0
+
+## END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

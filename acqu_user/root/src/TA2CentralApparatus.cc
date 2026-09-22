@@ -549,11 +549,12 @@ void TA2CentralApparatus::PostInit()
   // ParticleInfo
   fMaxParticle = fMaxTrack;
   fParticleInfo = new TA2Particle[fMaxParticle];
-  fType = new Int_t[fMaxParticle];
-  fDet = new Int_t[fMaxParticle];
-  fSize = new Int_t[fMaxParticle];
-  fCentral = new Int_t[fMaxParticle];
-  fTime = new Double_t[fMaxParticle];
+  // MarkEndBuffers writes one sentinel after the last real particle.
+  fType = new Int_t[fMaxParticle + 1];
+  fDet = new Int_t[fMaxParticle + 1];
+  fSize = new Int_t[fMaxParticle + 1];
+  fCentral = new Int_t[fMaxParticle + 1];
+  fTime = new Double_t[fMaxParticle + 1];
   
   // Finally call the default apparatus post initialise
   TA2Apparatus::PostInit();

@@ -48,7 +48,7 @@
 enum { 
   EDetectorSize, EDetectorElement,EDetectorAllElement, EDetectorInit,
   EDetectorDisplay, EDetectorDataCut, EDetectorTimeWalk, EDetectorAllTimeWalk,
-  EDetectorRawHits, EDetectorBitPattern, EDetectorPeriod,
+  EDetectorRawHits, EDetectorDetectorHits, EDetectorBitPattern, EDetectorPeriod,
   EDetectorEndOfFile, EDetectorFinish, EDetectorEnergyScale,
   EDetectorEnergyRandom, EDetectorShiftCoord, EDetectorMultihit,
   EDetectorEnergy, EDetectorTime, EDetectorHits, EDetectorMulti,
@@ -72,6 +72,7 @@ static const Map_t kDetectorDefaultKeys[] = {
   {"TimeWalk:",     EDetectorTimeWalk},
   {"AllTimeWalk:",  EDetectorAllTimeWalk},
   {"RawHits:",      EDetectorRawHits},
+  {"DetectorHits:", EDetectorDetectorHits},
   {"BitPattern:",   EDetectorBitPattern},
   {"Period:",       EDetectorPeriod},
   {"EndFile:",      EDetectorEndOfFile},
@@ -194,6 +195,7 @@ public:
   Bool_t IsTime(){ return fIsTime; }
   Bool_t IsPos(){ return fIsPos; }
   Bool_t IsRawHits(){ return fIsRawHits; }
+  Bool_t IsDetectorHits() const;
  
   void SetEnergyScale(Double_t s) { fEnergyScale = s; }
 

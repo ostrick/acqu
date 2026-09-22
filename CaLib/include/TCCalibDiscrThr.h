@@ -22,6 +22,7 @@
 #include "TMath.h"
 
 #include "TCCalib.h"
+#include "TCConfig.h"
 #include "TCFileManager.h"
 
 
@@ -124,4 +125,3 @@ public:
 };
 
 #endif
-

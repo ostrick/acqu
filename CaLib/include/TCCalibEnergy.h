@@ -21,6 +21,7 @@
 #include "TIndicatorLine.h"
 
 #include "TCCalib.h"
+#include "TCConfig.h"
 #include "TCFileManager.h"
 
 #include "a2display.h"
@@ -96,4 +97,3 @@ public:
 };
 
 #endif
-

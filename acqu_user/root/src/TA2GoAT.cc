@@ -372,7 +372,14 @@ void    TA2GoAT::PostInit()
   treeTracks          = new TTree("tracks",            "tracks");
   treeTagger          = new TTree("tagger",            "tagger");
   treeTrigger	        = new TTree("trigger",           "trigger");
-  treeDetectorHits    = new TTree("detectorHits",      "detectorHits");
+  const Bool_t saveDetectorHits =
+    (fLadder && fLadder->IsDetectorHits()) ||
+    (fNaI && fNaI->IsDetectorHits()) ||
+    (fPID && fPID->IsDetectorHits()) ||
+    (fBaF2PWO && fBaF2PWO->IsDetectorHits()) ||
+    (fVeto && fVeto->IsDetectorHits());
+  if(saveDetectorHits)
+    treeDetectorHits = new TTree("detectorHits", "detectorHits");
   treeMCTruth         = 0;
   treeSetupParameters = new TTree("setupParameters",   "setupParameters");
 
@@ -388,7 +395,7 @@ void    TA2GoAT::PostInit()
   treeTracks->Branch("vetoEnergy", vetoEnergy, "vetoEnergy[nTracks]/D");
   treeTracks->Branch("MWPC0Energy", MWPC0Energy, "MWPC0Energy[nTracks]/D");
   treeTracks->Branch("MWPC1Energy", MWPC1Energy, "MWPC1Energy[nTracks]/D");
-  treeTracks->Branch("shortEnergy", shortEnergy, "shortEnergy[nTracks]/D");
+  if(fBaF2PWO) treeTracks->Branch("shortEnergy", shortEnergy, "shortEnergy[nTracks]/D");
   treeTracks->Branch("pseudoVertexX", pseudoVertexX, "pseudoVertexX[nTracks]/D");
   treeTracks->Branch("pseudoVertexY", pseudoVertexY, "pseudoVertexY[nTracks]/D");
   treeTracks->Branch("pseudoVertexZ", pseudoVertexZ, "pseudoVertexZ[nTracks]/D");
@@ -420,7 +427,7 @@ void    TA2GoAT::PostInit()
   treeTrigger->Branch("nTriggerPattern", &nTriggerPattern, "nTriggerPattern/I");
   treeTrigger->Branch("triggerPattern", triggerPattern, "triggerPattern[nTriggerPattern]/I");
 	
-  if(fNaI)
+  if(treeDetectorHits && fNaI && fNaI->IsDetectorHits())
     {
       if (fNaI->IsRawHits())
         {
@@ -439,7 +446,7 @@ void    TA2GoAT::PostInit()
       if(fNaI->IsEnergy()) treeDetectorHits->Branch("NaIEnergy", NaIEnergy, "NaIEnergy[nNaIHits]/D");
       if(fNaI->IsTime()) treeDetectorHits->Branch("NaITime", NaITime, "NaITime[nNaIHits]/D");
     }
-  if(fPID)
+  if(treeDetectorHits && fPID && fPID->IsDetectorHits())
     {
       if (fPID->IsRawHits())
         {
@@ -457,12 +464,12 @@ void    TA2GoAT::PostInit()
       if(fPID->IsEnergy()) treeDetectorHits->Branch("PIDEnergy", PIDEnergy, "PIDEnergy[nPIDHits]/D");
       if(fPID->IsTime()) treeDetectorHits->Branch("PIDTime", PIDTime, "PIDTime[nPIDHits]/D");
     }
-  if(fMWPC)
+  if(treeDetectorHits && fMWPC)
     {
       treeDetectorHits->Branch("nMWPCHits", &nMWPCHits, "nMWPCHits/I");
       treeDetectorHits->Branch("MWPCHits", MWPCHits, "MWPCHits[nMWPCHits]/I");
     }
-  if(fBaF2PWO)
+  if(treeDetectorHits && fBaF2PWO && fBaF2PWO->IsDetectorHits())
     {
       if (fBaF2PWO->IsRawHits())
         {
@@ -481,7 +488,7 @@ void    TA2GoAT::PostInit()
       if(fBaF2PWO->IsEnergy()) treeDetectorHits->Branch("BaF2Energy", BaF2Energy, "BaF2Energy[nBaF2Hits]/D");
       if(fBaF2PWO->IsTime()) treeDetectorHits->Branch("BaF2Time", BaF2Time, "BaF2Time[nBaF2Hits]/D");
     }
-  if(fVeto)
+  if(treeDetectorHits && fVeto && fVeto->IsDetectorHits())
     {
       if (fVeto->IsRawHits())
         {
@@ -500,7 +507,10 @@ void    TA2GoAT::PostInit()
       if(fVeto->IsTime()) treeDetectorHits->Branch("VetoTime", VetoTime, "VetoTime[nVetoHits]/D");
     }
 
-  for(Int_t i=0; i<nChannels; i++) treeDetectorHits->Branch(channelName[i],&channelValue[i],Form("%s/I",channelName[i]));
+  if(treeDetectorHits)
+    for(Int_t i=0; i<nChannels; i++)
+      treeDetectorHits->Branch(channelName[i], &channelValue[i],
+                               Form("%s/I", channelName[i]));
 
   if(fNaI && fMWPC)
     {
@@ -662,7 +672,8 @@ void    TA2GoAT::PostInit()
           else if(!strcmp(branchName, "dircos")) dircosBranch = i;
           else if(!strcmp(branchName, "vertex")) vertexBranch = i;
         }
-      if(ntpcBranch >= 0 && itpcBranch >= 0 && qtpcBranch >= 0 && ttpcBranch >= 0)
+      if(treeDetectorHits && ntpcBranch >= 0 && itpcBranch >= 0 &&
+         qtpcBranch >= 0 && ttpcBranch >= 0)
         {
           MCNTPC = static_cast<Int_t*>(gAR->GetEvent()[ntpcBranch]);
           MCITPC = static_cast<Int_t*>(gAR->GetEvent()[itpcBranch]);
@@ -983,14 +994,12 @@ void    TA2GoAT::Reconstruct()
                             fEpicsBuff[0],                 //start of epics buffer
                             &fTaggNMR,                     //address of the variable to be filled
                             &fEpicsNElem);                 //no of elements in the channel (usually singles)
-      /*
       fEpicsChannelBuffer = fEpics->GetChannel(
                             (Char_t*)"TAGG:DipoleCurrent", //pv name
                             &fEpicsType,                   //pv type
-                            fEpicsBuff[1],                 //start of epics buffer
+                            fEpicsBuff[0],                 //same EPICS buffer as MagneticField
                             &fTaggCur,                     //address of the variable to be filled
                             &fEpicsNElem);                 //no of elements in the channel (usually singles)
-      */
       //cout << "Epics read - Event " << gAN->GetNDAQEvent() << " - NMR = " << fA2NMR << endl;
       //for(Int_t i=0; i<fNEpics; i++) fEpics->DumpBuffer(fEpicsBuff[i]);
     }
@@ -1090,8 +1099,11 @@ void    TA2GoAT::Reconstruct()
       if(TMath::Abs(part.GetEnergyMwpc1()) >= TA2GoAT_NULL) MWPC1Energy[i] = 0.0;
       else MWPC1Energy[i] = part.GetEnergyMwpc1();
 
-      if(TMath::Abs(part.GetPSAShort()) >= TA2GoAT_NULL) shortEnergy[i] = 0.0;
-      else shortEnergy[i] = part.GetPSAShort();
+      if(fBaF2PWO)
+        {
+          if(TMath::Abs(part.GetPSAShort()) >= TA2GoAT_NULL) shortEnergy[i] = 0.0;
+          else shortEnergy[i] = part.GetPSAShort();
+        }
 
       if(part.GetClusterSize() == ENullHit) clusterSize[i] = 0;
       else clusterSize[i] = part.GetClusterSize();
@@ -1139,7 +1151,7 @@ void    TA2GoAT::Reconstruct()
   Int_t *rhits;
 
   // Get Detector Hits
-  if(fNaI)
+  if(treeDetectorHits && fNaI && fNaI->IsDetectorHits())
     {
       for(Int_t i=0; i<720; i++)
 	{
@@ -1187,7 +1199,7 @@ void    TA2GoAT::Reconstruct()
         }
     }
 
-  if(fPID)
+  if(treeDetectorHits && fPID && fPID->IsDetectorHits())
     {
       if(fPID->IsRawHits())
         {
@@ -1219,14 +1231,14 @@ void    TA2GoAT::Reconstruct()
         }
     }
 
-  if(fMWPC)
+  if(treeDetectorHits && fMWPC)
     {
       nMWPCHits = fMWPC->GetNhits();
       for(Int_t i=0; i<nMWPCHits; i++)
         { MWPCHits[i] = fMWPC->GetHits(i); }
     }
 
-  if(fBaF2PWO)
+  if(treeDetectorHits && fBaF2PWO && fBaF2PWO->IsDetectorHits())
     {
       for(Int_t i=0; i<438; i++)
 	{
@@ -1274,7 +1286,7 @@ void    TA2GoAT::Reconstruct()
         }
     }
 
-  if(fVeto)
+  if(treeDetectorHits && fVeto && fVeto->IsDetectorHits())
     {
       if(fVeto->IsRawHits())
         {
@@ -1399,7 +1411,7 @@ void    TA2GoAT::Reconstruct()
   vetoEnergy[nParticles] 	  = EBufferEnd;
   MWPC0Energy[nParticles]   = EBufferEnd;
   MWPC1Energy[nParticles]   = EBufferEnd;
-  shortEnergy[nParticles]   = EBufferEnd;
+  if(fBaF2PWO) shortEnergy[nParticles] = EBufferEnd;
   pseudoVertexX[nParticles] = EBufferEnd;
   pseudoVertexY[nParticles] = EBufferEnd;
   pseudoVertexZ[nParticles] = EBufferEnd;

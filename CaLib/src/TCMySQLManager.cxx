@@ -946,8 +946,7 @@ void TCMySQLManager::InitDatabase()
            "         All existing tables in the database '%s' on '%s'\n"
            "         will be deleted!\n\n", fDB->GetDB(), fDB->GetHost());
     printf("Are you sure to continue? (yes/no) : ");
-    if(scanf("%s", answer));
-    if (strcmp(answer, "yes")) 
+    if (scanf("%255s", answer) != 1 || strcmp(answer, "yes"))
     {
         printf("Aborted.\n");
         return;
@@ -997,8 +996,7 @@ void TCMySQLManager::AddRunFiles(const Char_t* path, const Char_t* target,
         return;
     }
     printf("Are you sure to continue? (yes/no) : ");
-    if(scanf("%s", answer));
-    if (strcmp(answer, "yes")) 
+    if (scanf("%255s", answer) != 1 || strcmp(answer, "yes"))
     {
         printf("Aborted.\n");
         return;
@@ -2596,8 +2594,7 @@ void TCMySQLManager::Import(const Char_t* filename, Bool_t runs, Bool_t calibrat
                    "They will be added to the database '%s' on '%s'\n", 
                    nRun, filename, fDB->GetDB(), fDB->GetHost());
             printf("Are you sure to continue? (yes/no) : ");
-            if(scanf("%s", answer));
-            if (strcmp(answer, "yes")) 
+            if (scanf("%255s", answer) != 1 || strcmp(answer, "yes"))
             {
                 printf("Aborted.\n");
             }
@@ -2632,8 +2629,7 @@ void TCMySQLManager::Import(const Char_t* filename, Bool_t runs, Bool_t calibrat
                    nCalib, calibName, filename, fDB->GetDB(), fDB->GetHost());
             if (newCalibName) printf("The calibrations will be renamed to '%s'\n", newCalibName);
             printf("Are you sure to continue? (yes/no) : ");
-            if(scanf("%s", answer));
-            if (strcmp(answer, "yes")) 
+            if (scanf("%255s", answer) != 1 || strcmp(answer, "yes"))
             {
                 printf("Aborted.\n");
             }

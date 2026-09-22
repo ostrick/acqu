@@ -4,6 +4,9 @@
 ##	#FP	Energy	Time	Pos
 Size: 	328 	0 	1 	1
 #RawHits:
+## Export detector information to the TA2GoAT detectorHits tree.
+## Comment out to suppress it.
+DetectorHits:
 #
 Multi-hit: 8
 #

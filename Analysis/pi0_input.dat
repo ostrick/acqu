@@ -1,0 +1,24 @@
+# GoAT ROOT files. Repeat this entry for additional input files.
+input = /data/2025/Acqu_CBTagg_31840.root
+
+# One combined output file is produced.
+output = Pi0FromGoAT.root
+
+# Target at rest; mass in MeV.
+target_mass = 3727.4
+
+# Accepted two-photon invariant-mass interval in MeV.
+# The boundaries themselves are excluded, as in TA2Pi0Compton.
+pi0_mass_min = 5.0
+pi0_mass_max = 250.0
+
+# taggedTime - pi0Time windows in ns. Boundaries are included.
+pi0_prompt_min = -35.0
+pi0_prompt_max = 15.0
+pi0_random1_min = -200.0
+pi0_random1_max = -50.0
+pi0_random2_min = 50.0
+pi0_random2_max = 200.0
+
+# Set to 0 to disable progress reports.
+progress_interval = 100000

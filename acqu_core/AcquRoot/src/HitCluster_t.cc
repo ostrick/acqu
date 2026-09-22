@@ -55,9 +55,11 @@ HitCluster_t::HitCluster_t( Char_t* line, UInt_t index, Int_t sizefactor)
   fNNeighbour = n;
   fNeighbour = new UInt_t[n];
   fMaxHits = (n+1) * sizefactor;
-  fHits = new UInt_t[ fMaxHits ];
-  fEnergies = new Double_t[ fMaxHits ];
-  fTimes = new Double_t[ fMaxHits ];  
+  // ClusterDetermine appends EBufferEnd at index fNhits, so the arrays need
+  // one entry in addition to the maximum number of real hits.
+  fHits = new UInt_t[ fMaxHits + 1 ];
+  fEnergies = new Double_t[ fMaxHits + 1 ];
+  fTimes = new Double_t[ fMaxHits + 1 ];
   fHits[0] = ENullHit;
   fNhits = 0;
   fEnergy = (Double_t)ENullHit;
@@ -70,9 +72,11 @@ HitCluster_t::HitCluster_t( Char_t* line, UInt_t index, Int_t sizefactor)
 HitCluster_t::~HitCluster_t( )
 {
   // delete arrays
-  if( fHits ) delete fHits;
-  if( fNeighbour ) delete fNeighbour;
-  if( fMeanPosition ) delete fMeanPosition;
+  delete[] fHits;
+  delete[] fEnergies;
+  delete[] fTimes;
+  delete[] fNeighbour;
+  delete fMeanPosition;
 }
 
 //---------------------------------------------------------------------------
@@ -95,4 +99,3 @@ void HitCluster_t::BuildElementary(TA2ClusterDetector* det)
     fPhi = TMath::RadToDeg() * fMeanPosition->Phi();
     fRadius = 0;
 }
-

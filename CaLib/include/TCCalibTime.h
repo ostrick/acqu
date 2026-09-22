@@ -21,6 +21,7 @@
 #include "TLine.h"
 
 #include "TCCalib.h"
+#include "TCConfig.h"
 #include "TCFileManager.h"
 
 #include "TIndicatorLine.h"
@@ -133,4 +134,3 @@ public:
 };
 
 #endif
-
