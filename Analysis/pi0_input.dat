@@ -1,5 +1,13 @@
 # GoAT ROOT files. Repeat this entry for additional input files.
 input = /data/2025/Acqu_CBTagg_31840.root
+input = /data/2025/Acqu_CBTagg_31841.root
+input = /data/2025/Acqu_CBTagg_31842.root
+input = /data/2025/Acqu_CBTagg_31843.root
+input = /data/2025/Acqu_CBTagg_31844.root
+input = /data/2025/Acqu_CBTagg_31845.root
+input = /data/2025/Acqu_CBTagg_31846.root
+input = /data/2025/Acqu_CBTagg_31847.root
+input = /data/2025/Acqu_CBTagg_31848.root
 
 # One combined output file is produced.
 output = Pi0FromGoAT.root
@@ -7,18 +15,48 @@ output = Pi0FromGoAT.root
 # Target at rest; mass in MeV.
 target_mass = 3727.4
 
+# Nominal neutral-pion mass in MeV, used for two-body kinematics.
+pi0_mass = 134.9768
+
 # Accepted two-photon invariant-mass interval in MeV.
 # The boundaries themselves are excluded, as in TA2Pi0Compton.
 pi0_mass_min = 5.0
 pi0_mass_max = 250.0
 
 # taggedTime - pi0Time windows in ns. Boundaries are included.
-pi0_prompt_min = -35.0
-pi0_prompt_max = 15.0
+pi0_prompt_min = -25.0
+pi0_prompt_max = 10.0
 pi0_random1_min = -200.0
 pi0_random1_max = -50.0
 pi0_random2_min = 50.0
 pi0_random2_max = 200.0
+
+# Histogram binning for prompt, scaled-random and prompt-minus-random spectra.
+missing_energy_hist_bins = 400
+missing_energy_hist_min = -400.0
+missing_energy_hist_max = 400.0
+opening_angle_hist_bins = 180
+opening_angle_hist_min = 0.0
+opening_angle_hist_max = 180.0
+pi0_mass_hist_bins = 250
+pi0_mass_hist_min = 0.0
+pi0_mass_hist_max = 250.0
+missing_mass_hist_bins = 400
+missing_mass_hist_min = -400.0
+missing_mass_hist_max = 400.0
+pi0_theta_cm_hist_bins = 180
+pi0_theta_cm_hist_min = 0.0
+pi0_theta_cm_hist_max = 180.0
+
+# Inclusive kinematic and tagger-channel cuts applied to pi0-tagger combinations.
+opening_angle_cut_min = 0.0
+opening_angle_cut_max = 10.0
+pi0_mass_cut_min = 120.0
+pi0_mass_cut_max = 160.0
+missing_energy_cut_min = -100.0
+missing_energy_cut_max = 100.0
+tagger_channel_cut_min = 27
+tagger_channel_cut_max = 328
 
 # Set to 0 to disable progress reports.
 progress_interval = 100000
