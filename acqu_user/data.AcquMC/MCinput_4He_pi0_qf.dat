@@ -51,17 +51,20 @@ Target:		1000020040		2.5	5.0	0.0 0.0 0.0
 ##
 ## Intermediate state
 ##     		Name	PDG/M		Decay	Track	Parent	Opt
-Particle: Reaction	0.0		1	0	NULL	 Phase-Space
+Particle: Reaction	0.0		1	0	NULL	 Quasi-Free
 ##
 ## Reaction particles
 ##
-#Particle: 	QN	2112   		1	0	Reaction NULL
-#P-Distr: 	QN P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
-#Particle: 	N	0.938		0	0	Reaction NULL
-#
-Particle: Pi0		111		1	0	Reaction  Phase-Space
-Particle: alpha	1000020040	0	0	Reaction  NULL
-#Particle: Pi0bis	111		1	0	QN	NULL
+## QP is the intermediate gamma-proton system. It must be the first
+## daughter of Reaction; the deuteron spectator must be the second one.
+Particle:       QP      2212            1       0       Reaction Phase-Space
+P-Distr:        QP P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
+## Elementary quasi-free reaction gamma p -> gamma p
+Particle: Pi0		111		1	0	QP  Phase-Space
+Particle:       Neutron  2112            0       0       QP NULL
+##
+Particle:       Spectator       1000020030      0       0       Reaction NULL
+##
 ##
 Particle: Gamma_1	  22	0	1	Pi0	NULL
 Particle: Gamma_2	  22	0	1	Pi0	NULL
@@ -71,4 +74,4 @@ Particle: Gamma_2	  22	0	1	Pi0	NULL
 ##############################################################################
 ##
 ##Tree-Output: ./MC-Tree
-Ntuple-Output: /home/ostrick/Work/AcquMC/AcquMC-Output/4He-pi0
+Ntuple-Output: /home/ostrick/Work/AcquMC/AcquMC-Output/4He-pi0-qf

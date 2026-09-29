@@ -12,7 +12,7 @@
 #
 #
 #         Tree Name     No. of branches   Process Type
-Name:     h12           26                MC
+Name:     h12           32                MC
 #         Branch Name   Buffer size (bytes)
 Branch:   npart         4
 Branch:   dircos        4096
@@ -40,6 +40,12 @@ Branch:   nvtaps        4
 Branch:   ivtaps        2048
 Branch:   tcryst        2048
 Branch:   tveto         2048
+Branch:   nmwpc         4
+Branch:   imwpc         1024
+Branch:   mposx         1024
+Branch:   mposy         1024
+Branch:   mposz         1024
+Branch:   emwpc         1024
 # The current A2Geant4 tree has additional branches (klab, pcryst, pctaps,
 # He3/TPC/pi0 hit branches) and no MWPC/mc_* branches. AcquROOT maps these
 # entries by the fixed MCBranchID enum order, so only list supported branches
@@ -49,10 +55,7 @@ Branch:   tveto         2048
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #ROOT file(s) (GEANT4 output) to be analysed. Add more lines for more files
 #
-#TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant-Output-50.root
-TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant-140-700.root
-#TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant_4He_pi0-140-740MeV.root
-#TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant_4He_pi0-209MeV.root
+TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant-4He-pi0-qf.root
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #

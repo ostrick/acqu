@@ -53,20 +53,21 @@ Branch:   mc_rnd_id     8
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #ROOT file(s) (GEANT4 output) to be analysed. Add more lines for more files
 #
-TreeFile: /home/ostrick/Work/Geant4/output/geant-dstar-2020-onlyN.root
+TreeFile: /home/ostrick/A2/Simulation/Geant-Out/Geant-4He-pi0.root
 #
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## Batch mode operation...redirect output directory for log files etc.
-BatchDir: ./
+#BatchDir: ./
+BatchDir: /home/ostrick/A2/Simulation/AcquROOT-Out/
+#
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Directory to save any created ROOT files (include final '/')
-	#Directory: /home/federico/output_simulation_2018/acqu_output/ES_108_ER_005_075_1
-Directory: ./output/
+Directory: /home/ostrick/A2/Simulation/AcquROOT-Out/
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -82,6 +83,6 @@ SetADC:  40000   640	 12
 Analysis:      TA2UserAnalysis
 #Configuration file for selected analysis class
 #AnalysisSetup: AR-Analysis.dat
-AnalysisSetup: AR-Analysis-CB-MWPC-2018.dat
+AnalysisSetup: Analysis-MC.dat
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
