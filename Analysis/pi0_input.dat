@@ -1,14 +1,13 @@
 # GoAT ROOT files. Repeat this entry for additional input files.
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32380.root
-#input = /media/ostrick/INTENSO/new/Acqu_CBTagg_32381.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32382.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32383.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32384.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32385.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32386.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32387.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32388.root
-input = /media/ostrick/INTENSO/old/Acqu_CBTagg_32389.root
+input = /data/2025-07_He/Acqu_CBTagg_32380.root
+input = /data/2025-07_He/Acqu_CBTagg_32382.root
+input = /data/2025-07_He/Acqu_CBTagg_32383.root
+input = /data/2025-07_He/Acqu_CBTagg_32384.root
+input = /data/2025-07_He/Acqu_CBTagg_32385.root
+input = /data/2025-07_He/Acqu_CBTagg_32386.root
+input = /data/2025-07_He/Acqu_CBTagg_32387.root
+input = /data/2025-07_He/Acqu_CBTagg_32388.root
+input = /data/2025-07_He/Acqu_CBTagg_32389.root
 
 # One combined output file is produced.
 output = Pi0FromGoAT_old.root
