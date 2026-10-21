@@ -19,7 +19,8 @@ degrees. It is indexed by the pi0 candidate. `missingEnergy` is indexed by the
 pi0-tagger combination, like `missingMass`. The nominal pion mass used in the
 two-body calculation is read from `pi0_mass` in the configuration.
 
-The output file contains the prompt-minus-random histograms `missingEnergy`,
+The output file contains the unweighted coincidence-time histogram
+`coincidenceTime` and the prompt-minus-random histograms `missingEnergy`,
 `openingAngle`, `pi0Mass`, `missingMass`, and `pi0ThetaCM`. The `openingAngle`
 histogram contains `pi0OpeningAngle - minimumOpeningAngle`, not the absolute
 measured angle. Prompt entries have weight +1 and random entries enter with the
@@ -29,8 +30,10 @@ negative, width-normalized `timingWeight`. Histogram binning is configured in
 Each one-dimensional spectrum has a corresponding two-dimensional histogram
 named `<quantity>ByTaggerChannel`. Its x-axis contains the integer tagger
 channel and its y-axis the respective observable. The y-axis uses one tenth of
-the configured number of bins of the one-dimensional histogram; ranges and
-prompt-random weights are identical.
+the configured number of bins of the one-dimensional histogram. The
+coincidence-time histograms are unweighted and include times outside the prompt
+and random windows; ranges and prompt-random weights of the other spectra are
+identical.
 
 The tree branch `pi0ThetaCM` contains the pion polar angle after boosting into
 the photon-target center-of-mass system. It is indexed by the pi0-tagger

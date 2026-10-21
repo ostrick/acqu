@@ -42,6 +42,9 @@ struct Config
   Double_t random1Max = std::numeric_limits<Double_t>::quiet_NaN();
   Double_t random2Min = std::numeric_limits<Double_t>::quiet_NaN();
   Double_t random2Max = std::numeric_limits<Double_t>::quiet_NaN();
+  Int_t coincidenceTimeBins = 0;
+  Double_t coincidenceTimeMin = std::numeric_limits<Double_t>::quiet_NaN();
+  Double_t coincidenceTimeMax = std::numeric_limits<Double_t>::quiet_NaN();
   Int_t missingEnergyBins = 0;
   Double_t missingEnergyMin = std::numeric_limits<Double_t>::quiet_NaN();
   Double_t missingEnergyMax = std::numeric_limits<Double_t>::quiet_NaN();
@@ -152,6 +155,12 @@ Config ReadConfig(const std::string& fileName)
         config.random2Min = ParseDouble(value, key, lineNumber);
       else if(key == "pi0_random2_max")
         config.random2Max = ParseDouble(value, key, lineNumber);
+      else if(key == "coincidence_time_hist_bins")
+        config.coincidenceTimeBins = ParseInt(value, key, lineNumber);
+      else if(key == "coincidence_time_hist_min")
+        config.coincidenceTimeMin = ParseDouble(value, key, lineNumber);
+      else if(key == "coincidence_time_hist_max")
+        config.coincidenceTimeMax = ParseDouble(value, key, lineNumber);
       else if(key == "missing_energy_hist_bins")
         config.missingEnergyBins = static_cast<Int_t>(ParseDouble(value, key, lineNumber));
       else if(key == "missing_energy_hist_min")
@@ -230,6 +239,8 @@ Config ReadConfig(const std::string& fileName)
   requireFinite(config.random1Max, "pi0_random1_max");
   requireFinite(config.random2Min, "pi0_random2_min");
   requireFinite(config.random2Max, "pi0_random2_max");
+  requireFinite(config.coincidenceTimeMin, "coincidence_time_hist_min");
+  requireFinite(config.coincidenceTimeMax, "coincidence_time_hist_max");
   requireFinite(config.missingEnergyMin, "missing_energy_hist_min");
   requireFinite(config.missingEnergyMax, "missing_energy_hist_max");
   requireFinite(config.openingAngleMin, "opening_angle_hist_min");
@@ -257,6 +268,9 @@ Config ReadConfig(const std::string& fileName)
      config.random1Min >= config.random1Max ||
      config.random2Min >= config.random2Max)
     throw std::runtime_error("every time window must satisfy min < max");
+  if(config.coincidenceTimeBins <= 0 ||
+     config.coincidenceTimeMin >= config.coincidenceTimeMax)
+    throw std::runtime_error("invalid coincidence-time histogram binning");
   if(config.missingEnergyBins <= 0 ||
      config.missingEnergyMin >= config.missingEnergyMax)
     throw std::runtime_error("invalid missing-energy histogram binning");
@@ -380,11 +394,13 @@ Int_t ReadMaxTaggerChannels(const Config& config)
 
 struct Histograms
 {
+  TH1D coincidenceTime;
   TH1D missingEnergy;
   TH1D openingAngle;
   TH1D pi0Mass;
   TH1D missingMass;
   TH1D pi0ThetaCM;
+  TH2D coincidenceTimeByTaggerChannel;
   TH2D missingEnergyByTaggerChannel;
   TH2D openingAngleByTaggerChannel;
   TH2D pi0MassByTaggerChannel;
@@ -392,7 +408,10 @@ struct Histograms
   TH2D pi0ThetaCMByTaggerChannel;
 
   Histograms(const Config& config, Int_t taggerChannels)
-    : missingEnergy("missingEnergy", "Missing energy, prompt-random;E_{miss} [MeV];Counts",
+    : coincidenceTime("coincidenceTime", "Pi0-tagger coincidence time;Coincidence time [ns];Counts",
+                      config.coincidenceTimeBins, config.coincidenceTimeMin,
+                      config.coincidenceTimeMax),
+      missingEnergy("missingEnergy", "Missing energy, prompt-random;E_{miss} [MeV];Counts",
                     config.missingEnergyBins, config.missingEnergyMin,
                     config.missingEnergyMax),
       openingAngle("openingAngle", "Photon opening-angle excess, prompt-random;Opening angle - minimum opening angle [deg];Counts",
@@ -404,6 +423,10 @@ struct Histograms
                   config.missingMassBins, config.missingMassMin, config.missingMassMax),
       pi0ThetaCM("pi0ThetaCM", "Pi0 CM angle, prompt-random;#theta_{#pi^{0}}^{CM} [deg];Counts",
                  config.pi0ThetaCMBins, config.pi0ThetaCMMin, config.pi0ThetaCMMax),
+      coincidenceTimeByTaggerChannel("coincidenceTimeByTaggerChannel", "Pi0-tagger coincidence time by tagger channel;Tagger channel;Coincidence time [ns]",
+                 taggerChannels, -0.5, taggerChannels - 0.5,
+                 std::max(1, config.coincidenceTimeBins / 10),
+                 config.coincidenceTimeMin, config.coincidenceTimeMax),
       missingEnergyByTaggerChannel("missingEnergyByTaggerChannel", "Missing energy by tagger channel, prompt-random;Tagger channel;E_{miss} [MeV]",
                  taggerChannels, -0.5, taggerChannels - 0.5,
                  std::max(1, config.missingEnergyBins / 10),
@@ -425,11 +448,13 @@ struct Histograms
                  std::max(1, config.pi0ThetaCMBins / 10),
                  config.pi0ThetaCMMin, config.pi0ThetaCMMax)
   {
+    coincidenceTime.Sumw2();
     missingEnergy.Sumw2();
     openingAngle.Sumw2();
     pi0Mass.Sumw2();
     missingMass.Sumw2();
     pi0ThetaCM.Sumw2();
+    coincidenceTimeByTaggerChannel.Sumw2();
     missingEnergyByTaggerChannel.Sumw2();
     openingAngleByTaggerChannel.Sumw2();
     pi0MassByTaggerChannel.Sumw2();
@@ -437,10 +462,14 @@ struct Histograms
     pi0ThetaCMByTaggerChannel.Sumw2();
   }
 
-  void Fill(Double_t missingEnergy, Double_t openingAngle, Double_t pi0Mass,
+  void Fill(Double_t coincidenceTime, Double_t missingEnergy,
+            Double_t openingAngle, Double_t pi0Mass,
             Double_t missingMass, Double_t pi0ThetaCM,
             Int_t taggedChannel, Int_t timingClass, Double_t timingWeight)
   {
+    this->coincidenceTime.Fill(coincidenceTime);
+    coincidenceTimeByTaggerChannel.Fill(taggedChannel, coincidenceTime);
+
     if(timingClass != 0 && timingClass != 1)
       return;
 
@@ -458,11 +487,13 @@ struct Histograms
 
   void Write()
   {
+    coincidenceTime.Write();
     missingEnergy.Write();
     openingAngle.Write();
     pi0Mass.Write();
     missingMass.Write();
     pi0ThetaCM.Write();
+    coincidenceTimeByTaggerChannel.Write();
     missingEnergyByTaggerChannel.Write();
     openingAngleByTaggerChannel.Write();
     pi0MassByTaggerChannel.Write();
@@ -814,7 +845,7 @@ int ProcessFile(const Config& config, Int_t fileIndex, TTree& outputTree,
             out.pi0ThetaCM.push_back(pi0ThetaCM);
             out.pi0LabEnergy.push_back(pi0LabEnergy);
             out.minimumOpeningAngle.push_back(minimumOpeningAngle);
-            histograms.Fill(missingEnergy, openingAngle,
+            histograms.Fill(coincidence, missingEnergy, openingAngle,
                             out.pi0Mass[pi0], missingMass, pi0ThetaCM,
                             out.taggedChannel[tag],
                             classification, weight);
