@@ -1,7 +1,7 @@
 ##############################################################################
 ##
 ##  	#events/run	Random seed	#runs
-Number-Throws: 	1000000		888888	     	1
+Number-Throws: 	10000000	888888	     	1
 ##
 ##############################################################################
 ##
@@ -21,8 +21,8 @@ Number-Throws: 	1000000		888888	     	1
 Beam: 	22 		0.0 0.0 -500.
 #
 #P-Distr: Beam T-Dist      Uniform  0.642000 0.644000  2
-P-Distr: Beam T-Dist	1/x					0.140 0.700 280
-#P-Distr: Beam T-Dist      Uniform  0.207000 0.211000  2
+#P-Distr: Beam T-Dist	1/x					0.140 0.700 280
+P-Distr: Beam T-Dist	1/x					0.134 0.800 222
 P-Distr: Beam Cos(Theta)  Uniform  0.999999999 1.0    2
 P-Distr: Beam Phi-Dist    Uniform  0.0 0.000001       2
 #
@@ -55,9 +55,9 @@ Particle: Reaction	0.0		1	0	NULL	 Quasi-Free
 ##
 ## Reaction particles
 ##
-## QP is the intermediate gamma-proton system. It must be the first
-## daughter of Reaction; the deuteron spectator must be the second one.
-Particle:       QP      2212            1       0       Reaction Phase-Space
+## QP is the intermediate gamma-neutron system. It must be the first
+## daughter of Reaction; the 3He spectator must be the second one.
+Particle:       QP      2112            1       0       Reaction Phase-Space
 P-Distr:        QP P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
 ## Elementary quasi-free reaction gamma p -> gamma p
 Particle: Pi0		111		1	0	QP  Phase-Space

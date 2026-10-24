@@ -1,16 +1,33 @@
 # GoAT ROOT files. Repeat this entry for additional input files.
-input = /data/2025-07_He/Acqu_CBTagg_32380.root
-input = /data/2025-07_He/Acqu_CBTagg_32382.root
-input = /data/2025-07_He/Acqu_CBTagg_32383.root
-input = /data/2025-07_He/Acqu_CBTagg_32384.root
-input = /data/2025-07_He/Acqu_CBTagg_32385.root
-input = /data/2025-07_He/Acqu_CBTagg_32386.root
-input = /data/2025-07_He/Acqu_CBTagg_32387.root
-input = /data/2025-07_He/Acqu_CBTagg_32388.root
-input = /data/2025-07_He/Acqu_CBTagg_32389.root
+#input = /data/2025-07_He/Acqu_CBTagg_32380.root
+#input = /data/2025-07_He/Acqu_CBTagg_32382.root
+#input = /data/2025-07_He/Acqu_CBTagg_32383.root
+#input = /data/2025-07_He/Acqu_CBTagg_32384.root
+#input = /data/2025-07_He/Acqu_CBTagg_32385.root
+#input = /data/2025-07_He/Acqu_CBTagg_32386.root
+#input = /data/2025-07_He/Acqu_CBTagg_32387.root
+#input = /data/2025-07_He/Acqu_CBTagg_32388.root
+#input = /data/2025-07_He/Acqu_CBTagg_32389.root
+
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32330.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32331.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32332.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32333.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32334.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32335.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32336.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32337.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32338.root
+#input = /rundata/AR_2025_He/Acqu_CBTagg_32339.root
+
+input = /home/ostrick/A2/Simulation/AcquROOT-Out/Acqu_Geant-4He-pi0-qf.root
+output = Geant-4He-pi0-qf.root
+
+#input = /home/ostrick/A2/Simulation/AcquROOT-Out/Acqu_Geant-4He-pi0.root
+#output = Geant-4He-pi0.root
+
 
 # One combined output file is produced.
-output = Pi0FromGoAT_old.root
 
 # Target at rest; mass in MeV.
 target_mass = 3727.4
@@ -24,28 +41,28 @@ pi0_mass_min = 5.0
 pi0_mass_max = 250.0
 
 # taggedTime - pi0Time windows in ns. Boundaries are included.
-#pi0_prompt_min = -35.0
-#pi0_prompt_max = 15.0
-#pi0_random1_min = -200.0
-#pi0_random1_max = -50.0
-#pi0_random2_min = 50.0
-#pi0_random2_max = 200.0
+pi0_prompt_min = -35.0
+pi0_prompt_max = 15.0
+pi0_random1_min = -200.0
+pi0_random1_max = -50.0
+pi0_random2_min = 50.0
+pi0_random2_max = 200.0
 
-pi0_prompt_min = 745.0
-pi0_prompt_max = 790.0
-pi0_random1_min = 400.0
-pi0_random1_max = 730.0
-pi0_random2_min = 800.0
-pi0_random2_max = 940.0
+#pi0_prompt_min = 745.0
+#pi0_prompt_max = 790.0
+#pi0_random1_min = 400.0
+#pi0_random1_max = 730.0
+#pi0_random2_min = 800.0
+#pi0_random2_max = 940.0
 
 # Histogram binning for prompt, scaled-random and prompt-minus-random spectra.
-#coincidence_time_hist_bins = 400
-#coincidence_time_hist_min = -200.0
-#coincidence_time_hist_max = 200.0
+coincidence_time_hist_bins = 400
+coincidence_time_hist_min = -200.0
+coincidence_time_hist_max = 200.0
 
-coincidence_time_hist_bins = 600
-coincidence_time_hist_min = 100.0
-coincidence_time_hist_max = 1000.0
+#coincidence_time_hist_bins = 600
+#coincidence_time_hist_min = 100.0
+#coincidence_time_hist_max = 1000.0
 
 missing_energy_hist_bins = 400
 missing_energy_hist_min = -400.0
